@@ -23,11 +23,32 @@ const connection = mysql.createConnection({
   });
   connection.connect();
 
-app.get('/api/hello', (req,res)=>{
-    connection.query('SELECT * FROM addlogin', function(err,rows,fields){
+app.get('/api/login', (req,res)=>{
+    connection.query('SELECT * FROM user', function(err,rows,fields){
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows)
     })
+})
+app.post('/api/login', (req,res)=>{
+    let sql = 'INSERT INTO user VALUES (?,?,?)';
+    let ID = req.body.id
+    let PW = req.body.password
+    let Email = req.body.email
+    let params = [ID, PW, Email]
+    connection.query(sql, params,
+        (err, rows, fields) => {
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(rows);
+    })
+})
+app.get('/api/board', (req,res)=>{
+    connection.query('SELECT * FROM board', function(err,rows,fields){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows)
+    })
+})
+app.get('/api/comment/:title',(req,res)=>{
+
 })
 
 app.listen(port, ()=> console.log("서버 작동"))
