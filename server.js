@@ -41,14 +41,78 @@ app.post('/api/login', (req,res)=>{
           res.send(rows);
     })
 })
+app.put('/api/login/:oldId', (req,res)=>{
+    let sql = 'UPDATE user SET ID=?, PW=?, Email=? WHERE ID=?  ';
+    let ID = req.body.id
+    let PW = req.body.pw
+    let Email = req.body.email
+    let oldID = req.params.oldId
+    let params = [ID, PW, Email, oldID]
+    connection.query(sql, params,
+        (err, rows, fields) => {
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(rows);
+    })
+})
+app.delete('/api/login/:id', (req,res)=>{
+    connection.query('DELETE FROM user WHERE ID = ?', req.params.id, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+
 app.get('/api/board', (req,res)=>{
     connection.query('SELECT * FROM board', function(err,rows,fields){
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows)
     })
 })
+app.get('/api/board/:user', (req,res)=>{
+    connection.query('SELECT * FROM board WHERE b_writer=?',req.params.user, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.post('/api/board',(req,res)=>{
+    let sql = 'INSERT INTO board VALUES (null,?,?,?,now())'
+    let writer = req.body.writer;
+    let content = req.body.content;
+    let title = req.body.title;
+    let params = [title,content,writer]
+    connection.query(sql, params, function(error, rows,field){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows)
+    })
+})
+app.delete('/api/board/:no', (req,res)=>{
+    console.log("삭제")
+    connection.query('DELETE FROM board WHERE no_board = ?', req.params.no, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
 app.get('/api/comment/:title',(req,res)=>{
-
+    connection.query('SELECT * FROM comment WHERE c_title=?',req.params.title, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.post('/api/comment',(req,res)=>{
+    let sql = 'INSERT INTO comment VALUES (null,?,?,?,now())'
+    let id = req.body.id;
+    let comment = req.body.comment;
+    let title = req.body.title;
+    let params = [comment, title, id]
+    connection.query(sql, params, function(error, rows,field){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows)
+    })
+})
+app.delete('/api/comment/:no',(req,res)=>{
+    connection.query('DELETE FROM comment WHERE no_comment = ?', req.params.no, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
 })
 
 app.listen(port, ()=> console.log("서버 작동"))
