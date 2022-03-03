@@ -43,7 +43,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/login">
             <Row>
               <Col>
