@@ -30,7 +30,6 @@ function App() {
         </Row>
         <br></br><br></br><br></br>
         <Switch>
-
           <Route exact path='/'>
             <Row>
               <Col>
