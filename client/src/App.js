@@ -69,7 +69,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/detailState">
             <Row>
               <Col>
