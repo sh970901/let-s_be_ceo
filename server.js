@@ -22,7 +22,6 @@ const connection = mysql.createConnection({
     database: conf.database
   });
   connection.connect();
-
 app.get('/api/login', (req,res)=>{
     connection.query('SELECT * FROM user', function(err,rows,fields){
         res.header("Access-Control-Allow-Origin", "*");
