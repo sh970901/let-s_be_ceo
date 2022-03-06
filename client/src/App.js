@@ -30,7 +30,6 @@ function App() {
         </Row>
         <br></br><br></br><br></br>
         <Switch>
-
           <Route exact path='/'>
             <Row>
               <Col>
@@ -44,7 +43,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/login">
             <Row>
               <Col>
@@ -58,7 +56,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/addLogin">
             <Row>
               <Col>
@@ -72,7 +69,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/detailState">
             <Row>
               <Col>
@@ -86,7 +82,6 @@ function App() {
               </Col>
             </Row>
           </Route>
-
           <Route path="/findLogin">
             <Row>
               <Col>
