@@ -15,6 +15,7 @@ import BoardDetail from './components/Board/BoardDetail';
 import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 
+
 function App() {
   return (
     <BrowserRouter>
