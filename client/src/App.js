@@ -1,3 +1,4 @@
+
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/Header';
@@ -14,8 +15,14 @@ import Board from './components/Board/Board'
 import BoardDetail from './components/Board/BoardDetail';
 import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
+import Map from './components/Map/Map';
+import { locations } from './components/Map/Locates';
+import Infomation from './components/Map/Infomation';
+import { useState } from 'react';
 
 function App() {
+  const [place, setPlace] = useState("기본")
+  
   return (
     <BrowserRouter>
       <Container fluid>
@@ -145,6 +152,20 @@ function App() {
               </Col>
               <Col>
                 <MyBoard></MyBoard>
+              </Col>
+              <Col>
+                1of1
+              </Col>
+            </Row>
+          </Route>
+
+          <Route path="/map">
+            <Row>
+              <Col>
+                <Infomation place={place}></Infomation>
+              </Col>
+              <Col>
+                <Map location={locations} place={place} setPlace={setPlace}></Map>
               </Col>
               <Col>
                 1of1
