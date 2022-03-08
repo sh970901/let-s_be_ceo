@@ -17,8 +17,12 @@ import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 import Map from './components/Map/Map';
 import { locations } from './components/Map/Locates';
+import Infomation from './components/Map/Infomation';
+import { useState } from 'react';
 
 function App() {
+  const [place, setPlace] = useState("기본")
+  
   return (
     <BrowserRouter>
       <Container fluid>
@@ -158,10 +162,10 @@ function App() {
           <Route path="/map">
             <Row>
               <Col>
-                1of2
+                <Infomation place={place}></Infomation>
               </Col>
               <Col>
-                <Map location={locations}></Map>
+                <Map location={locations} place={place} setPlace={setPlace}></Map>
               </Col>
               <Col>
                 1of1
