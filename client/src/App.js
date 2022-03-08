@@ -1,3 +1,4 @@
+
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/Header';
@@ -14,6 +15,8 @@ import Board from './components/Board/Board'
 import BoardDetail from './components/Board/BoardDetail';
 import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
+import Map from './components/Map/Map';
+import { locations } from './components/Map/Locates';
 
 function App() {
   return (
@@ -145,6 +148,20 @@ function App() {
               </Col>
               <Col>
                 <MyBoard></MyBoard>
+              </Col>
+              <Col>
+                1of1
+              </Col>
+            </Row>
+          </Route>
+
+          <Route path="/map">
+            <Row>
+              <Col>
+                1of2
+              </Col>
+              <Col>
+                <Map location={locations}></Map>
               </Col>
               <Col>
                 1of1

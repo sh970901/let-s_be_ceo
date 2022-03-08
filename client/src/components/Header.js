@@ -9,7 +9,7 @@ const Header = () => {
                     <Nav.Link href="/">LOGO</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/">상권분석</Nav.Link>
+                    <Nav.Link href="/map">상권분석</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/">손익분기점</Nav.Link>
