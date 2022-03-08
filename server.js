@@ -6,7 +6,6 @@ const mysql = require('mysql');
 
 const app = express();
 const port = process.env.PORT || 5000;
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,7 +21,6 @@ const connection = mysql.createConnection({
     database: conf.database
   });
   connection.connect();
-
 app.get('/api/login', (req,res)=>{
     connection.query('SELECT * FROM user', function(err,rows,fields){
         res.header("Access-Control-Allow-Origin", "*");
