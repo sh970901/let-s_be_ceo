@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
+//댓글관리
 const Comment = (props) => {
     const history = useHistory()
     function deleteComment(){

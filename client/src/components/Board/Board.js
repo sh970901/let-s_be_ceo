@@ -3,7 +3,7 @@ import { Button, Table } from 'react-bootstrap'
 import { useState } from 'react';
 import BoardInfo from './BoardInfo';
 import { Link, useHistory } from 'react-router-dom';
-
+//게시판
 const Board = () => {
     const [boards, setBoards] = useState([])
     const [searchData, setSearchData] = useState("")

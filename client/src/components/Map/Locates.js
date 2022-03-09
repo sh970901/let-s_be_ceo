@@ -1,4 +1,5 @@
 /*global kakao*/
+//상권정보(컴포넌트아님 그냥 데이터파일임)
 export const locations = [
     {
         name : '용산구',

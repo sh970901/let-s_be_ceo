@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
+//게시판 상세보기
 const BoardDetail = () => {
     const history = useHistory();
     const location = useLocation();

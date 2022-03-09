@@ -1,6 +1,7 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
+//카카오맵 정보
 const infowindow = new kakao.maps.InfoWindow({ removable: true, width: 500 });
 
 const Map = (props) => {

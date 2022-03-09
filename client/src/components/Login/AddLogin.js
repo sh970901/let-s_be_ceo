@@ -5,8 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-
-
+//회원가입
 const AddLogin = () => {
     const [addId, setAddId] = useState("")
     const [addPw, setAddPw] = useState("")

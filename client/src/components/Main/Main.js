@@ -1,5 +1,5 @@
 import React from 'react';
-
+//메인페이지
 const Main = () => {
     return (
         <div className='Main'>

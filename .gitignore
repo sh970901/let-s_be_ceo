@@ -27,4 +27,3 @@ yarn-error.log*
 #실행 명령: npm run dev
 
 #api-key
-.env

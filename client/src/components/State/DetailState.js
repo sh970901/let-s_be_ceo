@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-
+//내 상세 정보보기
 const DetailState = () => {
   const history = useHistory()
   const [id,setId] = useState("")

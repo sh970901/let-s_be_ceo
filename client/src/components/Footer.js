@@ -1,5 +1,5 @@
 import React from 'react';
-
+//하단 표현
 const Footer = () => {
     return (
         <div>

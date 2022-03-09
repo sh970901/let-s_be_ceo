@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
+//ID/PW찾기
 const FindLogin = () => {
 
     const [mailFindId, setMailFindId] = useState("")

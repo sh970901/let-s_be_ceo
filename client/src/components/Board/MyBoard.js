@@ -3,7 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 import BoardInfo from './BoardInfo';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+//내 게시글 보기
 const MyBoard = () => {
     const [myBoard, setMyBoard] = useState([])
     useEffect(() => {

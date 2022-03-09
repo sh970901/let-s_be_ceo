@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-
+//게시판 추가
 const AddBoard = () => {
 
     const history = useHistory();

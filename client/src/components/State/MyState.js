@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-
+//내정보보기
 const MyState = () => {
     const [info, setInfo] = useState("비로그인")
     const history = useHistory();

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+//로그인
 const GoLogin = () => {
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
