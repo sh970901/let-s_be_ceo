@@ -4,9 +4,10 @@ import styles from "../../css/MainPage.module.css";
 import iconChat from "../../img/chat.png";
 import iconService from "../../img/service.png";
 import iconGps from "../../img/gps.png";
+import { Link } from "react-router-dom";
 
 export default function MainPage() {
-    
+
     const about = "서울시 요식업 상권분석 플랫폼, Let's Be CEO!"
 
     return (
@@ -44,13 +45,20 @@ export default function MainPage() {
                         <div className={styles.iconImg}><img src={iconGps}></img></div>
                         <div className={styles.contents1_bold}>Analyze</div>
                         <div className={styles.contents1}>요식업 상권 분석</div>
-                        <div className={styles.more}> MORE </div>
+                        <Link to='/map'>
+                            <div className={styles.more} onClick={() => console.log("현범")}> MORE </div>
+                        </Link>
+
                     </li>
                     <li>
                         <div className={styles.iconImg}><img src={iconChat}></img></div>
                         <div className={styles.contents1_bold}>Communication</div>
                         <div className={styles.contents1}>정보공유 게시판</div>
-                        <div className={styles.more}> MORE </div>
+                        <Link to='/board'>
+                            <div className={styles.more}> MORE </div>
+                        </Link>
+
+
                     </li>
                     <li>
                         <div className={styles.iconImg}>
@@ -62,7 +70,10 @@ export default function MainPage() {
                         <div className={styles.contents1}>
                             문의사항, 질문과 답변
                         </div>
-                        <div className={styles.more}> MORE </div>                    
+                        <Link to='/question'>
+                            <div className={styles.more}> MORE </div>
+                        </Link>
+
                     </li>
                 </ul>
             </div>

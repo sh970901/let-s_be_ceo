@@ -21,6 +21,7 @@ import Infomation from './components/Map/Infomation';
 import { useState } from 'react';
 import MainPage from './components/Main/MainPage';
 import Sonik from './components/Sonik/Sonik';
+import Question from './components/Question/Question';
 
 function App() {
   const [place, setPlace] = useState("기본")
@@ -71,6 +72,9 @@ function App() {
 
             <Route path="/sonik">
                   <Sonik></Sonik>
+            </Route>
+            <Route path="/question">
+                  <Question></Question>
             </Route>
 
             <Route path="/map">

@@ -17,6 +17,9 @@ const Header = () => {
                 <Nav.Item>
                     <Nav.Link href="/board">게시판</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/question">QnA</Nav.Link>
+                </Nav.Item>
                 {/* <Nav.Item>
                     <Nav.Link eventKey="home">게시판</Nav.Link>
                 </Nav.Item> */}
