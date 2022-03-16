@@ -33,7 +33,6 @@ const Map = (props) => {
     function displayArea(map, area, props ) {
         
         const customOverlay = new kakao.maps.CustomOverlay({})
-
         //다각형 생성
         var polygon = new kakao.maps.Polygon({
             map: map, // 다각형을 표시할 지도 객체
