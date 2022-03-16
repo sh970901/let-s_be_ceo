@@ -28,7 +28,7 @@ app.get('/api/login', (req,res)=>{
     })
 })
 app.post('/api/login', (req,res)=>{
-    let sql = 'INSERT INTO user VALUES (?,?,?)';
+    let sql = 'INSERT INTO user VALUES (null,?,?,?)';
     let ID = req.body.id
     let PW = req.body.password
     let Email = req.body.email

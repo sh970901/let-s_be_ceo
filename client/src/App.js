@@ -19,6 +19,7 @@ import Map from './components/Map/Map';
 import { locations } from './components/Map/Locates';
 import Infomation from './components/Map/Infomation';
 import { useState } from 'react';
+import Sonik from './components/Sonik/Sonik';
 
 function App() {
   const [place, setPlace] = useState("기본")
@@ -38,125 +39,53 @@ function App() {
         <br></br><br></br><br></br>
         <Switch>
           <Route exact path='/'>
-            <Row>
-              <Col>
-                1of1
-              </Col>
-              <Col>
+            
                 <Main></Main>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
           <Route path="/login">
-            <Row>
-              <Col>
-                1of1
-              </Col>
-              <Col>
+            
                 <GoLogin></GoLogin>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
           <Route path="/addLogin">
-            <Row>
-              <Col>
-                1of1
-              </Col>
-              <Col>
+            
                 <AddLogin></AddLogin>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
           <Route path="/detailState">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <DetailState></DetailState>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
           <Route path="/findLogin">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <FindLogin></FindLogin>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
 
           <Route path="/board">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <Board></Board>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
 
           <Route path="/boardDetail">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <BoardDetail></BoardDetail>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
 
           <Route path="/addBoard">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <AddBoard></AddBoard>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
 
           <Route path="/myBoard">
-            <Row>
-              <Col>
-                1of2
-              </Col>
-              <Col>
+            
                 <MyBoard></MyBoard>
-              </Col>
-              <Col>
-                1of1
-              </Col>
-            </Row>
+              
           </Route>
 
           <Route path="/map">
@@ -167,10 +96,13 @@ function App() {
               <Col>
                 <Map location={locations} place={place} setPlace={setPlace}></Map>
               </Col>
-              <Col>
-                1of1
-              </Col>
+              
             </Row>
+          </Route>
+          <Route path="/sonik">
+            
+                <Sonik></Sonik>
+              
           </Route>
 
         </Switch>
