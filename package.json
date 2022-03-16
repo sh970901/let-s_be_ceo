@@ -15,7 +15,9 @@
         "express": "^4.17.2",
         "mysql": "^2.18.1",
         "nodemon": "^2.0.15",
-        "react-bootstrap": "^2.1.1"
+        "react-bootstrap": "^2.1.1",
+        "react-slick": "^0.28.1",
+        "slick-carousel": "^1.8.1"
     },
     "devDependencies": {
         "concurrently": "^4.0.1"

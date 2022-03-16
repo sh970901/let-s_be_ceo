@@ -75,7 +75,8 @@ const Sonik = () => {
             resultText = "손익분기점은 " + break_even + " 이며, 목표 순이익을 위한 목표 매출은 " + target_sales + "입니다."
             setResultData(resultText)
         }
-        if (isfixCost && isVarCost && isNetProfit && isAvgPrice) {        
+        if (isfixCost && isVarCost && isNetProfit && isAvgPrice) {
+           
             var targetVolume = (target_sales/91.25) /avgPrice
             resultText = "손익분기점은 " + break_even + " 이며, 목표 순이익을 위한 목표 매출은 " + target_sales + "입니다. 목표 매출을 위한 일 판매량은" +targetVolume+"입니다."
             setResultData(resultText)
@@ -85,6 +86,12 @@ const Sonik = () => {
 
     return (
         <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             고정비용:
             <input type="number" onChange={fix_cost} value={fixCost}></input><br />
             변동비용:

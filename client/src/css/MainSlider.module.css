@@ -1,0 +1,14 @@
+.slider {
+    width: 1280px;
+    margin-top: 10px;
+    margin: auto;
+    overflow: hidden;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.slider_items {
+    height: 500px;
+    line-height: 500px;
+}
+
