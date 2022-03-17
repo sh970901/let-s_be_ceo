@@ -84,7 +84,7 @@ function App() {
                   <Infomation place={place}></Infomation>
                 </Col>
                 <Col>
-                  <Map location={locations}  geojson={Geojson} place={place} setPlace={setPlace}></Map>
+                  <Map geojson={Geojson} setPlace={setPlace}></Map>
                 </Col>
                 <Col>
                   1of1
