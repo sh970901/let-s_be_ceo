@@ -15,6 +15,11 @@ const MyBoard = () => {
     }, [])
     return (
         <div>
+            <br/><br/><br/>
+            <br/><br/><br/>
+            {sessionStorage.getItem('user_id')===null? <div>로그인후 이용가능</div> : 
+            <div>
+                <br/><br/><br/>
             <h1>내가 쓴 게시글</h1>
             <Table striped bordered hover size="sm">
                 <thead>
@@ -47,6 +52,10 @@ const MyBoard = () => {
             <Link to ="/board">
             <Button>뒤로가기</Button>
             </Link>
+                
+                
+            </div>}
+            
             
 
         </div>

@@ -17,6 +17,7 @@ import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 import Map from './components/Map/Map';
 import { locations } from './components/Map/Locates';
+import { Geojson } from './components/Map/Geojson';
 import Infomation from './components/Map/Infomation';
 import { useState } from 'react';
 import MainPage from './components/Main/MainPage';
@@ -83,7 +84,7 @@ function App() {
                   <Infomation place={place}></Infomation>
                 </Col>
                 <Col>
-                  <Map location={locations} place={place} setPlace={setPlace}></Map>
+                  <Map location={locations}  geojson={Geojson} place={place} setPlace={setPlace}></Map>
                 </Col>
                 <Col>
                   1of1
