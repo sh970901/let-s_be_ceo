@@ -96,14 +96,15 @@ const Map = (props) => {
     function handlePolygon(name,polygon){
       kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
         polygon.setOptions({ fillColor: '#09f' }); 
+        
         customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
       });
     
-      //다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
-      // kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-      //   customOverlay.setPosition(mouseEvent.latLng);
-      // });
+      // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
+      kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
+        customOverlay.setPosition(mouseEvent.latLng);
+      });
     
       // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
       // 커스텀 오버레이를 지도에서 제거합니다
