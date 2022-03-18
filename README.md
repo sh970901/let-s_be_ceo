@@ -6,5 +6,5 @@
 • Node.js express 서버 측 구현 </br></br>
 • Mysql을 통한 상권 정보와 로그인 및 게시판(댓글) DB 구축 </br></br>
 • KakaoMap 사용 </br></br>
-• mapshaper를 이용한 .shp => .geojson 변환 및 다각형 구축 
+• 행정동 코드 mapshaper를 이용한 .shp => .geojson 변환 및 다각형 구축 
 </p>
