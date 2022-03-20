@@ -121,7 +121,7 @@ app.get('/api/question/:id', (req,res)=>{
 })
 
 app.post('/api/question', (req,res)=>{
-    let sql = 'INSERT INTO question VALUES (null,?,?)'
+    let sql = 'INSERT INTO question VALUES (null,?,?,null,now())'
     let id = req.body.id;
     let content = req.body.content;
     let params = [id, content]
@@ -131,9 +131,8 @@ app.post('/api/question', (req,res)=>{
     })
 })
 app.get('/api/answer/', (req,res)=>{
-    console.log(req.query.id, req.query.content)
     connection.query('SELECT * FROM question WHERE id=?', req.query.id,  function (error, rows, fields) {
-        console.log(rows)
+        console.log(rows.content)
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })

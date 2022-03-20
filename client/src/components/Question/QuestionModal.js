@@ -7,8 +7,7 @@ import { useState } from 'react'
 Modal.setAppElement("#root")
 
 const QuestionModal = (props) => {
-  const [answer, setAnswer] = useState("")
-
+  
   useEffect(()=>{
     
   },[])
@@ -21,7 +20,7 @@ const QuestionModal = (props) => {
             <div>문의 내용</div>
             아이디: {props.detailId} <br/>
             내용: {props.detailContent}<br/><br/><br/><br/>
-            답변: {answer}
+            답변: {props.answerData}
             <button onClick={props.closeModal}>닫기</button>
             </div>
             

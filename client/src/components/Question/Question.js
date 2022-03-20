@@ -9,6 +9,8 @@ const Question = () => {
   const [questions, setQestions] = useState([]);
   const [content, setContent] = useState("")
   const [showModal, setShowModal] = useState(false)
+  const [answerData, setAnswerData] = useState([])
+  
 
   const [detailId, setDetailId] = useState("")
   const [detailContent, setDetailContent] = useState("")
@@ -41,8 +43,7 @@ const Question = () => {
     .then((res)=>{
         if(res.status===200){
             alert("생성이 완료되었습니다.")
-            window.location.reload()
-    
+            window.location.reload()  
         }
         else{
             alert("생성에 실패했습니다.")
@@ -60,6 +61,8 @@ const Question = () => {
         {questions ? questions.map((c)=>{
          return(
          <QuestionData
+         setAnswerData ={setAnswerData}
+          questions = {questions}
           setDetailContent={setDetailContent}
           setDetailId={setDetailId}
           setShowModal={setShowModal}
@@ -69,7 +72,7 @@ const Question = () => {
           id={c.id}
           content={c.content}></QuestionData>)
         }) : null}
-        {showModal ? <QuestionModal detailId={detailId} detailContent={detailContent} openModal={openModal} closeModal={closeModal}></QuestionModal>:null}
+        {showModal ? <QuestionModal answerData={answerData} detailId={detailId} detailContent={detailContent} openModal={openModal} closeModal={closeModal}></QuestionModal>:null}
         
         문의사항: {' '}
         <input type="text" name='text'value={content} onChange={handleQues}></input>
