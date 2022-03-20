@@ -43,8 +43,6 @@ const Board = () => {
         
     }
 
-    
-
     return (
         <div>
             <h1>게시판</h1>{' '}<input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>{' '}<Button onClick={searchBoard}>검색</Button>

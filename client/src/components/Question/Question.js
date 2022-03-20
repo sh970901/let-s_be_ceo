@@ -13,7 +13,7 @@ const Question = () => {
   }
   return (
     <div>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         Question<br/>
         문의사항: {' '}
         <input type="text" name='text'value={ques} onChange={handleQues}></input>
