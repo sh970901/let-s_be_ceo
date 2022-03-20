@@ -136,3 +136,35 @@
   overflow: auto;
 }
 
+
+
+
+.ques{
+  border: 5px solid darkblue;
+}
+.modalItem
+{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.ReactModal__Content
+{
+ background-color: #a99e6f;
+ font-family: 'Nanum Pen Script', cursive;
+ width: 400px;
+ height:400px;
+
+}
+.ReactModal__Content button
+{
+ background-color: #a99e6f;
+ outline: 0.1;
+ color: #3b2616;
+ font-family: 'Jua', sans-serif;
+ border: 0;
+  outline: 0;
+  margin-left: 250px;
+  width: 100px;
+  border: 1px solid #d1a788;
+  border-radius: .25em;
+}
