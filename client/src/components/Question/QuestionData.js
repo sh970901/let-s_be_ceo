@@ -7,7 +7,7 @@ const QuestionData = (props) => {
         for(var i=0; i<props.questions.length-1; i++){
             if(props.questions[i].content === props.content){
                 if(props.questions[i].answer === null){
-                    props.setAnswerData("대기 중")
+                    props.setAnswerData("대기 중...")
                 }else{
                     props.setAnswerData(props.questions[i].answer)
                 }           
