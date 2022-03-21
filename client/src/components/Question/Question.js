@@ -9,7 +9,7 @@ const Question = () => {
   const [questions, setQestions] = useState([]);
   const [content, setContent] = useState("")
   const [showModal, setShowModal] = useState(false)
-  const [answerData, setAnswerData] = useState([])
+  const [answerData, setAnswerData] = useState("대기중...")
   
 
   const [detailId, setDetailId] = useState("")
