@@ -9,11 +9,7 @@ const Question = () => {
   const [questions, setQestions] = useState([]);
   const [content, setContent] = useState("")
   const [showModal, setShowModal] = useState(false)
-<<<<<<< HEAD
   const [answerData, setAnswerData] = useState("대기 중...")
-=======
-  const [answerData, setAnswerData] = useState("대기중...")
->>>>>>> 09d81332e32611b01ff158741287f3c208b522be
   
 
   const [detailId, setDetailId] = useState("")
