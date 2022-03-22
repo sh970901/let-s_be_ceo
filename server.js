@@ -138,4 +138,15 @@ app.get('/api/answer/', (req,res)=>{
       })
 })
 
+
+
+
+app.get('/api/building', (req,res)=>{
+    console.log(req.query)
+    connection.query('SELECT * FROM 상권간단정보 WHERE ?',req.query,function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+
 app.listen(port, ()=> console.log("서버 작동"))

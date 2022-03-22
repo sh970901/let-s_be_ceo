@@ -25,7 +25,7 @@ import Sonik from './components/Sonik/Sonik';
 import Question from './components/Question/Question';
 
 function App() {
-  const [place, setPlace] = useState("기본")
+  const [place, setPlace] = useState("")
   
   return (
     <div className='body'>
