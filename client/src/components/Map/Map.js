@@ -12,7 +12,7 @@ const Map = (props) => {
     let data = props.geojson[0].features
     let container = document.getElementById("map");
     let options = {
-      center: new kakao.maps.LatLng(37.5669398, 126.8243671),
+      center: new kakao.maps.LatLng(37.5051407, 127.0470828),
       level: 7,
     };
     const map = new kakao.maps.Map(container, options);
@@ -115,9 +115,14 @@ const Map = (props) => {
     
       // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
       kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
-        console.log(mouseEvent.latLng)
-        console.log(name)
+        // console.log(mouseEvent.latLng)
+        // console.log(name)
         props.setPlace(name)
+        // console.log(props.place)
+        // fetch(`http://localhost:5000/api/building/${props.place}`)
+        // .then((res)=>res.json())
+        // .then(data=>console.log(data))
+        
        
         // const content = <div>gg</div>
     
