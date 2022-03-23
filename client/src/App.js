@@ -25,7 +25,7 @@ import Sonik from './components/Sonik/Sonik';
 import Question from './components/Question/Question';
 
 function App() {
-  const [place, setPlace] = useState("기본")
+  const [place, setPlace] = useState("")
   
   return (
     <div className='body'>
@@ -34,9 +34,9 @@ function App() {
           <div className='header'>
             <Header />
           </div>
-          <div className='state'>
+          {/* <div className='state'>
             <State />
-          </div>
+          </div> */}
         </div>
           <Switch>
             <Route exact path='/'>
@@ -84,10 +84,7 @@ function App() {
                   <Infomation place={place}></Infomation>
                 </Col>
                 <Col>
-                  <Map geojson={Geojson} setPlace={setPlace}></Map>
-                </Col>
-                <Col>
-                  1of1
+                  <Map geojson={Geojson} place={place} setPlace={setPlace}></Map>
                 </Col>
               </Row>
             </Route>

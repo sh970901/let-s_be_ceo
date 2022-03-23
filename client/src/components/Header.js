@@ -1,10 +1,48 @@
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import State from './State/State';
 //상단 내비게이션
 const Header = () => {
     
     return (
         <div className='Header'>
-            <Nav fill variant="tabs" defaultActiveKey="/" className='nav'>         
+
+            <div>
+                <ul>
+                    <li>
+                        <Link to ='/'>
+                            Logo
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to ='/map'>
+                            상권분석
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to ='/sonik'>
+                            손익분기
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to ='/board'>
+                            게시판
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to ='/question'>
+                            문의사항
+                        </Link>
+                    </li>
+                    <li>
+                        <div>
+                        <State></State>
+                        </div>
+                    
+                    </li>
+                </ul>
+            </div>
+            {/* <Nav fill variant="tabs" defaultActiveKey="/" className='nav'>         
                 <Nav.Item>
                     <Nav.Link href="/">LOGO</Nav.Link>
                 </Nav.Item>
@@ -19,8 +57,12 @@ const Header = () => {
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/question">QnA</Nav.Link>
-                </Nav.Item>     
-            </Nav>       
+                </Nav.Item>  
+                <Nav.Item>
+                <State></State>        
+                </Nav.Item>   
+            </Nav> */}
+                   
         </div>
     );
 };

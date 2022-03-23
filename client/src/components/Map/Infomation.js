@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+
 import { Doughnut, Pie } from "react-chartjs-2";
 
 
