@@ -11,7 +11,6 @@ const pieData = {
   datasets: [
     {
       data: [200, 150, 20, 10],
-      
     }
   ]
 };
