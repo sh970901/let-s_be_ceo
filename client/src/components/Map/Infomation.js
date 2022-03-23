@@ -12,7 +12,7 @@ const Infomation = (props) => {
   },[props])
   
   function showData(){
-    if(props.place===undefined){
+    if(props.place===""){
       setIsData(false)     
     }else{
       setIsData(true)

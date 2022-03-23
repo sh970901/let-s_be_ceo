@@ -3,10 +3,19 @@ import { useEffect } from 'react'
 
 const AreaData = (props) => {
     useEffect(()=>{
-        console.log(props.areaData)
+        
     },[])
+
+
+    function showData(){
+      console.log(props.areaData)
+    }
+
   return (
-    <div>AreaData</div>
+    <div>
+      AreaData
+      <button onClick={showData}>정보보기</button>
+    </div>
   )
 }
 

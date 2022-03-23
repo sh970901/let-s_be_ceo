@@ -34,9 +34,9 @@ function App() {
           <div className='header'>
             <Header />
           </div>
-          <div className='state'>
+          {/* <div className='state'>
             <State />
-          </div>
+          </div> */}
         </div>
           <Switch>
             <Route exact path='/'>

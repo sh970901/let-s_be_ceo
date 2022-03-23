@@ -86,7 +86,6 @@
 
 .main-header{
   display: flex;
-  position: fixed;
   z-index: 2;
   align-items: center;
   background-color: #fff;
