@@ -1,41 +1,101 @@
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import AreaData from './AreaData'
-//상권분석
-const Infomation = (props) => {
-  const [areaData, setAreaData] = useState([])
-  const [isData, setIsData] = useState(false)
-  
-  useEffect(()=>{
-    showData()
-  },[props])
-  
-  function showData(){
-    if(props.place===""){
-      setIsData(false)     
-    }else{
-      setIsData(true)
-      fetch(`http://localhost:5000/api/building/${props.place}`)
-      .then(res=>res.json())
-      .then(data=>setAreaData(data))
+import React, { useEffect } from "react";
+
+import { Doughnut, Pie } from "react-chartjs-2";
+
+
+
+const pieData = {
+  maintainAspectRatio: false,
+  responsive: false,
+  labels: ["usa", "europe", "africa"],
+  datasets: [
+    {
+      data: [200, 150, 20, 10],
+    }
+  ]
+};
+const options = {
+  legend: {
+    display: false,
+    position: "right"
+  },
+  elements: {
+    arc: {
+      borderWidth: 0
     }
   }
-  
-  return (
-    <div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <h2>상권분석</h2>
-      {props.place}
-      {isData ? <AreaData areaData={areaData}></AreaData>:null}
+};
+const pieOptions = {
+  legend: {
+    display: false,
+    position: "right",
+    legendCallback: function (chart) {
+      // Return the HTML string here.
+      console.log(chart);
+      return [
+        <ul>
+          <li>zzzz</li>
+          <li>zzzz</li>
+          <li>ppp</li>
+          <li>adasda</li>
+        </ul>
+      ];
+    }
+  },
+  elements: {
+    arc: {
+      borderWidth: 0
+    }
+  }
+};
+const data = {
+  maintainAspectRatio: false,
+  responsive: false,
+  labels: ["a", "b", "c", "d"],
+  datasets: [
+    {
+      data: [100, 100, 100, 100],
      
-      
-      </div>
-    
-  )
-}
+    }
+  ]
+};
 
+//상권분석
+const Infomation = (props) => {
+  let chartInstance = null;
+  
+
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <div style={styles.relative}>
+        <Doughnut data={data} options={options} />
+        <div style={styles.pieContainer}>
+          <Pie
+            data={data}
+            options={pieOptions}
+            ref={(input) => {
+              chartInstance = input;
+            }}
+          />
+        </div>
+        <div id="legend" />
+      </div>
+    </div>
+  );
+
+}
+const styles = {
+  pieContainer: {
+    width: "40%",
+    height: "40%",
+    top: "50%",
+    left: "50%",
+    position: "absolute",
+    transform: "translate(-50%, -50%)"
+  },
+  relative: {
+    position: "relative"
+  }
+};
 export default Infomation

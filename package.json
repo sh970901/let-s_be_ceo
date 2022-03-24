@@ -16,6 +16,7 @@
         "mysql": "^2.18.1",
         "nodemon": "^2.0.15",
         "react-bootstrap": "^2.1.1",
+        "react-chartjs-2": "^4.0.1",
         "react-modal": "^3.14.4",
         "react-slick": "^0.28.1",
         "slick-carousel": "^1.8.1"
