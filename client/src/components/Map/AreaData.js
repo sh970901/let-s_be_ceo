@@ -43,9 +43,9 @@ const state = {
     <div>
       AreaData
       <button onClick={showData}>정보보기</button>
-      <MDBContainer>
+      {/* <MDBContainer>
         <Pie data={state.dataPie} options={{responsive: true}}></Pie>
-      </MDBContainer>
+      </MDBContainer> */}
     </div>
   )
 }
