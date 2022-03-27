@@ -14,10 +14,6 @@ const Infomation = (props) => {
 export default Infomation
 
 
-
-
-
-
 // import { Doughnut, Pie } from "react-chartjs-2";
 
 
