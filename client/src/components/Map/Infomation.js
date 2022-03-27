@@ -1,13 +1,38 @@
 import React,{useEffect} from 'react'
+import { useState } from 'react'
 
 
 const Infomation = (props) => {
+  const [buildingData, setBuildingData] = useState();
+  const [isShowData, setIsShowData] = useState(false);
 
   useEffect(()=>{
-    console.log(props)
+    
+    if(props.place.includes('동')){
+      console.log(props.place)
+      setIsShowData(true)
+      fetch(`http://localhost:5000/api/building/${props.place}`)
+      .then(res=>res.json())
+      .then(data=>setBuildingData(data[0]))
+    }else{
+     console.log("데이터 없음")
+    }
+    
   },[props])
+
+
+  function show(){
+    console.log(buildingData.no)
+  }
   return (
-    <div>Infomation</div>
+  <>
+  <div>{props.place}</div>
+  <button onClick={show}>정보확인</button>
+  <div>
+    {isShowData ? <>dd</> : null}
+  </div>
+  </>
+    
   )
 }
 

@@ -140,6 +140,7 @@ app.get('/api/answer/', (req,res)=>{
 
 
 app.get('/api/building/:area', (req,res)=>{
+    console.log("이거")
     console.log(req.params.area)
     connection.query('SELECT * FROM 강남구_간단정보 WHERE 행정동_이름=?',req.params.area,function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
