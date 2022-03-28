@@ -1,35 +1,56 @@
 import React,{useEffect} from 'react'
 import { useState } from 'react'
+import AreaData from './AreaData';
 
 
 const Infomation = (props) => {
   const [buildingData, setBuildingData] = useState();
   const [isShowData, setIsShowData] = useState(false);
+  const [selectShop,setSelectShop] = useState()
 
   useEffect(()=>{
     
     if(props.place.includes('동')){
-      console.log(props.place)
       setIsShowData(true)
       fetch(`http://localhost:5000/api/building/${props.place}`)
       .then(res=>res.json())
       .then(data=>setBuildingData(data[0]))
-    }else{
-     console.log("데이터 없음")
     }
     
   },[props])
 
-
-  function show(){
-    console.log(buildingData.no)
+function handleSet(e){
+  setSelectShop(e.target.value)
+}
+function showDetailData(){
+  console.log(selectShop)
+  if(selectShop === undefined || selectShop==="요식업"){
+    alert("요식업 종류를 선택해주세요")
   }
+}
+  
   return (
   <>
-  <div>{props.place}</div>
-  <button onClick={show}>정보확인</button>
+  {/* <div>{props.place}</div> */}
+  
   <div>
-    {isShowData ? <>dd</> : null}
+    {isShowData ? <AreaData setIsShowData={setIsShowData} buildingData={buildingData}></AreaData> : null}
+    <select onChange={handleSet}>
+      <option>
+        요식업
+      </option>
+      <option>
+        1
+      </option>
+      <option>
+        2
+      </option>
+      <option>
+        3
+      </option>
+    </select><br/>
+    {selectShop === "요식업"? null : <div>{selectShop}</div>} {'  '} <button onClick={showDetailData}>상세분석</button>
+
   </div>
   </>
     
