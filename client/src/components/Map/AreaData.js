@@ -1,51 +1,98 @@
 import React from 'react'
+import { useState } from 'react'
 import { useEffect } from 'react'
-import { Pie } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
-
 
 const AreaData = (props) => {
-    useEffect(()=>{
-        
-    },[])
-const state = {
-  dataPie: {
-    labels: ["RED", "Green", "Yellow", "Grey", "Dark Grey"],
-    datasets:[
-      {
-        data: [300, 50, 100, 40, 120],
-          backgroundColor: [
-            "#F7464A",
-            "#46BFBD",
-            "#FDB45C",
-            "#949FB1",
-            "#4D5360",
-            "#AC64AD"
-          ],
-          hoverBackgroundColor: [
-            "#FF5A5E",
-            "#5AD3D1",
-            "#FFC870",
-            "#A8B3C5",
-            "#616774",
-            "#DA92DB"
-          ]
-      }
-    ]
-  }
-}
+  const [dataNo, setDataNo] = useState(0) //넘버
+  const [monday, setMonday] = useState(0) //월요일 생활인구 수 
+  const [thesday, setThuesday] = useState(0) //화요일 생활인구 수
+  const [wednesday, setWednesday] = useState(0) // 수요일 생활인구 수
+  const [thursday, setThursday] = useState(0) // 목요일 생활인구 수 
+  const [friday, setFriday] = useState(0) // 금요일 생활인구 수
+  const [saturday, setSaturday] = useState(0)
+  const [sunday, setSunday] = useState(0)
+  const [time1, setTime1] = useState(0) //시간대 1 생활인구 수 
+  const [time2, setTime2] = useState(0) //시간대 2 생활인구 수 
+  const [time3, setTime3] = useState(0) //시간대 3 생활인구 수
+  const [time4, setTime4] = useState(0) //시간대 4 생활인구 수
+  const [time5, setTime5] = useState(0) //시간대 5 생활인구 수
+  const [time6, setTime6] = useState(0) //시간대 6 생활인구 수
+  const [averageSale, setAverageSale] = useState(0) //행정동 분기당 평균매출
+  const [name, setName] = useState(0) //행정동 이름
+  const [stay, setStay] = useState(0) //행정동 총 상주인구 수 
+  const [live, setLive] = useState(0) //행정동 총 생활인구 수 
+  const [work, setWork] = useState(0) //행정동 총 직장인구 수 
+  const [store, setStore] = useState(0) // 행정동 총점포수
 
-    function showData(){
-      console.log(props.areaData)
+  function noErr(){
+    
+    if(props.buildingData === undefined){
+      setDataNo("데이터가 존재하지 않습니다")
+      // props.setIsShowData(false)
+    }else{
+      setDataNo(props.buildingData.no)
+      setMonday(props.buildingData.월요일_생활인구_수)
+      setThuesday(props.buildingData.화요일_생활인구_수)
+      setWednesday(props.buildingData.수요일_생활인구_수)
+      setThursday(props.buildingData.목요일_생활인구_수)
+      setFriday(props.buildingData.금요일_생활인구_수)
+      setSaturday(props.buildingData.토요일_생활인구_수)
+      setSunday(props.buildingData.일요일_생활인구_수)
+      setTime1(props.buildingData.시간대_1_생활인구_수)
+      setTime2(props.buildingData.시간대_2_생활인구_수)
+      setTime3(props.buildingData.시간대_3_생활인구_수)
+      setTime4(props.buildingData.시간대_4_생활인구_수)
+      setTime5(props.buildingData.시간대_5_생활인구_수)
+      setTime6(props.buildingData.시간대_6_생활인구_수)
+      setAverageSale(props.buildingData.행정동_분기당_평균매출)
+      setName(props.buildingData.행정동_이름)
+      setStay(props.buildingData.행정동_총_상주인구_수)
+      setLive(props.buildingData.행정동_총_생활인구_수)
+      setWork(props.buildingData.행정동_총_직장인구_수)
+      setStore(props.buildingData.행정동_총점포수)
     }
+  }
+  
 
+  useEffect(()=>{
+    noErr()
+    // console.log(data.no)
+  },[props])
   return (
     <div>
-      AreaData
-      <button onClick={showData}>정보보기</button>
-      {/* <MDBContainer>
-        <Pie data={state.dataPie} options={{responsive: true}}></Pie>
-      </MDBContainer> */}
+      No: {dataNo} <br/>
+      행정동 이름 : {name} <br/>
+      월요일 생활인구 수 : {monday}<br/>
+      화요일 생활인구 수 : {thesday}<br/>
+      수요일 생활인구 수 : {wednesday}<br/>
+      목요일 생활인구 수 : {thursday}<br/>
+      금요일 생활인구 수 : {friday}<br/>
+      토요일 생활인구 수 : {saturday}<br/>
+      일요일 생활인구 수 : {sunday}<br/>
+      시간대1 생활인구 수 : {time1}<br/>
+      시간대2 생활인구 수 : {time2}<br/>
+      시간대3 생활인구 수 : {time3}<br/>
+      시간대4 생활인구 수 : {time4}<br/>
+      시간대5 생활인구 수 : {time5}<br/>
+      시간대6 생활인구 수 : {time6}<br/>
+      행정동 분기당 평균 매출: {averageSale}<br/>
+      행정동 총 상주인구 수: {stay}<br/>
+      행정동 총 생활인구 수: {live}<br/>
+      행정동 총 직장인구 수: {work}<br/>
+      행정동 촘 점포 수: {store}<br/>
+      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
     </div>
   )
 }
