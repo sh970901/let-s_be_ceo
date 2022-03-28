@@ -16,7 +16,6 @@ import BoardDetail from './components/Board/BoardDetail';
 import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 import Map from './components/Map/Map';
-import { locations } from './components/Map/Locates';
 import { Geojson } from './components/Map/Geojson';
 import Infomation from './components/Map/Infomation';
 import { useState } from 'react';

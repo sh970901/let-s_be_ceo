@@ -1,12 +1,22 @@
 import React,{useEffect} from 'react'
 import { useState } from 'react'
 import AreaData from './AreaData';
+import DetailModal from './DetailModal';
 
 
 const Infomation = (props) => {
   const [buildingData, setBuildingData] = useState();
   const [isShowData, setIsShowData] = useState(false);
   const [selectShop,setSelectShop] = useState()
+
+  const [showModal, setShowModal] = useState(false)
+  function openModal(){
+    setShowModal(true)
+  }
+  function closeModal(){
+    setShowModal(false)
+  }
+
 
   useEffect(()=>{
     
@@ -26,6 +36,9 @@ function showDetailData(){
   console.log(selectShop)
   if(selectShop === undefined || selectShop==="요식업"){
     alert("요식업 종류를 선택해주세요")
+  }
+  else{
+    setShowModal(true)
   }
 }
   
@@ -50,6 +63,7 @@ function showDetailData(){
       </option>
     </select><br/>
     {selectShop === "요식업"? null : <div>{selectShop}</div>} {'  '} <button onClick={showDetailData}>상세분석</button>
+    {showModal ? <DetailModal openModal={openModal} closeModal={closeModal} selectShop={selectShop}></DetailModal> : null}
 
   </div>
   </>

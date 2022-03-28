@@ -151,7 +151,7 @@
  background-color: #a99e6f;
  font-family: 'Nanum Pen Script', cursive;
  width: 400px;
- height:400px;
+ height:700px;
 
 }
 .ReactModal__Content button
@@ -167,3 +167,5 @@
   border: 1px solid #d1a788;
   border-radius: .25em;
 }
+
+
