@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react'
 import { useState } from 'react'
 import AreaData from './AreaData';
-import DetailModal from './DetailModal';
 
 
 const Infomation = (props) => {
@@ -10,12 +9,7 @@ const Infomation = (props) => {
   const [selectShop,setSelectShop] = useState()
 
   const [showModal, setShowModal] = useState(false)
-  function openModal(){
-    setShowModal(true)
-  }
-  function closeModal(){
-    setShowModal(false)
-  }
+  
 
 
   useEffect(()=>{
@@ -63,7 +57,7 @@ function showDetailData(){
       </option>
     </select><br/>
     {selectShop === "요식업"? null : <div>{selectShop}</div>} {'  '} <button onClick={showDetailData}>상세분석</button>
-    {showModal ? <DetailModal openModal={openModal} closeModal={closeModal} selectShop={selectShop}></DetailModal> : null}
+    {/* {showModal ? <DetailModal openModal={openModal} closeModal={closeModal} selectShop={selectShop}></DetailModal> : null} */}
 
   </div>
   </>

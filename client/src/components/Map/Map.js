@@ -1,6 +1,6 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react'
-import DetailModal from './DetailModal'
+import SimpleModal from './SimpleModal'
 
 
 //카카오맵 정보
@@ -162,10 +162,12 @@ const Map = (props) => {
 
       <h1>상권분석</h1>
       {isShowSimple ? <div className='simpleModal'>
-        <DetailModal
-          openModal={openModal}
-          closeModal={closeModal}
-        ></DetailModal>
+
+        <SimpleModal
+        place={props.place}
+        openModal={openModal}
+        closeModal={closeModal}>
+        </SimpleModal>
       </div> : null}
       <div id="map"></div>
       
