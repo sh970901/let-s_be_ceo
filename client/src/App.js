@@ -78,14 +78,14 @@ function App() {
             </Route>
 
             <Route path="/map">
-              <Row>
+              {/* <Row>
                 <Col>
                   <Infomation place={place}></Infomation>
                 </Col>
-                <Col>
+                <Col> */}
                   <Map geojson={Geojson} place={place} setPlace={setPlace}></Map>
-                </Col>
-              </Row>
+                {/* </Col>
+              </Row> */}
             </Route>
 
           </Switch>

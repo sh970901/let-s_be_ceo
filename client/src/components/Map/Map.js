@@ -1,11 +1,20 @@
 /*global kakao*/
 import React, { useEffect, useState } from 'react'
+import DetailModal from './DetailModal'
 
 
 //카카오맵 정보
 
 const Map = (props) => {
- 
+
+   const [isShowSimple, setIsShowSimple] = useState(false)
+    function openModal() {
+      setIsShowSimple(true)
+    }
+    function closeModal() {
+      setIsShowSimple(false)
+    }
+
   useEffect(() => {
     const customOverlay = new kakao.maps.CustomOverlay({});
     const infowindow = new kakao.maps.InfoWindow({ removable: true });
@@ -14,33 +23,34 @@ const Map = (props) => {
     let options = {
       center: new kakao.maps.LatLng(37.5051407, 127.0470828),
       level: 7,
+      
     };
     const map = new kakao.maps.Map(container, options);
     let polygons = [];
 
     DrawPolygon()
-   
+
     function DrawPolygon() {
       var name = "";
       data.forEach((coordinate) => {
         name = coordinate.name
         if (coordinate.geometry.type === "MultiPolygon") {
-          displayArea(name,coordinate.geometry.coordinates,true)
+          displayArea(name, coordinate.geometry.coordinates, true)
         }
         else {
-          displayArea(name,coordinate.geometry.coordinates, false)
-          
+          displayArea(name, coordinate.geometry.coordinates, false)
+
         }
       })
     }
-    function makePolygon(name,coordinates) {
-      
+    function makePolygon(name, coordinates) {
+
       var polygonPath = [];
       coordinates[0].forEach((coordinate) => {
         polygonPath.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
-      
+
       });
-      
+
       let polygon = new kakao.maps.Polygon({
         map: map,
         path: polygonPath, // 그려질 다각형의 좌표 배열입니다
@@ -52,17 +62,17 @@ const Map = (props) => {
         fillOpacity: 0.7, // 채우기 불투명도 입니다
       })
       polygons.push(polygon);
-      handlePolygon(name,polygon)
+      handlePolygon(name, polygon)
 
     }
-  
-    function makeMultiPolygon(name,coordinates){
+
+    function makeMultiPolygon(name, coordinates) {
       var polygonPath = [];
-  
-      coordinates.forEach((multiCoordi)=>{
-        var coordinates2 =[];
-  
-        multiCoordi[0].forEach((coordinate)=>{
+
+      coordinates.forEach((multiCoordi) => {
+        var coordinates2 = [];
+
+        multiCoordi[0].forEach((coordinate) => {
           coordinates2.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
         })
         polygonPath.push(coordinates2)
@@ -78,72 +88,72 @@ const Map = (props) => {
         fillOpacity: 0.7, // 채우기 불투명도 입니다
       })
       polygons.push(polygon);
-      handlePolygon(name,polygon)
-      
+      handlePolygon(name, polygon)
+
     }
-  
-    function displayArea(name,coordinates, multi){
-  
-      if(multi){
-        makeMultiPolygon(name,coordinates);
-        
+
+    function displayArea(name, coordinates, multi) {
+
+      if (multi) {
+        makeMultiPolygon(name, coordinates);
+
       }
-      else{
-        makePolygon(name,coordinates);
-        
+      else {
+        makePolygon(name, coordinates);
+
       }
     }
-    function handlePolygon(name,polygon){
+    
+    function showSimpleAnalyze() {
+      setIsShowSimple(true)
+    }
+    function handlePolygon(name, polygon) {
       kakao.maps.event.addListener(polygon, 'mouseover', function (mouseEvent) {
-        polygon.setOptions({ fillColor: '#09f' }); 
-        
+        polygon.setOptions({ fillColor: '#09f' });
+
         customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
       });
-    
+
       // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다
       kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
         customOverlay.setPosition(mouseEvent.latLng);
       });
-    
+
       // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
       // 커스텀 오버레이를 지도에서 제거합니다
       kakao.maps.event.addListener(polygon, 'mouseout', function () {
         polygon.setOptions({ fillColor: '#fff' });
         customOverlay.setMap(null);
       });
-    
+
       // 다각형에 click 이벤트를 등록하고 이벤트가 발생하면 다각형의 이름과 면적을 인포윈도우에 표시합니다
       kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
         // console.log(mouseEvent.latLng)
         // console.log(name)
         props.setPlace(name)
-        // console.log(props.place)
-        // fetch(`http://localhost:5000/api/building/${props.place}`)
-        // .then((res)=>res.json())
-        // .then(data=>console.log(data))
+        showSimpleAnalyze()
         
        
+
+
         // const content = <div>gg</div>
-    
+
         // infowindow.setContent(content);
         // infowindow.setPosition(mouseEvent.latLng);
         // infowindow.setMap(map);
-        });
-  
+      });
     }
-    
-
 
   }, [])
-  
-    
-   
 
-    
 
-  
-  
+
+
+
+
+
+
 
 
 
@@ -151,7 +161,13 @@ const Map = (props) => {
     <div>
 
       <h1>상권분석</h1>
-      <div id="map" style={{ width: "70vw", height: "100vh" }}></div>
+      <div id="map"></div>
+      {isShowSimple ? <div>
+        <DetailModal
+          openModal={openModal}
+          closeModal={closeModal}
+        ></DetailModal>
+      </div> : null}
     </div>
   )
 }

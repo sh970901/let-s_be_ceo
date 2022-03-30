@@ -58,6 +58,8 @@ const AreaData = (props) => {
     noErr()
     // console.log(data.no)
   },[props])
+
+  //요일별 시간별 원차트, 평균매출, 점포 수 행정동 전체 비교, 평균 매출을 평균값이랑 비교 , 상주인구 생활인구 직장인구는 텍스트로 
   return (
     <div>
       No: {dataNo} <br/>
@@ -69,17 +71,18 @@ const AreaData = (props) => {
       금요일 생활인구 수 : {friday}<br/>
       토요일 생활인구 수 : {saturday}<br/>
       일요일 생활인구 수 : {sunday}<br/>
-      시간대1 생활인구 수 : {time1}<br/>
-      시간대2 생활인구 수 : {time2}<br/>
-      시간대3 생활인구 수 : {time3}<br/>
-      시간대4 생활인구 수 : {time4}<br/>
-      시간대5 생활인구 수 : {time5}<br/>
-      시간대6 생활인구 수 : {time6}<br/>
-      행정동 분기당 평균 매출: {averageSale}<br/>
+      시간대1(00~06) 생활인구 수 : {time1}<br/>
+      시간대2(06~11) 생활인구 수 : {time2}<br/>
+      시간대3(11~14) 생활인구 수 : {time3}<br/>
+      시간대4(14~17) 생활인구 수 : {time4}<br/>
+      시간대5(17~21) 생활인구 수 : {time5}<br/>
+      시간대6(21~24) 생활인구 수 : {time6}<br/>
+      행정동 분기당 요식업 평균 매출: {averageSale}<br/>
       행정동 총 상주인구 수: {stay}<br/>
       행정동 총 생활인구 수: {live}<br/>
       행정동 총 직장인구 수: {work}<br/>
-      행정동 촘 점포 수: {store}<br/>
+      행정동 촘 요식업 점포 수: {store}<br/>
+      
       
       <br/>
       <br/>

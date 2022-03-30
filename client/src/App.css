@@ -141,10 +141,17 @@
 .ques{
   border: 5px solid darkblue;
 }
+
+
+
+
+
+
 .modalItem
 {
   margin-top: 30px;
   margin-left: 30px;
+  z-index: 1050;
 }
 .ReactModal__Content
 {
@@ -152,6 +159,8 @@
  font-family: 'Nanum Pen Script', cursive;
  width: 400px;
  height:700px;
+ z-index: 1050;
+
 
 }
 .ReactModal__Content button
@@ -167,5 +176,15 @@
   border: 1px solid #d1a788;
   border-radius: .25em;
 }
+
+#map{
+  height: 700px;
+  width: 900px;
+  border: 0.1em solid #d1a788;
+  border-radius: 30px;
+  display:inline-block;
+  margin:0px auto
+}
+
 
 
