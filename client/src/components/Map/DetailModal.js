@@ -27,17 +27,35 @@ const DetailModal = (props) => {
     ]
   }
 
-
+ const customStyles= {
+   overlay: {zIndex: 1000,  backgroundColor: 'rgba(100, 100, 70, 0.5)', max_width:'1000px', max_height: '800px'},
+   content: {
+    border: '0',
+    borderRadius: '4px',
+    bottom: 'auto',
+    minHeight: '10rem',
+    left: '50%',
+    padding: '2rem',
+    position: 'fixed',
+    right: 'auto',
+    top: '50%',
+    transform: 'translate(-50%,-50%)',
+    minWidth: '20rem',
+    width: '80px',
+    maxWidth: '1000px'
+  }
+  }
 
   return (
-    <div className='detailModal'>
-      <Modal
+    <div>
+      <Modal className="simpleModal"
+        style={customStyles}
         isOpen={props.openModal}
         onRequestClose={props.closeModal}>
         <div className='modalItem'>
           <h3>상세분석</h3>
           {props.selectShop}
-          <h1>DB...</h1>
+          <h1>DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...</h1>
           <div>
             <Pie
               data={{

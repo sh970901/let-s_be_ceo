@@ -161,13 +161,14 @@ const Map = (props) => {
     <div>
 
       <h1>상권분석</h1>
-      <div id="map"></div>
-      {isShowSimple ? <div>
+      {isShowSimple ? <div className='simpleModal'>
         <DetailModal
           openModal={openModal}
           closeModal={closeModal}
         ></DetailModal>
       </div> : null}
+      <div id="map"></div>
+      
     </div>
   )
 }
