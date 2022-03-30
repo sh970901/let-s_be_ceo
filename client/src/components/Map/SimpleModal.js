@@ -56,10 +56,10 @@ const SimpleModal = (props) => {
         isOpen={props.openModal}
         onRequestClose={props.closeModal}>
         <div className='modalItem'>
-          <h3>상세분석</h3>
-          <h1>DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...DB...</h1>
+          <h3>간단 분석 {''}</h3>
+          <h1>{props.place}</h1>
           <div>
-            <ChartData buildingData={buildingData}></ChartData>
+            <ChartData place={props.place} buildingData={buildingData}></ChartData>
             
           </div>
 
