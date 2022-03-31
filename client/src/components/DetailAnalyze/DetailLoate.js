@@ -174,6 +174,9 @@ const DetailLoate = (props) => {
                             backgroundColor: "#5a6e7f",
                         }
                     }}></Doughnut><br />
+                    아파트 평균 싯가: {averApart}원<br />
+                    버스 정거장 수: {bus}개<br />
+                    지하철 정거장 수: {train}개<br />
             </div> : null}
 
 

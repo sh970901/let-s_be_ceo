@@ -39,7 +39,7 @@ useEffect(()=>{
 
   return (
     <>
-        
+        <h1>{place}</h1> <br/>
         업종을 선택해주세요: {'   '}
         <select onClick={showData}>
             <option>업종 선택</option>
