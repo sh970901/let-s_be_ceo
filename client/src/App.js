@@ -22,6 +22,7 @@ import { useState } from 'react';
 import MainPage from './components/Main/MainPage';
 import Sonik from './components/Sonik/Sonik';
 import Question from './components/Question/Question';
+import DetailAnalyze from './components/DetailAnalyze/DetailAnalyze';
 
 function App() {
   const [place, setPlace] = useState("")
@@ -86,6 +87,9 @@ function App() {
                   <Map geojson={Geojson} place={place} setPlace={setPlace}></Map>
                 {/* </Col>
               </Row> */}
+            </Route>
+            <Route path="/detailAnalyze">
+                  <DetailAnalyze></DetailAnalyze>
             </Route>
 
           </Switch>

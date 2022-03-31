@@ -147,16 +147,6 @@ const Map = (props) => {
 
   }, [])
 
-
-
-
-
-
-
-
-
-
-
   return (
     <div>
 

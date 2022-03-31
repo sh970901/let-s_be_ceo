@@ -4,12 +4,15 @@ import Modal from 'react-modal'
 // import { Chart, ArcElement } from 'chart.js'
 import { useEffect,useState } from 'react';
 import ChartData from './ChartData';
+import { Link, useHistory } from 'react-router-dom';
+
 
 
 Modal.setAppElement("#root")
 
 const SimpleModal = (props) => {
   const [buildingData, setBuildingData] = useState();
+  const history = useHistory();
 
   useEffect(()=>{
     
@@ -22,15 +25,13 @@ const SimpleModal = (props) => {
   },[])
 
 
-
-
  const customStyles= {
-   overlay: {zIndex: 1000,  backgroundColor: 'rgba(100, 100, 70, 0.5)', max_width:'1000px', max_height: '800px'},
+   overlay: {zIndex: 1000,  backgroundColor: 'rgba(100, 100, 70, 0.5)',},
    content: {
-    border: '0',
+    border: '1',
     borderRadius: '4px',
     bottom: 'auto',
-    minHeight: '10rem',
+    
     left: '50%',
     padding: '2rem',
     position: 'fixed',
@@ -38,12 +39,20 @@ const SimpleModal = (props) => {
     top: '50%',
     transform: 'translate(-50%,-50%)',
     minWidth: '20rem',
-    width: '80px',
-    maxWidth: '1000px'
+    width: '100px',
+    maxWidth: '1000px',
+  
+    
   }
   }
 
-  
+  // function showDetailAnalyze(){
+  //   console.log("Dd")
+  //   history.push({
+  //     pathname:'/detailAnalyze',
+  //     state: {props: props}
+  // })
+  // }
 
 
 
@@ -56,14 +65,22 @@ const SimpleModal = (props) => {
         isOpen={props.openModal}
         onRequestClose={props.closeModal}>
         <div className='modalItem'>
-          <h3>간단 분석 {''}</h3>
-          <h1>{props.place}</h1>
+          <h3 className='prac'>간단 분석 {''}</h3>
+          <h1 className='prac'>{props.place}</h1>
           <div>
             <ChartData place={props.place} buildingData={buildingData}></ChartData>
             
           </div>
-
-
+          <Link to ={{
+            pathname: '/detailAnalyze',
+            state: {
+              place: props.place
+            }
+          }}>
+            <button>상세 분석</button></Link>
+          
+          
+          <br/><br/>
           <button onClick={props.closeModal}>닫기</button>
 
 

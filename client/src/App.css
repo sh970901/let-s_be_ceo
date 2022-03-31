@@ -141,7 +141,10 @@
 .ques{
   border: 5px solid darkblue;
 }
-
+.prac{
+  font-weight: 1000;
+  color: aqua;
+}
 
 
 
@@ -149,8 +152,8 @@
 
 .modalItem
 {
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
   z-index: 1050;
 }
 /* .ReactModal__Content
