@@ -153,4 +153,26 @@ app.get('/api/building/:area', (req,res)=>{
       })
 })
 
+app.get('/api/detailSales', (req,res)=>{
+    connection.query('SELECT * FROM 상세매출', function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.get('/api/detailLocate/:area', (req,res)=>{
+    connection.query('SELECT * FROM 상세지역 WHERE 행정동_이름=?',req.params.area, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+
+app.get('/api/:place',(req,res)=>{
+    console.log("dd")
+    connection.query('SELECT 분식전문점, 양식음식점, 일식음식점, 중식음식점, 치킨전문점, 패스트푸드점, 한식음식점, 호프간이주점 FROM 상세지역 WHERE 행정동_이름=? ',req.params.place,function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+
+
 app.listen(port, ()=> console.log("서버 작동"))

@@ -172,10 +172,10 @@ const ChartData = (props) => {
     <div>
       <div>
         <h4 className='prac'>요일 별 생활 인구 수</h4>
-        <Bar data={dayData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar>
+        <Bar data={dayData} options={{indexAxis: 'y', responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
         <h4 className='prac'>시간대 별 생활 인구 수</h4>
-        <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar>
-      </div>
+        <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
+      </div><br/>
       <Doughnut
         data={chartdata}
         options={{
@@ -187,9 +187,9 @@ const ChartData = (props) => {
           tooltips: {
             backgroundColor: "#5a6e7f",
           }
-        }}></Doughnut>
-     
-      <Bar data={shopData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar>
+        }}></Doughnut><br/>
+     <h4 className='prac'>행정동 총 점포수</h4>
+      <Bar data={shopData} options={{  responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
       <p className='prac'>상주 인구 수: {stay}</p>
       <p className='prac'>직장 인구 수: {work}</p>
       <p className='prac'>생활 인구 수: {live}</p>
