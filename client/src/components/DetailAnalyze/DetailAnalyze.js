@@ -11,10 +11,13 @@ const DetailAnalyze = () => {
 const location = useLocation();
 const place = location.state.place
 
-const [deLocate,setDeLocate] = useState()
+const [deLocate,setDeLocate] = useState()  //상세지역 테이블 정보 담음
+const [dePeople, setDePeple] = useState()  //상세인구 테이블 정보 담음
+const [deSales , setDeSales] = useState() //상세매출 테이블 정보 담음
+
 const [category, setCategory] = useState()
 
-const [dish, setDish] = useState()
+const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 
 
 function showData(e){
   setCategory(e.target.value)
@@ -32,6 +35,16 @@ useEffect(()=>{
   fetch(`http://localhost:5000/api/${place}`)
   .then(res=>res.json())
   .then(data=>setDish(data))
+},[])
+useEffect(()=>{
+  fetch(`http://localhost:5000/api/detailPeople/${place}`)
+  .then(res=>res.json())
+  .then(data=>setDePeple(data))
+},[])
+useEffect(()=>{
+  fetch(`http://localhost:5000/api/detailSales/${place}`)
+  .then(res=>res.json())
+  .then(data=>setDeSales(data))
 },[])
 
 
@@ -62,13 +75,13 @@ useEffect(()=>{
         <td>
           <tr>
             상세인구
-            <DetailPeople></DetailPeople>{'  '}
+            <DetailPeople dePeople={dePeople} place={place} category={category} ></DetailPeople>{'  '}
           </tr>
         </td>
         <td>
           <tr>
             상세매출
-            <DetailSales></DetailSales>{'  '}
+            <DetailSales deSales={deSales} place={place} category={category}></DetailSales>{'  '}
           </tr>
         </td>
     </>

@@ -153,14 +153,28 @@ app.get('/api/building/:area', (req,res)=>{
       })
 })
 
-app.get('/api/detailSales', (req,res)=>{
-    connection.query('SELECT * FROM 상세매출', function (error, rows, fields) {
+app.get('/api/detailPeople/:area', (req,res)=>{
+    connection.query('SELECT * FROM 상세인구 WHERE 행정동_이름=?',req.params.area , function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })
 })
 app.get('/api/detailLocate/:area', (req,res)=>{
     connection.query('SELECT * FROM 상세지역 WHERE 행정동_이름=?',req.params.area, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.get('/api/detailSales/:area', (req,res)=>{
+    connection.query('SELECT * FROM 상세매출 WHERE 행정동_이름=?',req.params.area, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.get('/api2/detailSales/:area', (req,res)=>{
+    console.log('dd')
+    console.log(req.params.area)
+    connection.query('SELECT * FROM 상세매출 WHERE ?',req.params.area,function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })

@@ -1,8 +1,16 @@
 import React from 'react'
 
-const DetailPeople = () => {
+const DetailPeople = (props) => {
+  function analyze(){
+    console.log(props)
+    
+  }
   return (
-    <div>DetailPeople</div>
+    <div>
+      <br />
+      <button onClick={analyze}>분석하기</button><br /><br />
+      DetailPeople
+    </div>
   )
 }
 
