@@ -171,10 +171,10 @@ app.get('/api/detailSales/:area', (req,res)=>{
         res.send(rows);
       })
 })
-app.get('/api2/detailSales/:area', (req,res)=>{
+app.get('/api2/detailSales/:place/:category', (req,res)=>{
     console.log('dd')
-    console.log(req.params.area)
-    connection.query('SELECT * FROM 상세매출 WHERE ?',req.params.area,function (error, rows, fields) {
+    console.log(req.params)
+    connection.query('SELECT * FROM 상세매출',function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })

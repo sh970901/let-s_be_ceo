@@ -3,7 +3,7 @@ import React from 'react'
 const DetailSales = (props) => {
   
   function analyze() {
-      fetch(`http://localhost:5000/api2/detailSales/${props.place}and service=${props.category}`)
+      fetch(`http://localhost:5000/api2/detailSales/${props.place}/${props.category}`)
       .then(res=>res.json())
       .then(data=>console.log(data))
     var arr1=[]
