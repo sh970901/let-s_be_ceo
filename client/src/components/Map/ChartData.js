@@ -94,9 +94,9 @@ const ChartData = (props) => {
       {
         label: '',
         borderWidth: 5, // 테두리 두께
-        data: [261,1531,1002,273,1039,120,1578,2413,102,599], // 수치
-        fill:true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black','green'] // 각 막대 색
+        data: [261, 1531, 1002, 273, 1039, 120, 1578, 2413, 102, 599], // 수치
+        fill: true,
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
       }
     ]
   }
@@ -140,7 +140,7 @@ const ChartData = (props) => {
         borderWidth: 1, // 테두리 두께
         data: [time1, time2, time3, time4, time5, time6], // 수치
         fill: true,
-        backgroundColor:["#11b288", "#207ac7", "#207ac7", "#207ac7", "#d6d6d6", "#d6d6d6", "#d6d6d6", "#d6d6d6"] // 각 막대 색
+        backgroundColor: ["#11b288", "#207ac7", "#207ac7", "#207ac7", "#d6d6d6", "#d6d6d6", "#d6d6d6", "#d6d6d6"] // 각 막대 색
       }
     ]
   }
@@ -171,28 +171,49 @@ const ChartData = (props) => {
   return (
     <div>
       <div>
-        <h4 className='prac'>요일 별 생활 인구 수</h4>
-        <Bar data={dayData} options={{indexAxis: 'y', responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
-        <h4 className='prac'>시간대 별 생활 인구 수</h4>
-        <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
-      </div><br/>
-      <Doughnut
-        data={chartdata}
-        options={{
-          legend: { display: true, position: "right" },
-          datalabels: {
-            display: true,
-            color: "white",
-          },
-          tooltips: {
-            backgroundColor: "#5a6e7f",
-          }
-        }}></Doughnut><br/>
-     <h4 className='prac'>행정동 총 점포수</h4>
-      <Bar data={shopData} options={{  responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br/>
+        <td>
+          <tr>
+            <h4 className='prac'>요일 별 생활 인구 수</h4>
+            <Bar data={dayData} options={{ indexAxis: 'y', responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          </tr>
+        </td>
+        <td>
+          <tr>
+            <h4 className='prac'>시간대 별 생활 인구 수</h4>
+            <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          </tr>
+        </td>
+
+
+      </div><br />
+      <td>
+        <tr>
+          <Doughnut
+            data={chartdata}
+            options={{
+              legend: { display: true, position: "right" },
+              datalabels: {
+                display: true,
+                color: "white",
+              },
+              tooltips: {
+                backgroundColor: "#5a6e7f",
+              }
+            }}></Doughnut><br />
+        </tr>
+      </td>
+      <td>
+        <tr>
+          <h4 className='prac'>행정동 총 점포수</h4>
+          <Bar data={shopData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+        </tr>
+      </td>
+
+
       <p className='prac'>상주 인구 수: {stay}</p>
       <p className='prac'>직장 인구 수: {work}</p>
       <p className='prac'>생활 인구 수: {live}</p>
+
 
       {/* <Pie
 

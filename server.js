@@ -174,7 +174,9 @@ app.get('/api/detailSales/:area', (req,res)=>{
 app.get('/api2/detailSales/:place/:category', (req,res)=>{
     console.log('dd')
     console.log(req.params)
-    connection.query('SELECT * FROM 상세매출',function (error, rows, fields) {
+    var place = req.params.place
+    var category=req.params.category
+    connection.query('SELECT * FROM 상세매출 WHERE 서비스_업종_코드_명=? AND 행정동_이름=?',[req.params.category,req.params.place],function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })
