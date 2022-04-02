@@ -15,12 +15,18 @@ const [deLocate,setDeLocate] = useState()  //상세지역 테이블 정보 담�
 const [dePeople, setDePeple] = useState()  //상세인구 테이블 정보 담음
 const [deSales , setDeSales] = useState() //상세매출 테이블 정보 담음
 
+
+
 const [category, setCategory] = useState()
 
 const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 
 
 function showData(e){
+  console.log("dd")
   setCategory(e.target.value)
+  fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
+  .then(res=>res.json())
+  .then(data=>setDeSales(data))
   
 }
 
@@ -41,11 +47,13 @@ useEffect(()=>{
   .then(res=>res.json())
   .then(data=>setDePeple(data))
 },[])
-useEffect(()=>{
-  fetch(`http://localhost:5000/api/detailSales/${place}`)
-  .then(res=>res.json())
-  .then(data=>setDeSales(data))
-},[])
+// useEffect(()=>{
+//   fetch(`http://localhost:5000/api/detailSales/${place}`)
+//   .then(res=>res.json())
+//   .then(data=>setDeSales(data))
+// },[])
+
+
 
 
 
@@ -54,7 +62,7 @@ useEffect(()=>{
     <>
         <h1>{place}</h1> <br/>
         업종을 선택해주세요: {'   '}
-        <select onClick={showData}>
+        <select onChange={showData}>
             <option>업종 선택</option>
             <option>분식전문점</option>
             <option>양식음식점</option>

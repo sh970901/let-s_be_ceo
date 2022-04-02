@@ -172,10 +172,6 @@ app.get('/api/detailSales/:area', (req,res)=>{
       })
 })
 app.get('/api2/detailSales/:place/:category', (req,res)=>{
-    console.log('dd')
-    console.log(req.params)
-    var place = req.params.place
-    var category=req.params.category
     connection.query('SELECT * FROM 상세매출 WHERE 서비스_업종_코드_명=? AND 행정동_이름=?',[req.params.category,req.params.place],function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
@@ -183,7 +179,6 @@ app.get('/api2/detailSales/:place/:category', (req,res)=>{
 })
 
 app.get('/api/:place',(req,res)=>{
-    console.log("dd")
     connection.query('SELECT 분식전문점, 양식음식점, 일식음식점, 중식음식점, 치킨전문점, 패스트푸드점, 한식음식점, 호프간이주점 FROM 상세지역 WHERE 행정동_이름=? ',req.params.place,function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
