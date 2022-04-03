@@ -9,9 +9,8 @@ import axios from 'axios';
 const DetailPeople = (props) => {
   const [areaName, setAreaName] = useState() //상권 이름
   const [areaTotal, setAreaTotal] = useState() //상권 총 생활인구 
-  const [home, setHome] = useState() //가구당 상주 인구 수 
-
-  const [dePeopleAreaData, setDePepleAreaData] = useState() //상권선택시 정보 
+  const [home, setHome] = useState() //가구당 상주 인구 수 배열 (비교용)
+  const [homeNum, setHomeNum] = useState(0) //상권에 가구당 상주 인구 수 
 
   const [sun, setSun] = useState() //일요일 생활인구
   const [mon, setMon] = useState() //월요일 생활인구
@@ -21,12 +20,12 @@ const DetailPeople = (props) => {
   const [fri, setFri] = useState() //금 생활인구
   const [sat, setSat] = useState() //토 생활인구
 
-  const [age10,setAge10] = useState(0) //연령대 10~60이상
-  const [age20,setAge20] = useState(0)
-  const [age30,setAge30] = useState(0)
-  const [age40,setAge40] = useState(0)
-  const [age50,setAge50] = useState(0)
-  const [age60,setAge60] = useState(0)
+  const [age10, setAge10] = useState(0) //연령대 10~60이상
+  const [age20, setAge20] = useState(0)
+  const [age30, setAge30] = useState(0)
+  const [age40, setAge40] = useState(0)
+  const [age50, setAge50] = useState(0)
+  const [age60, setAge60] = useState(0)
 
   const [time0, setTime0] = useState(0) //00~06 시간대  
   const [time6, setTime6] = useState(0) //06~11 시간대 
@@ -34,6 +33,23 @@ const DetailPeople = (props) => {
   const [time14, setTime14] = useState(0) //14~17 시간대 
   const [time17, setTime17] = useState(0) //17~21 시간대 
   const [time21, setTime21] = useState(0) //21~24 시간대 
+
+  const [workAge10, setWorkAge10] = useState(0) //직장인구 10대 
+  const [workAge20, setWorkAge20] = useState(0)
+  const [workAge30, setWorkAge30] = useState(0)
+  const [workAge40, setWorkAge40] = useState(0)
+  const [workAge50, setWorkAge50] = useState(0)
+  const [workAge60, setWorkAge60] = useState(0)
+
+
+  const [liveAge10, setLiveAge10] = useState(0) //상주인구 10대
+  const [liveAge20, setLiveAge20] = useState(0)
+  const [liveAge30, setLiveAge30] = useState(0)
+  const [liveAge40, setLiveAge40] = useState(0)
+  const [liveAge50, setLiveAge50] = useState(0)
+  const [liveAge60, setLiveAge60] = useState(0)
+
+
 
 
   const [show, setShow] = useState(false)
@@ -49,17 +65,22 @@ const DetailPeople = (props) => {
 
 
   function analyze() {
-    setShowArea(false)
-    console.log(props.dePeople)
-    props.dePeople?.map((v) => {
-      arr1.push(v.상권_코드_명)
-      arr2.push(v.총_생활인구_수)
-      arr3.push(v.가구당_상주인구_수)
-    })
-    setAreaName(arr1)
-    setAreaTotal(arr2)
-    setHome(arr3)
-    setShow(true)
+    if (props.category === "업종 선택" || props.category == undefined) {
+      alert("업종을 선택해주세요.")
+    } else {
+      setShowArea(false)
+      console.log(props.dePeople)
+      props.dePeople?.map((v) => {
+        arr1.push(v.상권_코드_명)
+        arr2.push(v.총_생활인구_수)
+        arr3.push(v.가구당_상주인구_수)
+      })
+      setAreaName(arr1)
+      setAreaTotal(arr2)
+      setHome(arr3)
+      setShow(true)
+    }
+
 
   }
 
@@ -69,10 +90,15 @@ const DetailPeople = (props) => {
     setArea(e.target.value)
   }
 
-  
+
   function areaChoice() {
-    setShowArea(true)
-    fetchData()
+    if(area==="상권선택" || area===undefined){
+      alert("상권을 선택해주세요.")
+    }else{
+      setShowArea(true)
+      fetchData()
+    }
+
   }
 
 
@@ -88,11 +114,11 @@ const DetailPeople = (props) => {
     setSat(result.data[0].토요일_생활인구_수)
 
     setAge10(result.data[0].연령대_10_생활인구_수)
-    setAge20(result.data[0].연령대_10_생활인구_수)
-    setAge30(result.data[0].연령대_10_생활인구_수)
-    setAge40(result.data[0].연령대_10_생활인구_수)
-    setAge50(result.data[0].연령대_10_생활인구_수)
-    setAge60(result.data[0].연령대_10_생활인구_수)
+    setAge20(result.data[0].연령대_20_생활인구_수)
+    setAge30(result.data[0].연령대_30_생활인구_수)
+    setAge40(result.data[0].연령대_40_생활인구_수)
+    setAge50(result.data[0].연령대_50_생활인구_수)
+    setAge60(result.data[0].연령대_60_이상_생활인구_수)
 
     setTime0(result.data[0].시간대_1_생활인구_수)
     setTime6(result.data[0].시간대_2_생활인구_수)
@@ -100,6 +126,23 @@ const DetailPeople = (props) => {
     setTime14(result.data[0].시간대_4_생활인구_수)
     setTime17(result.data[0].시간대_5_생활인구_수)
     setTime21(result.data[0].시간대_6_생활인구_수)
+
+    setWorkAge10(result.data[0].연령대_10_직장_인구_수)
+    setWorkAge20(result.data[0].연령대_20_직장_인구_수)
+    setWorkAge30(result.data[0].연령대_30_직장_인구_수)
+    setWorkAge40(result.data[0].연령대_40_직장_인구_수)
+    setWorkAge50(result.data[0].연령대_50_직장_인구_수)
+    // setWorkAge60(result.data[0].연령대_60_이상_직장_인구_수)
+
+
+    setLiveAge10(result.data[0].연령대_10_상주인구_수)
+    setLiveAge20(result.data[0].연령대_20_상주인구_수)
+    setLiveAge30(result.data[0].연령대_30_상주인구_수)
+    setLiveAge40(result.data[0].연령대_40_상주인구_수)
+    setLiveAge50(result.data[0].연령대_50_상주인구_수)
+    setLiveAge60(result.data[0].연령대_60_이상_상주인구_수)
+
+    setHomeNum(result.data[0].가구당_상주인구_수)
   }
   //총 생활인구 수 데이터
   const totalData = {
@@ -114,45 +157,119 @@ const DetailPeople = (props) => {
       }
     ]
   }
-    //상권 내 요일 별 인구 수 데이터
-    const dayData = {
-      labels: ["일요일_생활인구_수", "월요일_생활인구_수","화요일_생활인구_수","수요일_생활인구_수","목요일_생활인구_수","금요일_생활인구_수","토요일_생활인구_수"],
-      datasets: [
-        {
-          label: '',
-          borderWidth: 5, // 테두리 두께
-          data: [sun, mon, tuse,wed, thur, fri, sat], // 수치
-          fill: true,
-          backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
-        }
-      ]
-    }
-    //상권 내 연령 별 인구 수 데이터
-    const ageData = {
-      labels: ["10대 생활인구 수", "20대 생활인구 수","30대 생활인구 수","40대 생활인구 수","50대 생활인구 수","60대 이상 생활인구 수"],
-      datasets: [
-        {
-          label: '',
-          borderWidth: 5, // 테두리 두께
-          data: [age10,age20,age30,age40,age50,age60], // 수치
-          fill: true,
-          backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
-        }
-      ]
-    }
-    //상권 내 시간대 별 인구 수 데이터
-    const timeData = {
-      labels: ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_17_매출_금액", "시간대_17_21_매출_금액", "시간대_21_24"],
-      datasets: [
-        {
-          label: '',
-          borderWidth: 5, // 테두리 두께
-          data: [time0,time6,time11,time14,time17,time21], // 수치
-          fill: true,
-          backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
-        }
-      ]
-    }
+  //상권 내 요일 별 인구 수 데이터
+  const dayData = {
+    labels: ["일요일_생활인구_수", "월요일_생활인구_수", "화요일_생활인구_수", "수요일_생활인구_수", "목요일_생활인구_수", "금요일_생활인구_수", "토요일_생활인구_수"],
+    datasets: [
+      {
+        label: '',
+        borderWidth: 5, // 테두리 두께
+        data: [sun, mon, tuse, wed, thur, fri, sat], // 수치
+        fill: true,
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+      }
+    ]
+  }
+  //상권 내 연령 별 인구 수 데이터
+  const ageData = {
+    labels: ["10대 생활인구 수", "20대 생활인구 수", "30대 생활인구 수", "40대 생활인구 수", "50대 생활인구 수", "60대 이상 생활인구 수"],
+    datasets: [
+      {
+        label: '',
+        borderWidth: 5, // 테두리 두께
+        data: [age10, age20, age30, age40, age50, age60], // 수치
+        fill: true,
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+      }
+    ]
+  }
+  //상권 내 시간대 별 인구 수 데이터
+  const timeData = {
+    labels: ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_17_매출_금액", "시간대_17_21_매출_금액", "시간대_21_24"],
+    datasets: [
+      {
+        label: '',
+        borderWidth: 5, // 테두리 두께
+        data: [time0, time6, time11, time14, time17, time21], // 수치
+        fill: true,
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+      }
+    ]
+  }
+  //상권 내 요일 별 상주인구 수 데이터
+  // const liveData = {
+  //   labels: ["10대 상주인구 수", "20대 상주인구 수", "30대 상주인구 수", "40대 상주인구 수", "50대 상주인구 수", "60대 이상 상주인구 수"],
+  //   datasets: [
+  //     {
+  //       label: '',
+  //       borderWidth: 5, // 테두리 두께
+  //       data: [liveAge10,], // 수치
+  //       fill: true,
+  //       backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+  //     }
+  //   ]
+  // }
+  let liveData = [liveAge10, liveAge20, liveAge30, liveAge40, liveAge50, liveAge60]
+  let liveLabels = ["10대 상주인구 수", "20대 상주인구 수", "30대 상주인구 수", "40대 상주인구 수", "50대 상주인구 수",]
+
+  let customLiveLabels = liveLabels.map((label, index) => `${label}: ${liveData[index]}`)
+  const dayLiveData = {
+    labels: customLiveLabels,
+    datasets: [
+      {
+        label: "",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#545775",
+          "#663366",
+          "#339966",
+        ],
+        data: liveData,
+      },
+    ],
+  };
+
+
+
+
+  //상권 내 요일 별 직장인구 수 데이터
+  // const workData = {
+  //   labels: ["10대 직장인구 수", "20대 직장인구 수", "30대 직장인구 수", "40대 직장인구 수", "50대 직장인구 수", "60대 이상 직장인구 수"],
+  //   datasets: [
+  //     {
+  //       label: '',
+  //       borderWidth: 5, // 테두리 두께
+  //       data: [workAge10,], // 수치
+  //       fill: true,
+  //       backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+  //     }
+  //   ]
+  // }
+  let workData = [workAge10, workAge20, workAge30, workAge40, workAge50, workAge60]
+  let workLabels = ["10대 직장인구 수", "20대 직장인구 수", "30대 직장인구 수", "40대 직장인구 수", "50대 직장인구 수", "60대 이상 직장인구 수"]
+
+  let customWokrLabels = workLabels.map((label, index) => `${label}: ${workData[index]}`)
+  const dayWorkData = {
+    labels: customWokrLabels,
+    datasets: [
+      {
+        label: "",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#545775",
+          "#663366",
+          "#339966",
+        ],
+        data: workData,
+      },
+    ],
+  };
 
 
 
@@ -191,12 +308,44 @@ const DetailPeople = (props) => {
       {showArea ? <div>
         상권 내 요일 별 생활인구 수
         <Bar data={dayData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
-        
-        상권 내 연령 별 생활인구 수 
+
+        상권 내 연령 별 생활인구 수
         <Bar data={ageData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
 
         상권 내 시간대 별 생활인구 수
         <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+
+
+
+        상권 내 요일별 직장인구 수
+        <Doughnut
+          data={dayWorkData}
+          options={{
+            legend: { display: true, position: "right" },
+            datalabels: {
+              display: true,
+              color: "white",
+            },
+            tooltips: {
+              backgroundColor: "#5a6e7f",
+            }
+          }}></Doughnut><br />
+        상권 내 요일별 상주인구 수
+        <Doughnut
+          data={dayLiveData}
+          options={{
+            legend: { display: true, position: "right" },
+            datalabels: {
+              display: true,
+              color: "white",
+            },
+            tooltips: {
+              backgroundColor: "#5a6e7f",
+            }
+          }}></Doughnut><br />
+        가구당 상주 인구 수: {homeNum}<br />
+        실제 이동 인구 수 : ?????<br />
+        일 평균 인구 수 : ?????
       </div> : null}
 
     </div>

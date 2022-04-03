@@ -175,12 +175,16 @@ const ageSalesData = {
 
 
   function analyze() {
-    setAreaName(arr1)
-    setAmount(arr2)
-    setBestSales(arr3)
-    setBestArea(arr4)
-    setShow(true)
-    setShowAreaData(false)
+    if (props.category === "업종 선택" || props.category == undefined) {
+      alert("업종을 선택해주세요.")
+    }else{
+      setAreaName(arr1)
+      setAmount(arr2)
+      setBestSales(arr3)
+      setBestArea(arr4)
+      setShow(true)
+      setShowAreaData(false)
+    }
   }
 
   function showData(e) {
@@ -190,38 +194,42 @@ const ageSalesData = {
 
   }
   function areaChoice() {
-    var arr5= [] //요일별 금액 배열 샘플
-    var arr6 =[] //요일 이름
-    fetch(`http://localhost:5000/api3/detailSales/${props.place}/${props.category}/${area}`)
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data[0])
-      setTime0(data[0].시간대_00_06_매출_금액)
-      setTime6(data[0].시간대_06_11_매출_금액)
-      setTime11(data[0].시간대_11_14_매출_금액)
-      setTime14(data[0].시간대_14_17_매출_금액)
-      setTime17(data[0].시간대_17_21_매출_금액)
-      setTime21(data[0].시간대_21_24_매출_금액)
+    if(area==="상권선택" || area===undefined){
+      alert("상권을 선택해주세요.")
+    }else{
+      fetch(`http://localhost:5000/api3/detailSales/${props.place}/${props.category}/${area}`)
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data[0])
+        setTime0(data[0].시간대_00_06_매출_금액)
+        setTime6(data[0].시간대_06_11_매출_금액)
+        setTime11(data[0].시간대_11_14_매출_금액)
+        setTime14(data[0].시간대_14_17_매출_금액)
+        setTime17(data[0].시간대_17_21_매출_금액)
+        setTime21(data[0].시간대_21_24_매출_금액)
+  
+        setSun(data[0].일요일_매출_금액)
+        setMon(data[0].월요일_매출_금액)
+        setTuse(data[0].화요일_매출_금액)
+        setWed(data[0].수요일_매출_금액)
+        setThur(data[0].목요일_매출_금액)
+        setFri(data[0].금요일_매출_금액)
+        setSat(data[0].토요일_매출_금액)
+        
+        setAge10(data[0].연령대_10_매출_금액)
+        setAge20(data[0].연령대_20_매출_금액)
+        setAge30(data[0].연령대_30_매출_금액)
+        setAge40(data[0].연령대_40_매출_금액)
+        setAge50(data[0].연령대_50_매출_금액)
+        setAge60(data[0].연령대_60_매출_금액)
+  
+        setMan(data[0].남성_매출_금액)
+        setWoman(data[0].여성_매출_금액)
+      })
+      setShowAreaData(true)
+    }
 
-      setSun(data[0].일요일_매출_금액)
-      setMon(data[0].월요일_매출_금액)
-      setTuse(data[0].화요일_매출_금액)
-      setWed(data[0].수요일_매출_금액)
-      setThur(data[0].목요일_매출_금액)
-      setFri(data[0].금요일_매출_금액)
-      setSat(data[0].토요일_매출_금액)
-      
-      setAge10(data[0].연령대_10_매출_금액)
-      setAge20(data[0].연령대_20_매출_금액)
-      setAge30(data[0].연령대_30_매출_금액)
-      setAge40(data[0].연령대_40_매출_금액)
-      setAge50(data[0].연령대_50_매출_금액)
-      setAge60(data[0].연령대_60_매출_금액)
 
-      setMan(data[0].남성_매출_금액)
-      setWoman(data[0].여성_매출_금액)
-    })
-    setShowAreaData(true)
 
 
   }

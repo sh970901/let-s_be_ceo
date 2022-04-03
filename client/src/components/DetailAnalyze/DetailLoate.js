@@ -47,30 +47,35 @@ const DetailLoate = (props) => {
 
 
     function analyze() {
-        setShow(true)
-        setShowArea(false)
-        var arr1 = []
-        props.dish?.map((v) => {
-            if (props.category === "분식전문점") {
-                arr1.push(v.분식전문점)
-            }
-            if (props.category === "양식음식점") {
-                arr1.push(v.분식전문점)
-            } if (props.category === "일식음식점") {
-                arr1.push(v.일식음식점)
-            } if (props.category === "중식음식점") {
-                arr1.push(v.중식음식점)
-            } if (props.category === "치킨전문점") {
-                arr1.push(v.치킨전문점)
-            } if (props.category === "패스트푸드점") {
-                arr1.push(v.패스트푸드점)
-            } if (props.category === "한식음식점") {
-                arr1.push(v.한식음식점)
-            } if (props.category === "호프간이주점") {
-                arr1.push(v.호프간이주점)
-            }
-        })
-        setCategoryNo(arr1)
+        if(props.category==="업종 선택" || props.category==undefined){
+            alert("업종을 선택해주세요.")
+        }
+        else{
+            setShow(true)
+            setShowArea(false)
+            var arr1 = []
+            props.dish?.map((v) => {
+                if (props.category === "분식전문점") {
+                    arr1.push(v.분식전문점)
+                }
+                if (props.category === "양식음식점") {
+                    arr1.push(v.분식전문점)
+                } if (props.category === "일식음식점") {
+                    arr1.push(v.일식음식점)
+                } if (props.category === "중식음식점") {
+                    arr1.push(v.중식음식점)
+                } if (props.category === "치킨전문점") {
+                    arr1.push(v.치킨전문점)
+                } if (props.category === "패스트푸드점") {
+                    arr1.push(v.패스트푸드점)
+                } if (props.category === "한식음식점") {
+                    arr1.push(v.한식음식점)
+                } if (props.category === "호프간이주점") {
+                    arr1.push(v.호프간이주점)
+                }
+            })
+            setCategoryNo(arr1)
+        }     
     }
     const facilityData = {
         labels: areaName,
@@ -126,21 +131,26 @@ const DetailLoate = (props) => {
         setShowArea(false)
     }
     function areaChoice() {
-        setShowArea(true)
-        props.deLocate?.map((v) => {
-            if (v.상권_코드_명 === area) {
-                setApart0(v.아파트_가격_1_억_미만_세대_수)
-                setApart1(v.아파트_가격_1_억_세대_수)
-                setApart2(v.아파트_가격_2_억_세대_수)
-                setApart3(v.아파트_가격_3_억_세대_수)
-                setApart4(v.아파트_가격_4_억_세대_수)
-                setApart5(v.아파트_가격_5_억_세대_수)
-                setApart6(v.아파트_가격_6_억_이상_세대_수)
-                setAverApart(v.아파트_평균_시가)
-                setBus(v.버스_정거장_수)
-                setTrain(v.지하철_역_수)
-            }
-        })
+        if(area==="상권선택" || area===undefined){
+            alert("상권을 선택해주세요.")
+          }else{
+            setShowArea(true)
+            props.deLocate?.map((v) => {
+                if (v.상권_코드_명 === area) {
+                    setApart0(v.아파트_가격_1_억_미만_세대_수)
+                    setApart1(v.아파트_가격_1_억_세대_수)
+                    setApart2(v.아파트_가격_2_억_세대_수)
+                    setApart3(v.아파트_가격_3_억_세대_수)
+                    setApart4(v.아파트_가격_4_억_세대_수)
+                    setApart5(v.아파트_가격_5_억_세대_수)
+                    setApart6(v.아파트_가격_6_억_이상_세대_수)
+                    setAverApart(v.아파트_평균_시가)
+                    setBus(v.버스_정거장_수)
+                    setTrain(v.지하철_역_수)
+                }
+            })
+          }
+       
     }
     return (
         <div>

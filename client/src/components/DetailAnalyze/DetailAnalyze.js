@@ -23,14 +23,12 @@ const [category, setCategory] = useState()
 const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 
 
 function showData(e){
-  console.log("dd")
   setCategory(e.target.value)
   fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
   .then(res=>res.json())
   .then(data=>setDeSales(data))
   
 }
-
 
 useEffect(()=>{
   fetch(`http://localhost:5000/api/detailLocate/${place}`)
