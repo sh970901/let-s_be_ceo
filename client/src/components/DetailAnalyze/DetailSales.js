@@ -127,7 +127,7 @@ const DetailSales = (props) => {
   };
 //연령대 별 매출 금액
 let ageData = [age10,age20,age30,age40,age50,age60]
-let ageLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_17_매출_금액","시간대_17_21_매출_금액", "시간대_21_24_매출_금액", ]
+let ageLabels = ["연령대_10_매출_금액","연령대_20_매출_금액","연령대_30_매출_금액","연령대_40_매출_금액","연령대_50_매출_금액","연령대_60_이상_매출_금액"]
 
 let customAgeLabels = ageLabels.map((label, index) => `${label}: ${ageData[index]}`)
 const ageSalesData = {
@@ -175,7 +175,7 @@ const ageSalesData = {
 
 
   function analyze() {
-    if (props.category === "업종 선택" || props.category == undefined) {
+    if (props.category === "업종 선택" || props.category === undefined) {
       alert("업종을 선택해주세요.")
     }else{
       setAreaName(arr1)
@@ -221,7 +221,7 @@ const ageSalesData = {
         setAge30(data[0].연령대_30_매출_금액)
         setAge40(data[0].연령대_40_매출_금액)
         setAge50(data[0].연령대_50_매출_금액)
-        setAge60(data[0].연령대_60_매출_금액)
+        setAge60(data[0].연령대_60_이상_매출_금액)
   
         setMan(data[0].남성_매출_금액)
         setWoman(data[0].여성_매출_금액)
@@ -252,7 +252,7 @@ const ageSalesData = {
         <button onClick={areaChoice}>상권 선택</button>
       </div> : null}
       {showAreaData? <div>
-        시간대 별 매출 비율
+        상권 내 시간대 별 매출 비율
         <Doughnut
         data={timeSalesData}
         options={{
@@ -265,7 +265,7 @@ const ageSalesData = {
             backgroundColor: "#5a6e7f",
           }
         }}></Doughnut><br />
-        요일 별 매출 비율
+        상권 내 요일 별 매출 비율
         <Doughnut
         data={daySalesData}
         options={{
@@ -278,7 +278,7 @@ const ageSalesData = {
             backgroundColor: "#5a6e7f",
           }
         }}></Doughnut><br />
-        연령대 별 매출 비율
+        상권 내 연령대 별 매출 비율
         <Doughnut
         data={ageSalesData}
         options={{
@@ -291,7 +291,7 @@ const ageSalesData = {
             backgroundColor: "#5a6e7f",
           }
         }}></Doughnut><br />
-        성 별 매출 비율
+        상권 내 성 별 매출 비율
         <Bar data={sexData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
       </div> : null}
 

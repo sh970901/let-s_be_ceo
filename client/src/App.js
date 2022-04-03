@@ -93,7 +93,7 @@ function App() {
             </Route>
 
           </Switch>
-          <Row>
+          {/* <Row>
             <Col>
               1of1
             </Col>
@@ -103,7 +103,7 @@ function App() {
             <Col>
               1of1
             </Col>
-          </Row>
+          </Row> */}
           {/* <div className='Head'>
             <Header></Header>
           </div>

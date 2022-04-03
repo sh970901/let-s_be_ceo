@@ -50,6 +50,16 @@ const DetailPeople = (props) => {
   const [liveAge60, setLiveAge60] = useState(0)
 
 
+  //조건에 맞는 인구수 찾기
+  const [humanSex, setHumanSex] = useState() //성 
+  const [humanAge, setHumanAge] = useState() //나이
+  const [humanDay, setHumanDay] = useState() //요일
+  const [humanTime, setHumanTime] = useState() //시간대
+
+  const [goalData, setGoalData] = useState(0) //목표하는 인구 수 
+  const [isGoal, setIsGoal] = useState(false) //목표 인구수 보여주기
+
+
 
 
   const [show, setShow] = useState(false)
@@ -65,11 +75,10 @@ const DetailPeople = (props) => {
 
 
   function analyze() {
-    if (props.category === "업종 선택" || props.category == undefined) {
+    if (props.category === "업종 선택" || props.category === undefined) {
       alert("업종을 선택해주세요.")
     } else {
       setShowArea(false)
-      console.log(props.dePeople)
       props.dePeople?.map((v) => {
         arr1.push(v.상권_코드_명)
         arr2.push(v.총_생활인구_수)
@@ -80,7 +89,33 @@ const DetailPeople = (props) => {
       setHome(arr3)
       setShow(true)
     }
+  }
 
+  function handleSex(e) {
+    setHumanSex(e.target.value)
+  }
+  function handleAge(e) {
+    setHumanAge(e.target.value)
+  }
+  function handleDay(e) {
+    setHumanDay(e.target.value)
+  }
+  function handleTime(e) {
+    setHumanTime(e.target.value)
+  }
+  function showConditionData() {
+    console.log(humanSex)
+    if (humanSex !== "성별" && humanSex !== undefined && humanAge !== "연령대" && humanAge !== undefined && humanDay !== "요일" && humanDay !== undefined && humanTime !== "시간대" && humanTime !== undefined) {
+      setIsGoal(true)
+      fetch(`http://localhost:5000/human/${props.place}/${area}/${humanSex}연령대_${humanAge}_${humanDay}${humanTime}_생활인구_수`)
+        .then(res => res.json())
+        .then(data => {
+          var value = Object.values(data[0])
+          setGoalData(value[0])
+        })
+    } else {
+      alert("위에 보기중 선택하세요.")
+    }
 
   }
 
@@ -92,9 +127,9 @@ const DetailPeople = (props) => {
 
 
   function areaChoice() {
-    if(area==="상권선택" || area===undefined){
+    if (area === "상권선택" || area === undefined) {
       alert("상권을 선택해주세요.")
-    }else{
+    } else {
       setShowArea(true)
       fetchData()
     }
@@ -103,7 +138,7 @@ const DetailPeople = (props) => {
 
 
   const fetchData = async () => {
-    const result = await axios(`http://localhost:5000/api/detailPeople/${props.place}/${area}`);
+    const result = await axios(`http://localhost:5000/api/detailPeople/${props.place}/${area}/`);
     console.log(result.data[0])
     setSun(result.data[0].일요일_생활인구_수)
     setMon(result.data[0].월요일_생활인구_수)
@@ -287,6 +322,8 @@ const DetailPeople = (props) => {
       }
     ]
   }
+
+
   return (
     <div>
       <br />
@@ -343,9 +380,60 @@ const DetailPeople = (props) => {
               backgroundColor: "#5a6e7f",
             }
           }}></Doughnut><br />
+
+        <select onChange={handleSex}>
+          <option>성별</option>
+          <option>남성</option>
+          <option>여성</option>
+        </select>
+        <select onChange={handleAge}>
+          <option>연령대</option>
+          <option value='10'>10대</option>
+          <option value='20'>20대</option>
+          <option value='30'>30대</option>
+          <option value='40'>40대</option>
+          <option value='50'>50대</option>
+          <option value='60'>60대</option>
+        </select>
+        <select onChange={handleDay}>
+          <option>요일</option>
+          <option>일요일</option>
+          <option>월요일</option>
+          <option>화요일</option>
+          <option>수요일</option>
+          <option>목요일</option>
+          <option>금요일</option>
+          <option>토요일</option>
+        </select>
+        <select onChange={handleTime}>
+          <option>시간대</option>
+          <option value='시간대_1'>00-06</option>
+          <option value='시간대_2'>06-11</option>
+          <option value='시간대_3'>11-14</option>
+          <option value='시간대_4'>14-17</option>
+          <option value='시간대_5'>17-21</option>
+          <option value='시간대_6'> 21-24</option>
+        </select><button onClick={showConditionData}>조회하기</button><br /><br />
+
+        {isGoal ? <div>
+          해당 상권에서 조건에 만족하는 생활 인구 수는<br />
+          {goalData}{' '}입니다.
+        </div> : null}
+        <br />
+        <br />
+
+
+
+
+
+
+
         가구당 상주 인구 수: {homeNum}<br />
         실제 이동 인구 수 : ?????<br />
-        일 평균 인구 수 : ?????
+        일 평균 인구 수 : ?????<br />
+
+
+
       </div> : null}
 
     </div>

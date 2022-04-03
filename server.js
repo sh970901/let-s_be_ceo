@@ -198,4 +198,16 @@ app.get('/api/:place',(req,res)=>{
 })
 
 
+
+app.get('/human/:place/:area/:condition', (req,res)=>{
+    console.log(req.params.place, req.params.area, req.params.condition)
+    const condition = req.params.condition
+    connection.query(`SELECT ${condition} FROM 상세인구 WHERE 행정동_이름=? and 상권_코드_명=?`,[req.params.place, req.params.area] , function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+
+
+
 app.listen(port, ()=> console.log("서버 작동"))

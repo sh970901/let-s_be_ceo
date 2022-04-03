@@ -47,7 +47,7 @@ const DetailLoate = (props) => {
 
 
     function analyze() {
-        if(props.category==="업종 선택" || props.category==undefined){
+        if(props.category==="업종 선택" || props.category===undefined){
             alert("업종을 선택해주세요.")
         }
         else{
