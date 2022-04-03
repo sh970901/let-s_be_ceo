@@ -8,12 +8,12 @@ const DetailSales = (props) => {
   const [bestArea, setBestArea] = useState() //매출가장 높은 상권
 
   const [area, setArea] = useState() //상권 선택
-
+  const [showAreaData, setShowAreaData] = useState(false) //상권 선택
   const [areaName, setAreaName] = useState() //상권이름
   const [amount, setAmount] = useState() //분기당 매출 금액
 
   const [show, setShow] = useState(false) //데이터 보여주기
-  const [showAreaData, setShowAreaData] = useState(false) //상권 선택
+  
 
   const[areaData,SetAreaData] = useState() //상권에 맞는 정보담는 데이터
 
@@ -85,6 +85,9 @@ const DetailSales = (props) => {
       }
     ]
   }
+
+
+  //성별 매출 금액
   const sexData = {
     labels: ["남성 매출 금액", "여성 매출 금액"],
     datasets: [
@@ -97,6 +100,7 @@ const DetailSales = (props) => {
       }
     ]
   }
+
 
 //시간대 별 매출 금액
   let timeData = [time0,time6,time11,time14,time17,time21]
@@ -121,6 +125,29 @@ const DetailSales = (props) => {
           },
       ],
   };
+//연령대 별 매출 금액
+let ageData = [age10,age20,age30,age40,age50,age60]
+let ageLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_21_매출_금액", "시간대_21_24_매출_금액", ]
+
+let customAgeLabels = ageLabels.map((label, index) => `${label}: ${ageData[index]}`)
+const ageSalesData = {
+    labels: customAgeLabels,
+    datasets: [
+        {
+            label: "",
+            backgroundColor: [
+                "#83ce83",
+                "#959595",
+                "#f96a5d",
+                "#00A6B4",
+                "#545775",
+                "#663366",
+                "#339966",
+            ],
+            data: ageData,
+        },
+    ],
+};
 
   //요일별 매출 금액
   let dayData = [sun, mon, tuse,wed, thur, fri, sat]
@@ -145,12 +172,15 @@ const DetailSales = (props) => {
           },
       ],
   };
+
+
   function analyze() {
     setAreaName(arr1)
     setAmount(arr2)
     setBestSales(arr3)
     setBestArea(arr4)
     setShow(true)
+    setShowAreaData(false)
   }
 
   function showData(e) {
@@ -229,6 +259,19 @@ const DetailSales = (props) => {
         요일 별 매출 비율
         <Doughnut
         data={daySalesData}
+        options={{
+          legend: { display: true, position: "right" },
+          datalabels: {
+            display: true,
+            color: "white",
+          },
+          tooltips: {
+            backgroundColor: "#5a6e7f",
+          }
+        }}></Doughnut><br />
+        연령대 별 매출 비율
+        <Doughnut
+        data={ageSalesData}
         options={{
           legend: { display: true, position: "right" },
           datalabels: {

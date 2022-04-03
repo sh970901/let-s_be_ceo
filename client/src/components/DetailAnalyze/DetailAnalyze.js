@@ -17,6 +17,7 @@ const [deSales , setDeSales] = useState() //상세매출 테이블 정보 담음
 
 
 
+
 const [category, setCategory] = useState()
 
 const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 
@@ -71,7 +72,7 @@ useEffect(()=>{
             <option>치킨전문점</option>
             <option>패스트푸드점</option>
             <option>한식음식점</option>
-            <option>호프_간이주점</option>
+            <option>호프-간이주점</option>
         </select>
         <td>
           <tr>
