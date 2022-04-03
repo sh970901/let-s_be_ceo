@@ -153,20 +153,26 @@ app.get('/api/building/:area', (req,res)=>{
       })
 })
 
-app.get('/api/detailPeople/:area', (req,res)=>{
-    connection.query('SELECT * FROM 상세인구 WHERE 행정동_이름=?',req.params.area , function (error, rows, fields) {
+app.get('/api/detailPeople/:place', (req,res)=>{
+    connection.query('SELECT * FROM 상세인구 WHERE 행정동_이름=?',req.params.place , function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })
 })
-app.get('/api/detailLocate/:area', (req,res)=>{
-    connection.query('SELECT * FROM 상세지역 WHERE 행정동_이름=?',req.params.area, function (error, rows, fields) {
+app.get('/api/detailPeople/:place/:area', (req,res)=>{
+    connection.query('SELECT * FROM 상세인구 WHERE 행정동_이름=? and 상권_코드_명=?',[req.params.place, req.params.area] , function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })
 })
-app.get('/api/detailSales/:area', (req,res)=>{
-    connection.query('SELECT * FROM 상세매출 WHERE 행정동_이름=?',req.params.area, function (error, rows, fields) {
+app.get('/api/detailLocate/:place', (req,res)=>{
+    connection.query('SELECT * FROM 상세지역 WHERE 행정동_이름=?',req.params.place, function (error, rows, fields) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(rows);
+      })
+})
+app.get('/api/detailSales/:place', (req,res)=>{
+    connection.query('SELECT * FROM 상세매출 WHERE 행정동_이름=?',req.params.place, function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })

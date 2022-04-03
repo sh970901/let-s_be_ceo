@@ -178,16 +178,20 @@ const ChartData = (props) => {
           </tr>
         </td>
         <td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+        <td>
           <tr>
             <h4 className='prac'>시간대 별 생활 인구 수</h4>
             <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
           </tr>
         </td>
-
+      
 
       </div><br />
       <td>
         <tr>
+        <h4 className='prac'>행정동 전체와 해당 지역 비율</h4>
           <Doughnut
             data={chartdata}
             options={{
@@ -201,6 +205,9 @@ const ChartData = (props) => {
               }
             }}></Doughnut><br />
         </tr>
+      </td>
+      <td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </td>
       <td>
         <tr>

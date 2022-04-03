@@ -127,7 +127,7 @@ const DetailSales = (props) => {
   };
 //연령대 별 매출 금액
 let ageData = [age10,age20,age30,age40,age50,age60]
-let ageLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_21_매출_금액", "시간대_21_24_매출_금액", ]
+let ageLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_17_매출_금액","시간대_17_21_매출_금액", "시간대_21_24_매출_금액", ]
 
 let customAgeLabels = ageLabels.map((label, index) => `${label}: ${ageData[index]}`)
 const ageSalesData = {
@@ -184,6 +184,7 @@ const ageSalesData = {
   }
 
   function showData(e) {
+    setShowAreaData(false)
     setArea(e.target.value)
 
 

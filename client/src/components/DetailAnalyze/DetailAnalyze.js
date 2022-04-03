@@ -81,12 +81,14 @@ useEffect(()=>{
            
           </tr>
         </td>
+        
         <td>
           <tr>
             상세인구
             <DetailPeople dePeople={dePeople} place={place} category={category} ></DetailPeople>{'  '}
           </tr>
         </td>
+        
         <td>
           <tr>
             상세매출

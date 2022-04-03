@@ -48,6 +48,7 @@ const DetailLoate = (props) => {
 
     function analyze() {
         setShow(true)
+        setShowArea(false)
         var arr1 = []
         props.dish?.map((v) => {
             if (props.category === "분식전문점") {
@@ -122,7 +123,7 @@ const DetailLoate = (props) => {
 
     function showData(e) {
         setArea(e.target.value)
-
+        setShowArea(false)
     }
     function areaChoice() {
         setShowArea(true)
@@ -152,7 +153,7 @@ const DetailLoate = (props) => {
                     업종 개수
                     <Bar data={categoryData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
 
-                    상권을 선택해주세요:{' '}<select onClick={showData}>
+                    상권을 선택해주세요:{' '}<select onChange={showData}>
                         <option>상권선택</option>
                         {areaName.map((v) => {
                             return <option>{v}</option>
