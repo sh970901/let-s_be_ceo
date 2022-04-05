@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Poppins:wght@400;500;600&display=swap');
+
+.link__logo {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.link__menu {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.link__menu:hover {
+    color: inherit;
+}
+
+.navbar {
+    /* 컨텐츠 사이 공간 */
+    /* 아이템 수직 정렬 */
+    position: fixed;
+    width: 100%;
+    z-index: 33;
+    background-color: aliceblue;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.418);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 8px 12px;
+
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color: blue;
+    flex: 1;
+}
+
+.navbar__menu {
+    flex: 3;
+    padding-left: 0;
+    text-align: center;
+    display: flex;
+    margin: auto;
+}
+
+.navbar__menu > li {
+    flex: 1;
+    padding: 8px 20px;
+}
+
+.navbar__menu > li:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+    border-radius: 5px;
+}
+
+
+
+.navbar__login {
+    flex: 1;
+}

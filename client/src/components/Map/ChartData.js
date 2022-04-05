@@ -191,7 +191,7 @@ const ChartData = (props) => {
       </div><br />
       <td>
         <tr>
-        <h4 className='prac'>행정동 전체와 해당 지역 비율</h4>
+        <h4 className='prac'>행정동 전체와 해당 지역 매출 비율</h4>
           <Doughnut
             data={chartdata}
             options={{

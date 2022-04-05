@@ -1,14 +1,56 @@
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import State from './State/State';
+
+import logo from "../img/headerlogo.png"
+import s from "../css/Header.module.css";
+
+
 //상단 내비게이션
 const Header = () => {
     
     return (
-        <div className='Header'>
 
-            <div>
-                <ul>
+        <div className={s.navbar}>
+            <div className={s.navbar__logo}>
+                <Link to ='/' className={s.link__logo}>
+                    Logo
+                </Link>
+            </div>
+
+            <ul className={s.navbar__menu}>
+                <li>
+                    <Link to='/map' className={s.link__menu}>
+                        상권분석
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/sonik' className={s.link__menu}>
+                        손익분기
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/board' className={s.link__menu}>
+                        게시판
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/question' className={s.link__menu}>
+                        문의사항
+                    </Link>
+                </li>
+            </ul>
+
+            <div className={s.navbar__login}>
+                <State></State>
+            </div>
+        </div>
+
+
+
+        /**
+            <div className={s.navbar}>
+                <ul className={s.nav}>
                     <li>
                         <Link to ='/'>
                             Logo
@@ -42,29 +84,7 @@ const Header = () => {
                     </li>
                 </ul>
             </div>
-            {/* <Nav fill variant="tabs" defaultActiveKey="/" className='nav'>         
-                <Nav.Item>
-                    <Nav.Link href="/">LOGO</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/map">상권분석</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/sonik">손익분기점</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/board">게시판</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/question">QnA</Nav.Link>
-                </Nav.Item>  
-                <Nav.Item>
-                <State></State>        
-                </Nav.Item>   
-            </Nav> */}
-                   
-        </div>
+            */
     );
 };
 export default Header;
-
