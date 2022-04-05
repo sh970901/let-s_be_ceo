@@ -1,4 +1,5 @@
 import React from 'react'
+// import ResultModal from './Modal/ResultModal'
 
 const QuestionData = (props) => {
     
@@ -21,12 +22,13 @@ const QuestionData = (props) => {
         
     }
     return (
-        <div>
-            <div className=""onClick={showQuestion}>
-                <input type='text' value={props.id} readOnly></input><input type='text' value={props.content} readOnly></input>
-                
-            </div>
-        </div>
+        <>
+       
+            <div className='item'>{props.no}</div>
+            <div className='item' onClick={showQuestion} >{props.content}</div>
+            <div className='item'>{props.date}</div>
+            <div className='item'>{props.id}</div>
+        </>
     )
 }
 
