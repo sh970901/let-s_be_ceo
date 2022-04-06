@@ -14,7 +14,6 @@ const Question = () => {
   const [showModal, setShowModal] = useState(false)
   const [answerData, setAnswerData] = useState("대기 중...")
 
-
   const [detailId, setDetailId] = useState("")
   const [detailContent, setDetailContent] = useState("")
 
