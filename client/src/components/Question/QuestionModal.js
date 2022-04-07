@@ -16,14 +16,15 @@ const QuestionModal = (props) => {
 
       <Modal 
       className='qnaModal'
-      
       isOpen={props.openModal}
         onRequestClose={props.closeModal}
       >
         <div className='modalItem'>
-          <div>문의 내용</div>
-          아이디: {props.detailId} <br />
+          
           내용: {props.detailContent}<br /><br /><br /><br />
+
+
+          아이디: {props.detailId} <br />
           답변: {props.answerData}
           <button onClick={props.closeModal}>닫기</button>
         </div>
