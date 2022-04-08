@@ -39,13 +39,18 @@ const Board = () => {
             history.push({
                 pathname:'/login'
             })
-        }
-        
+        }   
     }
-
     return (
         <div>
-            <h1>게시판</h1>{' '}<input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>{' '}<Button onClick={searchBoard}>검색</Button>
+            <h1 className='boardHead'>게시판</h1>
+            <div className=''>
+                
+                <div className='item'><input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input></div>
+                <div className='item'><Button onClick={searchBoard}>검색</Button></div>
+                <div className='item'></div>
+                <div className='item'></div>
+                
             <div className='allBoard'>
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -81,7 +86,7 @@ const Board = () => {
             <Link to='/myBoard'>
                 <Button>내가 쓴 끌</Button>
             </Link>{' '}
-        
+            </div>
         </div>
     );
 };

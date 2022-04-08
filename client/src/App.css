@@ -257,3 +257,27 @@
   margin-left: 35%;
   
 }
+
+.containerBoard {
+  margin-top: 40px;
+  padding: 100px;
+
+  display: grid;
+
+  grid-template-columns: 30px 400px 200px 100px;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  overflow: visible;
+/* 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  
+  grid-template-columns: 200px 1fr;
+  grid-template-columns: 100px 200px auto; */
+
+}
+.boardHead{
+  margin-top: 5%;
+  text-align: center;
+}
