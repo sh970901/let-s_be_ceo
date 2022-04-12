@@ -2,6 +2,10 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+
+// import style sheet
+import s from "../../css/Login.module.css";
+
 //ID/PW찾기
 const FindLogin = () => {
 
@@ -59,19 +63,39 @@ const FindLogin = () => {
         })
     }
     return (
-        <div>
-            <h1>ID/PW찾기</h1>
-            <h3>아이디 찾기</h3>
-            이메일: <input type="text" name='mailFindId' value={mailFindId} onChange={handleMailId} ></input>{"  "}
-            <Button onClick={checkEmail}>찾기</Button>
-            <h3>비밀번호 찾기</h3>
-            아이디: <input type='text' name='idFind' value={idFind} onChange={handleId}></input><br/>
-            이메일: <input type='text' name='mailFindPw' value={mailFindPw} onChange={handleMailPw}></input>{"  "}
-            <Button onClick={checkPW}>찾기</Button>
-            <br/><br/><br/>
-            <Link to ='/login'>
-            <Button>돌아가기</Button>
-            </Link>
+        <div className={s.login__container}>
+            <div className={s.login__form}>
+                <div className={s.logo}>
+                    <h1>ID/PW 찾기</h1>
+                </div>
+
+                {/* ----------------find userID------------------ */}
+                <h3 className={s.forgotpw__title}>아이디 찾기</h3>                    
+                <div className={s.int__area}>
+                    <input type="text" name='mailFindId' value={mailFindId} onChange={handleMailId}></input>
+                    <label for="pw">E-mail</label>
+                </div>
+                <div className={s.btn__area}>
+                    <button onClick={checkEmail} className={s.btn}>찾기</button>
+                </div>
+
+                {/* ----------------find password------------------ */}
+                <h3 className={s.forgotpw__title}>비밀번호 찾기</h3>
+                <div className={s.int__area}>
+                    <input type='text' name='idFind' value={idFind} onChange={handleId}></input>
+                    <label for="pw">User ID</label>
+                </div>
+
+                <div className={s.int__area}>
+                    <input type='text' name='mailFindPw' value={mailFindPw} onChange={handleMailPw}></input>
+                    <label for="pw">E-mail</label>
+                </div>                
+                
+                <div className={s.btn__area}>
+                    <button onClick={checkPW} className={s.btn}>찾기</button>
+                    <Link to ='/login' className={s.link}>Go Back</Link>
+                </div>
+            </div>
         </div>
     );
 };

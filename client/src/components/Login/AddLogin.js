@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
+import s from "../../css/Login.module.css";
+
 //회원가입
 const AddLogin = () => {
     const [addId, setAddId] = useState("")
@@ -76,20 +78,44 @@ const AddLogin = () => {
             alert("아이디 중복체크하세요")
         }
     }
+    
     return (
-        <div>
-            <form onSubmit={handleFormSubmit}>
-                <h1>회원 가입</h1>
-                아이디: <input type='text' name='inputId' value={addId} onChange={handleAddId}></input>{"  "}
-                <Button onClick={idCheck}>중복체크</Button><br />
-                비밀번호: <input type="password" name='inputPw' value={addPw} onChange={handleAddPw}></input><br />
-                비밀번호 확인: <input type="password" name='inputPwCh' value={addPwCh} onChange={handleAddPwCh}></input><br />
-                이메일: <input type='text' name='inputEmail' value={addEmail} onChange={handleAddEmail}></input><br /><br />
-                <Button type='submit'>가입</Button> {'  '}
-                <Link to='/login'>
-                    <Button>돌아가기</Button>
-                </Link>
+        <div className={s.login__container}>
+            <form onSubmit={handleFormSubmit} className={s.signup__form}>
+                <div className={s.logo}>
+                    <h1>Sign up</h1>
+                </div>
+
+                <div className={s.sign__userid}>
+                    <div className={s.int__area}>
+                        <input type='text' name='inputId' value={addId} onChange={handleAddId}></input>
+                        <label for="id">USER ID</label>
+                    </div>
+                    <button onClick={idCheck} className={s.sign__btn}>중복체크</button>
+                </div>
+                
+                <div className={s.int__area}>
+                    <input type="password" name='inputPw' value={addPw} onChange={handleAddPw}></input>
+                    <label for="id">PASSWORD</label>
+                </div>
+
+                <div className={s.int__area}>
+                    <input type="password" name='inputPwCh' value={addPwCh} onChange={handleAddPwCh}></input>
+                    <label for="id">PASSWORD</label>
+                </div>
+
+                <div className={s.int__area}>
+                    <input type='text' name='inputEmail' value={addEmail} onChange={handleAddEmail}></input>
+                    <label for="id">E-MAIL</label>
+                </div>
+
+                <div className={s.sign__btnarea}>
+                    <button type='submit' className={s.btn}>가입</button>
+                    <Link to='/login' className={s.link}>Back</Link>
+                </div>
             </form>   
+
+
         </div>
     );
 };

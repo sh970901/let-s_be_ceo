@@ -3,6 +3,9 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import s from "../../css/Login.module.css";
+
 //로그인
 const GoLogin = () => {
     const [inputId, setInputId] = useState("");
@@ -49,23 +52,46 @@ const GoLogin = () => {
     }
     
     return (
-        <div>
-           <h1>로그인</h1>
-            ID: <input type='text' name='inputId' value={inputId} onChange={handleInputId}></input><br/>
-    
-            PW: <input type="password" name='inputPw' value={inputPw} onChange={handleInputPw}></input><br /><br />
-            <Button onClick={checkLogin} >LOGIN</Button>{'   '}  
-            <Link to='/addLogin'>
-                <Button>회원가입</Button>
-            </Link>
-            {'   '}
-            <Link to='/findLogin'>
-                <Button>ID/PW 찾기</Button>
-            </Link>
-            <br></br><br></br>
-            <Link to="/">
-                <Button>메인으로</Button>
-            </Link>
+        <div className={s.login__container}>
+            <div className={s.login__form}>
+                <div className={s.logo}>
+                    <h1>Login</h1>
+                </div>
+
+                <div>
+                    <div className={s.int__area}>
+                        <input type='text' name='inputId' value={inputId} onChange={handleInputId}></input>
+                        <label for="id"> USER ID</label>
+                    </div>
+
+                    <div className={s.int__area}>
+                        <input type="password" name='inputPw' value={inputPw} onChange={handleInputPw}></input>
+                        <label for="pw"> PASSWORD</label>
+                    </div>
+
+                    <div className={s.btn__area}>
+                        <div>
+                            <button onClick={checkLogin} className={s.btn}>LOGIN</button>
+                        </div>
+                        <div>
+                            <Link to='/addLogin'><button className={s.btn}>회원가입</button></Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={s.link__area}>
+                    <div className={s.link__div}>
+                        <Link to='/findLogin' className={s.link}>
+                            forgot Password?
+                        </Link>
+                    </div>
+                    <div className={s.link__div}>
+                        <Link to="/" className={s.link}>
+                            go main
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
