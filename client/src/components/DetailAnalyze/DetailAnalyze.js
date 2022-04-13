@@ -15,9 +15,6 @@ const DetailAnalyze = () => {
   const [dePeople, setDePeple] = useState()  //상세인구 테이블 정보 담음
   const [deSales, setDeSales] = useState() //상세매출 테이블 정보 담음
 
-
-
-
   const [category, setCategory] = useState()
 
   const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 

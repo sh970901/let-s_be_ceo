@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 //댓글관리
 const Comment = (props) => {
-    const history = useHistory()
+    // const history = useHistory()
     function deleteComment(){
         const url = `http://localhost:5000/api/comment/${props.no}`
         fetch(url, {
