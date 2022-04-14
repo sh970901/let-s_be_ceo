@@ -6,7 +6,6 @@ import DetailLoate from './DetailLoate';
 import DetailPeople from './DetailPeople';
 import DetailSales from './DetailSales';
 
-
 const DetailAnalyze = () => {
   const location = useLocation();
   const place = location.state.place
@@ -24,7 +23,6 @@ const DetailAnalyze = () => {
     fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
       .then(res => res.json())
       .then(data => setDeSales(data))
-
   }
 
   useEffect(() => {
