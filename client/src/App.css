@@ -15,6 +15,7 @@
 
   --hue-color: 250;
 
+  
   /* -----------------HSL color 변수------------------ */
   --first-color: hsl(var(--hue-color), 69%, 61%);
   --first-color-second: hsl(var(--hue-color), 69%, 61%);
