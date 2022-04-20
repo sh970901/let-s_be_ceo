@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+
+//-----------------CSS import--------------------//
+import s from '../../css/Board.module.css';
+
 //게시판 추가
 const AddBoard = () => {
 
@@ -36,14 +40,29 @@ const AddBoard = () => {
     }
     
     return (
-        <div>
-            <h1>게시글 작성</h1>
-            제목:<input type="text" name="boardTitle" value={boardTitle} onChange={handleBoardTitle}></input> <br/><br/>
-            내용:<textarea name="boardContent" value={boardContent} onChange={handleBoardContent}></textarea><br/>
-            <Button onClick={addBoard}>완료</Button> {' '}
-            <Link to='/board'>
-            <Button>취소</Button>
-            </Link>
+        <div className={s.board}>
+            <div className={s.createBoard}>
+                <h1>Create Board</h1>
+
+                <div className={s.createBody}>
+                    <div className={s.createInputs}>
+                        <label for="" className={s.createLabel}>Board Title</label>
+                        <input type="text" name="boardTitle" value={boardTitle} onChange={handleBoardTitle}
+                        className={s.createInput}></input>
+                    </div>
+
+                    <div className={s.createInputs}>
+                        <label for="" className={s.createLabel}>Board Content</label>
+                        <textarea name="boardContent" value={boardContent} onChange={handleBoardContent}
+                        className={s.createInputText} rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div className={s.btnArea}>
+                <Button onClick={addBoard} className={s.btn}>완료</Button>
+                <Link to='/board'><Button className={s.btn}>취소</Button></Link>
+                </div>
+            </div>
         </div>
     );
 };

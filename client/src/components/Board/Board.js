@@ -3,6 +3,9 @@ import { Button, Table } from 'react-bootstrap'
 import { useState } from 'react';
 import BoardInfo from './BoardInfo';
 import { Link, useHistory } from 'react-router-dom';
+import s from '../../css/Board.module.css'
+
+
 //게시판
 const Board = () => {
     const [boards, setBoards] = useState([])
@@ -39,19 +42,14 @@ const Board = () => {
             history.push({
                 pathname:'/login'
             })
-        }   
+        }
+        
     }
+
     return (
-        <div>
-            <h1 className='boardHead'>게시판</h1>
-            <div className=''>
-                
-                <div className='item'><input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input></div>
-                <div className='item'><Button onClick={searchBoard}>검색</Button></div>
-                <div className='item'></div>
-                <div className='item'></div>
-                
-            <div className='allBoard'>
+        <div className={s.board}>
+            
+            <div className={s.boardBody}>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>
@@ -78,15 +76,17 @@ const Board = () => {
                                 </td>
                             </tr>}
                     </tbody>
-                </Table>
+                    
+                </Table>    
             </div>
+            <input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input><Button onClick={searchBoard}>검색</Button>{' '}
             
-                <Button onClick={writeBoard}>게시글 쓰기</Button> {' '}
+            <Button onClick={writeBoard}>게시글 쓰기</Button>{' '}
             
             <Link to='/myBoard'>
                 <Button>내가 쓴 끌</Button>
-            </Link>{' '}
-            </div>
+            </Link>
+        
         </div>
     );
 };

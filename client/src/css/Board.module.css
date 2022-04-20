@@ -1,0 +1,88 @@
+.board {
+    height: 100%;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding: 100px;
+}
+
+.boards {
+    height: 100vh;
+    padding-top: 50px;
+    padding: 100px;
+}
+
+.boardBody {
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.createBoard > h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.createBoard {
+    width: 100%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.829);
+    border-radius: 5px;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+    padding: 2rem;
+}
+
+.createBody {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    row-gap: 1.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.createInputs {
+    background-color: rgba(63, 115, 210, 0.482);
+    border-radius: 3px;
+    padding: .75rem 1rem .25rem;
+}
+
+.createInput {
+    width: 100%;
+    background-color: #3f73d200;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    border: none;
+    outline: none;
+    padding: .25rem .5rem .5rem 0;
+}
+
+.createInputText {
+    width: 100%;
+    background-color: #3f73d200;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    border: none;
+    outline: none;
+    padding: .25rem .5rem .5rem 0;
+
+    resize: none;
+}
+
+.btnArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    background: #3f73d2;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}

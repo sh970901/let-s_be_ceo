@@ -16,11 +16,11 @@ import BoardDetail from './components/Board/BoardDetail';
 import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 import Map from './components/Map/Map';
-import Sonik from './components/Sonik/Sonik';
 import { Geojson } from './components/Map/Geojson';
+import Infomation from './components/Map/Infomation';
 import { useState } from 'react';
 import MainPage from './components/Main/MainPage';
-
+import Sonik from './components/Sonik/Sonik';
 import Question from './components/Question/Question';
 import DetailAnalyze from './components/DetailAnalyze/DetailAnalyze';
 
@@ -122,8 +122,7 @@ function App() {
           <div className='Foot'>
             <Footer></Footer>
           </div> */}
-
-
+          <Footer />
       </BrowserRouter>
     </div>
 

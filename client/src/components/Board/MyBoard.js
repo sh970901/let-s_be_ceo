@@ -3,6 +3,12 @@ import { Button, Table } from 'react-bootstrap';
 import BoardInfo from './BoardInfo';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+
+//-----------------CSS import--------------------//
+import s from '../../css/Board.module.css';
+
+
 //내 게시글 보기
 const MyBoard = () => {
     const [myBoard, setMyBoard] = useState([])
@@ -14,12 +20,11 @@ const MyBoard = () => {
             })
     }, [])
     return (
-        <div>
-            <br/><br/><br/>
-            <br/><br/><br/>
+        <div className={s.board}>
             {sessionStorage.getItem('user_id')===null? <div>로그인후 이용가능</div> : 
-            <div>
-                <br/><br/><br/>
+
+            
+            <div className={s.boardBody}>
             <h1>내가 쓴 게시글</h1>
             <Table striped bordered hover size="sm">
                 <thead>
@@ -49,15 +54,10 @@ const MyBoard = () => {
                         </tr>}
                 </tbody>
             </Table>
+            </div>}
             <Link to ="/board">
             <Button>뒤로가기</Button>
             </Link>
-                
-                
-            </div>}
-            
-            
-
         </div>
     );
 };

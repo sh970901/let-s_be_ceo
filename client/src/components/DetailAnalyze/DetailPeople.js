@@ -220,7 +220,7 @@ const DetailPeople = (props) => {
   }
   //상권 내 시간대 별 인구 수 데이터
   const timeData = {
-    labels: ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_17_매출_금액", "시간대_17_21_매출_금액", "시간대_21_24"],
+    labels: ["시간대_00_06_생활인구", "시간대_06_11_생활인구", "시간대_11_14_생활인구", "시간대_14_17_생활인구", "시간대_17_21_생활인구", "시간대_21_24_생활인구"],
     datasets: [
       {
         label: '',
@@ -266,8 +266,6 @@ const DetailPeople = (props) => {
       },
     ],
   };
-
-
 
 
   //상권 내 요일 별 직장인구 수 데이터
@@ -323,10 +321,14 @@ const DetailPeople = (props) => {
     ]
   }
 
+  function dd(){
+    console.log("home:"+ home)
+    console.log("homeData: "+homeNum)
+  }
 
   return (
     <div>
-      <br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <button onClick={analyze}>분석하기</button><br /><br />
       {show ? <div>
         상권 별 총 생활인구 수 비율
@@ -436,6 +438,7 @@ const DetailPeople = (props) => {
 
       </div> : null}
 
+      <button onClick={dd}> dd</button>
     </div>
   )
 }
