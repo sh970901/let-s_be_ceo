@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 // import ResultModal from './Modal/ResultModal'
 
 const QuestionData = (props) => {

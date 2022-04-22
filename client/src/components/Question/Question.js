@@ -56,6 +56,7 @@ const Question = () => {
     }
 
   }
+  var no=0        //문의사항 순번
   return (
     <div>
       <div>문의사항</div>
@@ -65,7 +66,9 @@ const Question = () => {
         <div className='item'>순번</div> <div className='item'>문의내용</div> <div className='item'>작성 날짜</div> <div className='item'>작성자</div>
         
 
-        {questions ? questions.map((c) => {
+        {questions ? 
+        questions.map((c) => {
+          no++;
 
           return (
             <QuestionData
@@ -75,7 +78,7 @@ const Question = () => {
               setDetailId={setDetailId}
 
               date={c.date}
-              no={c.no}
+              no={no}
               setShowModal={setShowModal}
               detailId={detailId}
               detailContent={detailContent}

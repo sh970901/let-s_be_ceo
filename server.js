@@ -96,7 +96,7 @@ app.get('/api/comment/:title',(req,res)=>{
       })
 })
 app.post('/api/comment',(req,res)=>{
-    let sql = 'INSERT INTO comment VALUES (null,?,?,?,now())'
+    let sql = 'INSERT INTO comment VALUES (null,?,?,?,now())';
     let id = req.body.id;
     let comment = req.body.comment;
     let title = req.body.title;
@@ -121,15 +121,18 @@ app.get('/api/question/:id', (req,res)=>{
 })
 
 app.post('/api/question', (req,res)=>{
-    let sql = 'INSERT INTO question VALUES (null,?,?,null,now())'
+    let sql = 'INSERT INTO question VALUES (null,?,?,null,now());'
     let id = req.body.id;
     let content = req.body.content;
     let params = [id, content]
+    console.log(params)
     connection.query(sql, params, function(error, rows,field){
+        console.log(sql)
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows)
     })
 })
+
 app.get('/api/answer/', (req,res)=>{
     connection.query('SELECT * FROM question WHERE id=?', req.query.id,  function (error, rows, fields) {
         console.log(rows.content)
