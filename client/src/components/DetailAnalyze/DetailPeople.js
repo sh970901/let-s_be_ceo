@@ -321,10 +321,6 @@ const DetailPeople = (props) => {
     ]
   }
 
-  function dd(){
-    console.log("home:"+ home)
-    console.log("homeData: "+homeNum)
-  }
 
   return (
     <div>
@@ -421,13 +417,6 @@ const DetailPeople = (props) => {
           해당 상권에서 조건에 만족하는 생활 인구 수는<br />
           {goalData}{' '}입니다.
         </div> : null}
-        <br />
-        <br />
-
-
-
-
-
 
 
         가구당 상주 인구 수: {homeNum}<br />
@@ -435,10 +424,8 @@ const DetailPeople = (props) => {
         일 평균 인구 수 : ?????<br />
 
 
-
       </div> : null}
 
-      <button onClick={dd}> dd</button>
     </div>
   )
 }
