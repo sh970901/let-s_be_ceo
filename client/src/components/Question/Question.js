@@ -98,8 +98,6 @@ const Question = () => {
         <div className='item2'>
           <button onClick={submitQues}>제출</button>
         </div>
-
-
       </div>
     </div>
   )
