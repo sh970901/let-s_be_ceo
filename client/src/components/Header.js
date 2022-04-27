@@ -10,7 +10,6 @@ import s from "../css/Header.module.css";
 const Header = () => {
     
     return (
-
         <div className={s.navbar}>
             <div className={s.navbar__logo}>
                 <Link to ='/' className={s.link__logo}>
