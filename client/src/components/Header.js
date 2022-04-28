@@ -16,7 +16,6 @@ const Header = () => {
                     <img src={logo}/>
                 </Link>
             </div>
-
             <ul className={s.navbar__menu}>
                 <li>
                     <Link to='/map' className={s.link__menu}>
