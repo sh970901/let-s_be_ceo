@@ -255,3 +255,11 @@ text-align: center;
 }
 /* .item:nth-child(1) { grid-column: auto / span 3; }
 .item:nth-child(5) { grid-column: auto / span 3; } */
+
+
+.sonik{
+  margin-top: 10%;
+  margin-left: 35%;
+  margin-bottom: 10%;
+  
+}

@@ -22,6 +22,7 @@ const Footer = () => {
                         <h1 className={s.linkTitle}><UilGithubAlt/></h1>
                         <h1 className={s.linkTitle}><UilEnvelopeAlt/></h1>
                     </div>
+                    {/* <Link to ='www.naver.com'></Link> */}
                 </div>
             </div>
             <p class={s.footerCopy}>&#169; Let's Be CEO. All right reserved</p>           

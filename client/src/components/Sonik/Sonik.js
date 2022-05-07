@@ -123,7 +123,7 @@ const Sonik = () => {
     }
 
     return (
-        <div><br/><br/><br/><br/><br/><br/>
+        <div className='sonik'>
             <label className='label1' htmlFor='fixcost'>고정비용</label>
             <input type="number" onChange={fix_cost} value={fixCost} className="input" id='fixcost'
                 placeholder='단위: 만원'></input>
