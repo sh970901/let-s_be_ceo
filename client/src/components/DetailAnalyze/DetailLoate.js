@@ -85,7 +85,8 @@ const DetailLoate = (props) => {
                 borderWidth: 5, // 테두리 두께
                 data: facility, // 수치
                 fill: true,
-                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+                barPercentage: 0.8,
             }
         ]
     }
@@ -97,7 +98,8 @@ const DetailLoate = (props) => {
                 borderWidth: 5, // 테두리 두께
                 data: categoryNo, // 수치
                 fill: true,
-                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+                barPercentage: 0.8,
             }
         ]
     }
@@ -157,11 +159,17 @@ const DetailLoate = (props) => {
             <br />
             <button onClick={analyze}>분석하기</button><br /><br />
             {show ?
-                <div>
+                <div style={{ width: 1500, height: 300 }}>
                     집객 시설
-                    <Bar data={facilityData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+                    <Bar data={facilityData}
+                        width={1000}
+                        height={300}
+                        options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
                     업종 개수
-                    <Bar data={categoryData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+                    <Bar data={categoryData}
+                        width={1000}
+                        height={300}
+                        options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
 
                     상권을 선택해주세요:{' '}<select onChange={showData}>
                         <option>상권선택</option>
@@ -172,11 +180,15 @@ const DetailLoate = (props) => {
                     <button onClick={areaChoice}>상권 선택</button>
                     {/* <Pie></Pie> */}
                 </div> : null}
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             {showArea ? <div>
                 <Doughnut
                     data={apartData}
+                    width={300}
+                    height={300}
                     options={{
-                        legend: { display: true, position: "right" },
+                        responsive: false,
+                        legend: { display: false, position: "right" },
                         datalabels: {
                             display: true,
                             color: "white",

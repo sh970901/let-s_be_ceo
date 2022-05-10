@@ -78,10 +78,13 @@ const DetailSales = (props) => {
     datasets: [
       {
         label: '',
-        borderWidth: 1, // 테두리 두께
+        borderWidth: 10, // 테두리 두께
         data: amount, // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+        barPercentage: 0.8,
+        // barThickness: 10,
+        
       }
     ]
   }

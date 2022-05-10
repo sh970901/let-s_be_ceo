@@ -149,6 +149,7 @@ const DetailAnalyze = () => {
       {showDetailLocate ?
         <>
           <br /><br /><br /><br />
+          <h1>지역 분석하기</h1>
           <div>
             업종을 선택해주세요: {'   '}
             <select onChange={showData}>

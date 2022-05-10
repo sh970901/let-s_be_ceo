@@ -188,7 +188,8 @@ const DetailPeople = (props) => {
         borderWidth: 5, // 테두리 두께
         data: areaTotal, // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+        barPercentage: 0.8,
       }
     ]
   }
@@ -201,7 +202,8 @@ const DetailPeople = (props) => {
         borderWidth: 5, // 테두리 두께
         data: [sun, mon, tuse, wed, thur, fri, sat], // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+        barPercentage: 0.5,
       }
     ]
   }
@@ -214,7 +216,8 @@ const DetailPeople = (props) => {
         borderWidth: 5, // 테두리 두께
         data: [age10, age20, age30, age40, age50, age60], // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+        barPercentage: 0.5,
       }
     ]
   }
@@ -227,7 +230,8 @@ const DetailPeople = (props) => {
         borderWidth: 5, // 테두리 두께
         data: [time0, time6, time11, time14, time17, time21], // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색,
+        barPercentage: 0.5,
       }
     ]
   }
@@ -263,6 +267,7 @@ const DetailPeople = (props) => {
           "#339966",
         ],
         data: liveData,
+        cutout: "0%"
       },
     ],
   };
@@ -300,6 +305,7 @@ const DetailPeople = (props) => {
           "#339966",
         ],
         data: workData,
+        cutout: "0%"
       },
     ],
   };
@@ -316,7 +322,7 @@ const DetailPeople = (props) => {
         borderWidth: 5, // 테두리 두께
         data: home, // 수치
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
       }
     ]
   }
@@ -324,19 +330,19 @@ const DetailPeople = (props) => {
 
   return (
     <div>
-      
+
       <button onClick={analyze}>분석하기</button>
       {show ? <div style={{ width: 1500, height: 300 }}>
         상권 별 총 생활인구 수 비율
-        <Bar data={totalData} 
-              width={1000}
-              height={300}
-              options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+        <Bar data={totalData}
+          width={1000}
+          height={300}
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
         상권 별 가구원 수
         <Bar data={homeData}
-              width={1000}
-              height={300}
-              options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          width={1000}
+          height={300}
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
         상권을 선택해주세요:{' '}<select onChange={showData}>
           <option>상권선택</option>
           {areaName.map((v) => {
@@ -350,56 +356,70 @@ const DetailPeople = (props) => {
       {showArea ? <div>
         상권 내 요일 별 생활인구 수
         <Bar data={dayData}
-              width={1000}
-              height={300}
-              options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          width={1000}
+          height={300}
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
 
         상권 내 연령 별 생활인구 수
-        <Bar data={ageData} 
-              width={1000}
-              height={300}
-              options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+        <Bar data={ageData}
+          width={1000}
+          height={300}
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
 
         상권 내 시간대 별 생활인구 수
         <Bar data={timeData}
-              width={1000}
-              height={300}
-              options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
-
-
-
-        상권 내 요일별 직장인구 수
-        <Doughnut
-          data={dayWorkData}
-          width={300}
+          width={1000}
           height={300}
-          options={{
-            responsive: false,
-            legend: { display: true, position: "right" },
-            datalabels: {
-              display: true,
-              color: "white",
-            },
-            tooltips: {
-              backgroundColor: "#5a6e7f",
-            }
-          }}></Doughnut><br />
-        상권 내 요일별 상주인구 수
-        <Doughnut
-          data={dayLiveData}
-          width={300}
-          height={300}
-          options={{
-            responsive: false,
-            legend: { display: true, position: "right" },
-            datalabels: {
-              display: true,
-              color: "white",
-            },
-            tooltips: {
-              backgroundColor: "#5a6e7f",
-            }
-          }}></Doughnut><br />
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+
+
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+
+          </tr>
+          <tr>
+            <td>
+              상권 내 요일별 직장인구 수
+              <Doughnut
+                data={dayWorkData}
+                width={300}
+                height={300}
+                options={{
+                  responsive: false,
+                  legend: { display: true, position: "right" },
+                  datalabels: {
+                    display: true,
+                    color: "white",
+                  },
+                  tooltips: {
+                    backgroundColor: "#5a6e7f",
+                  }
+                }}></Doughnut>
+            </td>
+            <td>
+              상권 내 요일별 상주인구 수
+              <Doughnut
+                data={dayLiveData}
+                width={300}
+                height={300}
+                options={{
+                  responsive: false,
+                  legend: { display: true, position: "right" },
+                  datalabels: {
+                    display: true,
+                    color: "white",
+                  },
+                  tooltips: {
+                    backgroundColor: "#5a6e7f",
+                  }
+                }}></Doughnut>
+            </td>
+          </tr>
+        </table>
+        <br />
+        <br />
 
         <select onChange={handleSex}>
           <option>성별</option>
