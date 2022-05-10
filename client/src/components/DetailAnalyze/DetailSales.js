@@ -13,9 +13,9 @@ const DetailSales = (props) => {
   const [amount, setAmount] = useState() //분기당 매출 금액
 
   const [show, setShow] = useState(false) //데이터 보여주기
-  
 
-  const[areaData,SetAreaData] = useState() //상권에 맞는 정보담는 데이터
+
+  const [areaData, SetAreaData] = useState() //상권에 맞는 정보담는 데이터
 
   const [time0, setTime0] = useState(0) //00~06 시간대 매출 
   const [time6, setTime6] = useState(0) //06~11 시간대 매출
@@ -32,12 +32,12 @@ const DetailSales = (props) => {
   const [fri, setFri] = useState() //금
   const [sat, setSat] = useState() //토
 
-  const [age10,setAge10] = useState(0) //연령대 10~60이상
-  const [age20,setAge20] = useState(0)
-  const [age30,setAge30] = useState(0)
-  const [age40,setAge40] = useState(0)
-  const [age50,setAge50] = useState(0)
-  const [age60,setAge60] = useState(0)
+  const [age10, setAge10] = useState(0) //연령대 10~60이상
+  const [age20, setAge20] = useState(0)
+  const [age30, setAge30] = useState(0)
+  const [age40, setAge40] = useState(0)
+  const [age50, setAge50] = useState(0)
+  const [age60, setAge60] = useState(0)
 
   const [man, setMan] = useState(0) //남성비율
   const [woman, setWoman] = useState(0) //여성비율
@@ -72,13 +72,13 @@ const DetailSales = (props) => {
   }, [props])
 
 
-//분기당 매출 금액
+  //분기당 매출 금액
   const salesData = {
     labels: areaName,
     datasets: [
       {
         label: '',
-        borderWidth: 5, // 테두리 두께
+        borderWidth: 1, // 테두리 두께
         data: amount, // 수치
         fill: true,
         backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
@@ -96,88 +96,91 @@ const DetailSales = (props) => {
         borderWidth: 5, // 테두리 두께
         data: [man, woman], // 수치
         fill: true,
-        backgroundColor: ['yellow','blue'] // 각 막대 색
+        backgroundColor: ['yellow', 'blue'] // 각 막대 색
       }
     ]
   }
 
 
-//시간대 별 매출 금액
-  let timeData = [time0,time6,time11,time14,time17,time21]
-  let timeLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_21_매출_금액", "시간대_21_24_매출_금액", ]
+  //시간대 별 매출 금액
+  let timeData = [time0, time6, time11, time14, time17, time21]
+  let timeLabels = ["시간대_00_06_매출_금액", "시간대_06_11_매출_금액", "시간대_11_14_매출_금액", "시간대_14_21_매출_금액", "시간대_21_24_매출_금액",]
 
   let customTimeLabels = timeLabels.map((label, index) => `${label}: ${timeData[index]}`)
   const timeSalesData = {
-      labels: customTimeLabels,
-      datasets: [
-          {
-              label: "",
-              backgroundColor: [
-                  "#83ce83",
-                  "#959595",
-                  "#f96a5d",
-                  "#00A6B4",
-                  "#545775",
-                  "#663366",
-                  "#339966",
-              ],
-              data: timeData,
-          },
-      ],
+    labels: customTimeLabels,
+    datasets: [
+      {
+        label: "",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#545775",
+          "#663366",
+          "#339966",
+        ],
+        data: timeData,
+        cutout: "0%"
+      },
+    ],
   };
-//연령대 별 매출 금액
-let ageData = [age10,age20,age30,age40,age50,age60]
-let ageLabels = ["연령대_10_매출_금액","연령대_20_매출_금액","연령대_30_매출_금액","연령대_40_매출_금액","연령대_50_매출_금액","연령대_60_이상_매출_금액"]
+  //연령대 별 매출 금액
+  let ageData = [age10, age20, age30, age40, age50, age60]
+  let ageLabels = ["연령대_10_매출_금액", "연령대_20_매출_금액", "연령대_30_매출_금액", "연령대_40_매출_금액", "연령대_50_매출_금액", "연령대_60_이상_매출_금액"]
 
-let customAgeLabels = ageLabels.map((label, index) => `${label}: ${ageData[index]}`)
-const ageSalesData = {
+  let customAgeLabels = ageLabels.map((label, index) => `${label}: ${ageData[index]}`)
+  const ageSalesData = {
     labels: customAgeLabels,
     datasets: [
-        {
-            label: "",
-            backgroundColor: [
-                "#83ce83",
-                "#959595",
-                "#f96a5d",
-                "#00A6B4",
-                "#545775",
-                "#663366",
-                "#339966",
-            ],
-            data: ageData,
-        },
+      {
+        label: "",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#545775",
+          "#663366",
+          "#339966",
+        ],
+        data: ageData,
+        cutout: "0%"
+      },
     ],
-};
+  };
 
   //요일별 매출 금액
-  let dayData = [sun, mon, tuse,wed, thur, fri, sat]
-  let labels = ["일요일_매출_금액", "월요일_매출_금액", "화요일_매출_금액", "수요일_매출_금액", "목요일_매출_금액", "금요일_매출_금액", "토요일_매출_금액" ]
+  let dayData = [sun, mon, tuse, wed, thur, fri, sat]
+  let labels = ["일요일_매출_금액", "월요일_매출_금액", "화요일_매출_금액", "수요일_매출_금액", "목요일_매출_금액", "금요일_매출_금액", "토요일_매출_금액"]
 
   let customLabels = labels.map((label, index) => `${label}: ${dayData[index]}`)
   const daySalesData = {
-      labels: customLabels,
-      datasets: [
-          {
-              label: "",
-              backgroundColor: [
-                  "#83ce83",
-                  "#959595",
-                  "#f96a5d",
-                  "#00A6B4",
-                  "#545775",
-                  "#663366",
-                  "#339966",
-              ],
-              data: dayData,
-          },
-      ],
+    labels: customLabels,
+    datasets: [
+      {
+        label: "",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#545775",
+          "#663366",
+          "#339966",
+        ],
+        data: dayData,
+        cutout: "0%"
+      },
+    ],
   };
 
 
   function analyze() {
     if (props.category === "업종 선택" || props.category === undefined) {
       alert("업종을 선택해주세요.")
-    }else{
+    } else {
       setAreaName(arr1)
       setAmount(arr2)
       setBestSales(arr3)
@@ -194,38 +197,38 @@ const ageSalesData = {
 
   }
   function areaChoice() {
-    if(area==="상권선택" || area===undefined){
+    if (area === "상권선택" || area === undefined) {
       alert("상권을 선택해주세요.")
-    }else{
+    } else {
       fetch(`http://localhost:5000/api3/detailSales/${props.place}/${props.category}/${area}`)
-      .then(res=>res.json())
-      .then(data=>{
-        console.log(data[0])
-        setTime0(data[0].시간대_00_06_매출_금액)
-        setTime6(data[0].시간대_06_11_매출_금액)
-        setTime11(data[0].시간대_11_14_매출_금액)
-        setTime14(data[0].시간대_14_17_매출_금액)
-        setTime17(data[0].시간대_17_21_매출_금액)
-        setTime21(data[0].시간대_21_24_매출_금액)
-  
-        setSun(data[0].일요일_매출_금액)
-        setMon(data[0].월요일_매출_금액)
-        setTuse(data[0].화요일_매출_금액)
-        setWed(data[0].수요일_매출_금액)
-        setThur(data[0].목요일_매출_금액)
-        setFri(data[0].금요일_매출_금액)
-        setSat(data[0].토요일_매출_금액)
-        
-        setAge10(data[0].연령대_10_매출_금액)
-        setAge20(data[0].연령대_20_매출_금액)
-        setAge30(data[0].연령대_30_매출_금액)
-        setAge40(data[0].연령대_40_매출_금액)
-        setAge50(data[0].연령대_50_매출_금액)
-        setAge60(data[0].연령대_60_이상_매출_금액)
-  
-        setMan(data[0].남성_매출_금액)
-        setWoman(data[0].여성_매출_금액)
-      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data[0])
+          setTime0(data[0].시간대_00_06_매출_금액)
+          setTime6(data[0].시간대_06_11_매출_금액)
+          setTime11(data[0].시간대_11_14_매출_금액)
+          setTime14(data[0].시간대_14_17_매출_금액)
+          setTime17(data[0].시간대_17_21_매출_금액)
+          setTime21(data[0].시간대_21_24_매출_금액)
+
+          setSun(data[0].일요일_매출_금액)
+          setMon(data[0].월요일_매출_금액)
+          setTuse(data[0].화요일_매출_금액)
+          setWed(data[0].수요일_매출_금액)
+          setThur(data[0].목요일_매출_금액)
+          setFri(data[0].금요일_매출_금액)
+          setSat(data[0].토요일_매출_금액)
+
+          setAge10(data[0].연령대_10_매출_금액)
+          setAge20(data[0].연령대_20_매출_금액)
+          setAge30(data[0].연령대_30_매출_금액)
+          setAge40(data[0].연령대_40_매출_금액)
+          setAge50(data[0].연령대_50_매출_금액)
+          setAge60(data[0].연령대_60_이상_매출_금액)
+
+          setMan(data[0].남성_매출_금액)
+          setWoman(data[0].여성_매출_금액)
+        })
       setShowAreaData(true)
     }
 
@@ -237,12 +240,26 @@ const ageSalesData = {
     <div>
       <br />
       <button onClick={analyze}>분석하기</button><br /><br />
-      {show ? <div>
+      {show ? <div style={{ width: 1500, height: 300 }}>
 
-        분기당 매출 금액(평균 매출로 바꿔야함)
-        <Bar data={salesData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+        분기당 매출 금액(업종별 상권 분기 매출 비교)
+        <Bar data={salesData}
+          width={1000}
+          height={300}
+          options={{
+            responsive: false, legend: { display: false, position: "bottom" },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  }
+                }
+              ]
+            }
+          }}></Bar><br />
         <p>분기당 매출 금액이 가장 많은 상권은 {bestArea}이고 금액은 {bestSales}원입니다.</p>
-        
+
         상권을 선택해주세요:{' '}<select onChange={showData}>
           <option>상권선택</option>
           {areaName.map((v) => {
@@ -251,48 +268,77 @@ const ageSalesData = {
         </select> <br />
         <button onClick={areaChoice}>상권 선택</button>
       </div> : null}
-      {showAreaData? <div>
-        상권 내 시간대 별 매출 비율
-        <Doughnut
-        data={timeSalesData}
-        options={{
-          legend: { display: true, position: "right" },
-          datalabels: {
-            display: true,
-            color: "white",
-          },
-          tooltips: {
-            backgroundColor: "#5a6e7f",
-          }
-        }}></Doughnut><br />
-        상권 내 요일 별 매출 비율
-        <Doughnut
-        data={daySalesData}
-        options={{
-          legend: { display: true, position: "right" },
-          datalabels: {
-            display: true,
-            color: "white",
-          },
-          tooltips: {
-            backgroundColor: "#5a6e7f",
-          }
-        }}></Doughnut><br />
-        상권 내 연령대 별 매출 비율
-        <Doughnut
-        data={ageSalesData}
-        options={{
-          legend: { display: true, position: "right" },
-          datalabels: {
-            display: true,
-            color: "white",
-          },
-          tooltips: {
-            backgroundColor: "#5a6e7f",
-          }
-        }}></Doughnut><br />
-        상권 내 성 별 매출 비율
-        <Bar data={sexData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+      {showAreaData ? <div><br /><br /><br /><br /><br /><br /><br />
+      상권 내 성 별 매출 비율
+              <Bar data={sexData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+        <table>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>
+              상권 내 시간대 별 매출 비율
+              <Doughnut
+                data={timeSalesData}
+                width={300}
+                height={300}
+                options={{
+                  responsive: false,
+                  legend: { display: false, position: "bottom" },
+                  datalabels: {
+                    display: true,
+                    color: "white",
+                  },
+                  tooltips: {
+                    backgroundColor: "#5a6e7f",
+                  }
+                }}></Doughnut><br />
+            </td>
+            <td>
+              상권 내 요일 별 매출 비율
+              <Doughnut
+                data={daySalesData}
+                width={300}
+                height={300}
+                options={{
+                  responsive: false,
+                  legend: { display: true, position: "right" },
+                  datalabels: {
+                    display: true,
+                    color: "white",
+                  },
+                  tooltips: {
+                    backgroundColor: "#5a6e7f",
+                  }
+                }}></Doughnut><br />
+            </td>
+            <td>
+              상권 내 연령대 별 매출 비율
+              <Doughnut
+                data={ageSalesData}
+                width={300}
+                height={300}
+                options={{
+                  responsive: false,
+                  legend: { display: true, position: "right" },
+                  datalabels: {
+                    display: true,
+                    color: "white",
+                  },
+                  tooltips: {
+                    backgroundColor: "#5a6e7f",
+                  }
+                }}></Doughnut>
+            </td>
+            
+          </tr>
+        </table>
+
+
+
+
       </div> : null}
 
 

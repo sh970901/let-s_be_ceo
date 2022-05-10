@@ -48,6 +48,7 @@ const ChartData = (props) => {
   function simpleDayData() {
     if (props.buildingData === undefined) {
       console.log("데이터가 존재하지 않습니다. ")
+      
     } else {
       setMonday(props.buildingData.월요일_생활인구_수)
       setTuesday(props.buildingData.화요일_생활인구_수)
@@ -60,7 +61,7 @@ const ChartData = (props) => {
   }
   function simpletimeData() {
     if (props.buildingData === undefined) {
-      console.log("데이터가 존재하지 않습니다. ")
+      console.log("데이터가 존재하지 않습니다.")
     } else {
       setTime1(props.buildingData.시간대_1_생활인구_수)
       setTime2(props.buildingData.시간대_2_생활인구_수)

@@ -15,7 +15,6 @@ const SimpleModal = (props) => {
   const history = useHistory();
 
   useEffect(()=>{
-    
     if(props.place.includes('동')){
       fetch(`http://localhost:5000/api/building/${props.place}`)
       .then(res=>res.json())
