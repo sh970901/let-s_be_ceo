@@ -23,6 +23,7 @@ const DetailAnalyze = () => {
   const [showDetailLocate, setShowDetailLocate] = useState(false) //상세 지역정보 클릭시 상세 지역정보
   const [showDetailPeople, setShowDetailPeople] = useState(false) //상세 인구정보
   const [showDetailSale, setShowDetailSale] = useState(false) //상세매출
+
   const [showDetailSummary, setShowDetailSummary] = useState(true) //상세정보 기본 설명란 
 
 
