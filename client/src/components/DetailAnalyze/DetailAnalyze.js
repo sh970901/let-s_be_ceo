@@ -26,7 +26,6 @@ const DetailAnalyze = () => {
 
   const [showDetailSummary, setShowDetailSummary] = useState(true) //상세정보 기본 설명란 
 
-
   function showData(e) {
     setCategory(e.target.value)
     fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
