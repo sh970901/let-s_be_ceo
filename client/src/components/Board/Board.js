@@ -50,13 +50,14 @@ const Board = () => {
         <div className={s.board}>
             
             <div className={s.boardBody}>
-                <Table striped bordered hover size="sm">
+                {/* <h1>자유게시판</h1> */}
+                <Table className={s.table} striped hover size="sm">
                     <thead>
                         <tr>
-                            <th>제목</th>
-                            <th>날짜</th>
-                            <th>작성자</th>
-                            <th>내용</th>
+                            <th className={s.date}>날짜</th>
+                            <th className={s.title}>제목</th>
+                            {/* <th className={s.content}>내용</th> */}
+                            <th className={s.writer}>작성자</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,16 +77,19 @@ const Board = () => {
                                 </td>
                             </tr>}
                     </tbody>
-                    
                 </Table>    
             </div>
-            <input type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input><Button onClick={searchBoard}>검색</Button>{' '}
+
+            <div className={s.search}>
+                <input className={s.searchInput} type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>
+                <button className={s.btn} onClick={searchBoard}>검색</button>
+                <button className={s.btn} onClick={writeBoard}>게시글 쓰기</button>
+                <Link to='/myBoard'>
+                    <button className={s.btn}>내가 쓴 글</button>
+                </Link>
+            </div>
             
-            <Button onClick={writeBoard}>게시글 쓰기</Button>{' '}
-            
-            <Link to='/myBoard'>
-                <Button>내가 쓴 끌</Button>
-            </Link>
+
         
         </div>
     );

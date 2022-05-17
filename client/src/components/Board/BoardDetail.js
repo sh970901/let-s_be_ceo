@@ -5,6 +5,7 @@ import Comment from './Comment';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { UilArrowLeft } from '@iconscout/react-unicons'
 
 //-----------------CSS import--------------------//
 import s from '../../css/Board.module.css';
@@ -73,50 +74,81 @@ const BoardDetail = () => {
     
 
     return (
-        <div className={s.board}>
+        <div className={s.detailBoard}>
+            <div>
+            <Link to='/board'>
+                <button className={s.btnBack}><UilArrowLeft/>Back</button>
+            </Link>
+            
+            </div>
             <div className={s.createBoard}>
-                <h2>제목</h2>
-                <input type='text' value={location.state.props.title} readOnly></input>
-                <p></p>
-                <h2>날짜</h2>
-                <input type='text' value={location.state.props.day} readOnly></input>
-                <h2>작성자</h2>
-                <input type='text' value={location.state.props.writer} readOnly></input>
-                <h2>내용</h2>
-                <textarea value={location.state.props.content} readOnly></textarea>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>날짜</th>
-                            <th>댓글</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {commentRead ? commentRead.map(c=>{
-                            return(<Comment
-                            key={c.no_comment}
-                            no = {c.no_comment}
-                            id={c.c_id}
-                            comment={c.c_comment}
-                            day = {c.c_day}></Comment>)
-                        }): 
-                        <tr>
-                            <td>
-                                댓글 없음
-                            </td>
-                        </tr>}
-                    </tbody>
-                </Table>
+                <div className={s.detailTitleContainer}>
+                    <div className={s.detailTitle}>
+                        <div className={s.titleDiv}>
+                            <span className={s.boardText}>TITLE</span>
+                            <span>{location.state.props.title}</span>
+                        </div>
+                        <div className={s.DateDiv}>
+                            <span className={s.boardText}>DATE</span>
+                            <span>{location.state.props.day}</span>
+                        </div>
+                    </div>
 
-                <h2>댓글</h2>
-                <input type="text" value={comment} onChange={handleComment}></input>      
-                <br></br>
-                <Button onClick={writeComment}>댓글 달기</Button><br></br><br></br> 
-                {location.state.props.writer === sessionStorage.getItem('user_id') ? <Button onClick={deleteBoard}>게시글 삭제</Button> : ""}
-                {'  '}<Link to='/board'>
-                    <Button>뒤로가기</Button>
-                </Link>
+                    <div className={s.detailTitle}>
+                        <div className={s.titleDiv}>
+                            <span className={s.boardText}>작성자</span>
+                            <span>{location.state.props.writer}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={s.detailContent}>
+                    <div className={s.titleDiv}>
+                        {/* <span className={s.boardText}>CONTENT</span> */}
+                    </div>
+                    <textarea className={s.textarea} value={location.state.props.content} readOnly></textarea>            
+                </div>    
+
+
+                <div className={s.detailComment}>
+                <span className={s.boardText}>Comment</span>
+                    <Table striped bordered hover size="sm" className={s.commentTable}>
+                        <thead>
+                            <tr>
+                                <th className={s.commentId}>ID</th>
+                                <th className={s.comment}>댓글</th>
+                                <th className={s.commentDate}>날짜</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {commentRead ? commentRead.map(c=>{
+                                return(<Comment
+                                key={c.no_comment}
+                                no = {c.no_comment}
+                                id={c.c_id}
+                                comment={c.c_comment}
+                                day = {c.c_day}></Comment>)
+                            }): 
+                            <tr>
+                                <td>
+                                    댓글 없음
+                                </td>
+                            </tr>}
+                        </tbody>
+                    </Table>
+                </div>
+
+                <div className={s.addComment}>
+                    <div className={s.add}>
+                        <span>댓글달기</span>
+                        <input type="text" value={comment} onChange={handleComment}></input>      
+                        <button className={s.btn} onClick={writeComment}>입력</button>
+                    </div> 
+
+                    <div className={s.commentbtnArea}>
+                        {location.state.props.writer === sessionStorage.getItem('user_id') ? <button className={s.btnDel} onClick={deleteBoard}>게시글 삭제</button> : ""}
+                    </div>
+                </div>
             </div>
         </div>
     );
