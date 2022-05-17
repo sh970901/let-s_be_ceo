@@ -20,7 +20,7 @@ const QuestionModal = (props) => {
         onRequestClose={props.closeModal}
       >
         <div className='modalItem'>
-          
+        <br /><br /><br /><br /><br /><br />
           내용: {props.detailContent}<br /><br /><br /><br />
 
 

@@ -6,6 +6,8 @@ import { useEffect,useState } from 'react';
 import ChartData from './ChartData';
 import { Link, useHistory } from 'react-router-dom';
 
+import s from '../../css/SimpleAnal.module.css';
+
 
 
 Modal.setAppElement("#root")
@@ -27,6 +29,8 @@ const SimpleModal = (props) => {
  const customStyles= {
    overlay: {zIndex: 1000,  backgroundColor: 'rgba(100, 100, 70, 0.5)',},
    content: {
+    width: '100%',
+    height:'100%',
     border: '1',
     borderRadius: '4px',
     bottom: 'auto',
@@ -36,7 +40,7 @@ const SimpleModal = (props) => {
     position: 'fixed',
     right: 'auto',
     top: '50%',
-    transform: 'translate(-50%,-50%)',
+    transform: 'translate(-120%,-50%)',
     minWidth: '20rem',
     width: '100px',
     maxWidth: '1000px',
@@ -59,27 +63,27 @@ const SimpleModal = (props) => {
 
   return (
     <div>
-      <Modal className="simpleModal"
+      <Modal className={s.simpleModal}
         style={customStyles}
         isOpen={props.openModal}
         onRequestClose={props.closeModal}>
         <div className='modalItem'>
-          <h3 className='prac'>간단 분석 {''}</h3>
+          
           <h1 className='prac'>{props.place}</h1>
           <div>
             <ChartData place={props.place} buildingData={buildingData}></ChartData>
             
           </div>
+
+
           <Link to ={{
             pathname: '/detailAnalyze',
             state: {
               place: props.place
             }
           }}>
-            <button>상세 분석</button></Link>
-          
-          
-          <br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <button>상세 분석</button></Link>  
           <button onClick={props.closeModal}>닫기</button>
 
 

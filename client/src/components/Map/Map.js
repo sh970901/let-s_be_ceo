@@ -21,7 +21,7 @@ const Map = (props) => {
     let data = props.geojson[0].features
     let container = document.getElementById("map");
     let options = {
-      center: new kakao.maps.LatLng(37.5051407, 127.0470828),
+      center: new kakao.maps.LatLng(37.484102, 127.034369),
       level: 7,
       
     };

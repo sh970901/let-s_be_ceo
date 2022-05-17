@@ -162,6 +162,7 @@ const ChartData = (props) => {
           "#6800B4",
         ],
         data: data,
+        cutout: "0%"
       },
     ],
   };
@@ -170,21 +171,30 @@ const ChartData = (props) => {
 
 
   return (
-    <div>
+    <div style={{ width: 1500, height: 300 }}>
       <div>
         <td>
           <tr>
             <h4 className='prac'>요일 별 생활 인구 수</h4>
-            <Bar data={dayData} options={{ indexAxis: 'y', responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+            <Bar data={dayData} 
+            width={300}
+            height={300}
+            options={{ indexAxis: 'y', responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          </tr>
+          <tr>
+            
           </tr>
         </td>
         <td>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
       </td>
         <td>
           <tr>
             <h4 className='prac'>시간대 별 생활 인구 수</h4>
-            <Bar data={timeData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+            <Bar data={timeData}
+                 width={300}
+                 height={300}
+                options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
           </tr>
         </td>
       
@@ -213,7 +223,10 @@ const ChartData = (props) => {
       <td>
         <tr>
           <h4 className='prac'>행정동 총 점포수</h4>
-          <Bar data={shopData} options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+          <Bar data={shopData} 
+          width={300}
+          height={300}
+          options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
         </tr>
       </td>
 

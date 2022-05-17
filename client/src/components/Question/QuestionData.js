@@ -5,7 +5,7 @@ import { useState } from 'react'
 const QuestionData = (props) => {
     
     function showQuestion(){
-        console.log(props.questions)
+        console.log(props)
         for(var i=0; i<props.questions.length-1; i++){
             if(props.questions[i].content === props.content){
                 if(props.questions[i].answer === null){

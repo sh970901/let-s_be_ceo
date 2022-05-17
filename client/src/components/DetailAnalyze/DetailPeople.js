@@ -75,9 +75,7 @@ const DetailPeople = (props) => {
 
 
   function analyze() {
-    if (props.category === "업종 선택" || props.category === undefined) {
-      alert("업종을 선택해주세요.")
-    } else {
+     
       setShowArea(false)
       props.dePeople?.map((v) => {
         arr1.push(v.상권_코드_명)
@@ -88,7 +86,7 @@ const DetailPeople = (props) => {
       setAreaTotal(arr2)
       setHome(arr3)
       setShow(true)
-    }
+    
   }
 
   function handleSex(e) {

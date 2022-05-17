@@ -141,7 +141,7 @@ const BoardDetail = () => {
                 <div className={s.addComment}>
                     <div className={s.add}>
                         <span>댓글달기</span>
-                        <input type="text" value={comment} onChange={handleComment}></input>      
+                        <input className={s.commentInput} type="text" value={comment} onChange={handleComment}></input>      
                         <button className={s.btn} onClick={writeComment}>입력</button>
                     </div> 
 

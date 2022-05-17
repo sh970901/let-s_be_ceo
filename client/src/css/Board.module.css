@@ -1,3 +1,65 @@
+:root {
+    --header-height: 3rem;
+
+    /* 사용자 값에 따라 변경 가능하도록 */
+
+    /* HSL 색삭표 참고 사이트
+    https://www.w3schools.com/colors/colors_hsl.asp
+    purple 250, green 142, blue 230 pink 340 */
+
+    --hue-color: 250;
+
+    /* -----------------HSL color 변수------------------ */
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #FFF;
+
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    /* --------------------Font size 변수-------------------- */
+    
+    --body-font: 'Poppins', sans-serif;
+
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+
+    /* Font weight */
+   
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* --------------------Margin 변수-------------------- */
+   
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /* -------------------z-index 변수-------------------- */
+   
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
 .board {
     height: 100%;
     min-height: 100vh;
@@ -80,7 +142,7 @@
     grid-template-rows: 1fr 5fr;
     row-gap: 1.5rem;
 
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 
     padding: 2rem;
 }
@@ -222,7 +284,7 @@
 
 .add > span {
     width: 15%;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
     background-color: #3f73d2;
     color: #fff;
@@ -244,7 +306,7 @@
 .add > button {
     width: 20%;
     border-radius: 0px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .commentbtnArea {
@@ -283,8 +345,85 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
+
+    margin-bottom: 3rem;
+}
+
+.Ssearch {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .search > input {
     width: 70%;
+}
+
+.searchInputs {
+  background-color: var(--input-color);
+  border-radius: 0.5rem 0 0 .5rem;
+  padding: .75rem 1rem .25rem;
+  display: flex;
+  width: 60%;
+}
+
+.searchInput {
+  width: 100%;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  padding: .25rem .5rem .5rem 0;
+}
+
+.searchBtn {
+    background: #3f73d2;
+    border: none;
+    color: #fff;
+    width: 90px;
+    text-align: center;
+    padding-right: 10px;
+
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.btnPlace {
+    /* margin-top: 2rem; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: .1rem;
+
+    float: right;
+    /* margin-bottom: .5rem; */
+}
+
+.btnBoard {
+    background: #4539cf;
+    border: none;
+    color: #fff;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+
+    border-radius: .5rem .5rem 0 0;
+}
+
+.commentInput {
+    width: 100%;
+    background-color: #3f73d20e;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+
+    border: none;
+    outline: none;
+    /* margin-left: 1rem; */
+    padding: .25rem .5rem .5rem 0;
+}
+
+.btnPlace > .btnBoard {
+    background-color: #3948cf;
 }

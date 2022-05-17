@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { React, useState } from 'react'
 import ResultModal from './Modal/ResultModal'
 import WordInfo_modal from './Modal/WordInfo_modal'
@@ -7,6 +8,7 @@ import "./SonikCSS/Sonik.css"
 
 const Sonik = () => {
 
+    
     /* const [totalSales, setTotalSale] = useState()
 
     function T_sales() {

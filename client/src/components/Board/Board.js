@@ -5,6 +5,8 @@ import BoardInfo from './BoardInfo';
 import { Link, useHistory } from 'react-router-dom';
 import s from '../../css/Board.module.css'
 
+import { UilSearch } from '@iconscout/react-unicons'
+
 
 //게시판
 const Board = () => {
@@ -48,6 +50,24 @@ const Board = () => {
 
     return (
         <div className={s.board}>
+
+            
+
+            <div className={s.btnPlace}>
+                    <button className={s.btnBoard} onClick={writeBoard}> 게시글 쓰기</button>
+                    <Link to='/myBoard'>
+                        <button className={s.btnBoard}> 내가 쓴 글</button>
+                    </Link>
+            </div>
+
+            <div className={s.Ssearch}>
+                {/* <div className={s.searchInputs}>
+                    <UilSearch></UilSearch>
+                    <input className={s.searchInput} type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>
+                </div>
+                <button className={s.searchBtn} onClick={searchBoard}>검색</button> */}
+            </div>
+
             
             <div className={s.boardBody}>
                 {/* <h1>자유게시판</h1> */}
@@ -79,18 +99,15 @@ const Board = () => {
                     </tbody>
                 </Table>    
             </div>
-
-            <div className={s.search}>
-                <input className={s.searchInput} type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>
-                <button className={s.btn} onClick={searchBoard}>검색</button>
-                <button className={s.btn} onClick={writeBoard}>게시글 쓰기</button>
-                <Link to='/myBoard'>
-                    <button className={s.btn}>내가 쓴 글</button>
-                </Link>
-            </div>
             
+            <div className={s.search}>
+                <div className={s.searchInputs}>
+                    <UilSearch></UilSearch>
+                    <input className={s.searchInput} type="text" name="searchData" value={searchData} onChange={handleSearch} placeholder="검색하기"></input>
+                </div>
+                <button className={s.searchBtn} onClick={searchBoard}>검색</button>
+            </div>
 
-        
         </div>
     );
 };
