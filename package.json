@@ -7,6 +7,7 @@
         "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
     },
     "dependencies": {
+        "@iconscout/react-unicons": "^1.1.6",
         "body-parser": "^1.19.1",
         "bootstrap": "^5.1.3",
         "cors": "^2.8.5",

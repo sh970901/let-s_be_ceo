@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.sonik {
+    height: 100%;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding: 100px;
+    display: grid;
+    align-items: center;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+.sonikTitle{
+    text-align: center;
+    color: #fff;
+    
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b9b9b9;
+
+    font-family: 'yg-jalnan';
+}
+
+.titlePlace {
+    min-width: 431px;
+    background-color: #3f73d2;
+    border-radius: 5px 0 0 5px;
+}
+
+.titleTitle {
+    padding: 20px;
+    padding-top: 40px;
+    margin-bottom: 60px;
+}
+
+.titleContentContainer {
+    justify-content: center;
+}
+
+.titleContent {
+    padding: 0 60px;
+    color: #ffffffd2;
+    font-family: 'GmarketSansMedium';
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.titleContent1 {
+    /* background-color: #b9b9b9; */
+    padding: 0 60px;
+    margin-bottom: 2rem;
+    color: rgba(0, 0, 0, 0.623);
+    font-family: 'GmarketSansMedium';
+    font-weight: bold;
+}
+
+.titleContent1 > p {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.titleContent2 {
+    padding: 0 40px;
+    color: #ffffffd2;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.contentItems {
+    display: grid;
+    grid-template-columns: 1fr .2fr 1fr;
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.contentItems > p:first-child  {
+    text-align: center;
+}
+
+.contentItems > p:last-child  {
+    text-align: center;
+}
+
+.sonikContainer {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+
+    /* background-color: #3f73d2; */
+
+    background-color: rgba(236, 236, 236, 0.829);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+    /* padding: 20px; */
+    height: 60vh;
+
+
+    border-radius: 5px 5px 5px 5px;
+    
+}
+
+.sonikInputPlace {
+    /* background-color: rgba(0, 0, 255, 0.144); */
+    min-width: 500px;
+
+    display: grid;
+    row-gap: 1rem;
+    grid-template-rows: repeat(4, 1fr);
+
+    width: fit-content;
+    margin: auto;
+
+    align-items: center;
+}
+
+.sonikInputPlace > div {
+    text-align: center;
+}
+
+.inputDiv {
+    width: 100%;
+    padding: 5px 15px;
+    /* border: 2px solid #3f73d2; */
+    background-color: #fff;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.171);
+
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr .2fr;
+
+    /* display: flex;
+    justify-content: center; */
+    
+    border-radius: 5px;
+    align-items: center;
+}
+
+.labelPlace {
+    /* background-color: #3f73d2; */
+    padding-right: 15px;
+    text-align: center;
+
+    line-height: 40px;
+    height: 40px;
+
+    border-right: 2px solid rgba(70, 69, 69, 0.349);
+
+    font-size: 18px;
+}
+
+
+.inputs {
+    padding-left: 15px;
+    font-size: 18px;
+
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+}

@@ -1,14 +1,18 @@
-import { useEffect } from 'react'
 import { React, useState } from 'react'
 import ResultModal from './Modal/ResultModal'
 import WordInfo_modal from './Modal/WordInfo_modal'
-import "./SonikCSS/input.css"
-import "./SonikCSS/Sonik.css"
+// import "./SonikCSS/input.css"
+import logo from "../../img/headerlogo.png"
 
+//-----------------CSS import--------------------//
+import s from '../../css/Sonik.module.css';
+
+import { UilAngleRightB } from '@iconscout/react-unicons'
+import { UilPlusCircle } from '@iconscout/react-unicons'
+import { UilCalculator } from '@iconscout/react-unicons'
 
 const Sonik = () => {
 
-    
     /* const [totalSales, setTotalSale] = useState()
 
     function T_sales() {
@@ -115,7 +119,7 @@ const Sonik = () => {
 
         }
         if (!(isfixCost && isVarCost)) {
-            resultText = "고정비용과 변동비용은 최소한의 입력값입니다, \n  안내사항을 다시한번 읽어주십시요."
+            resultText = "고정비용과 변동비용은 최소한의 입력값입니다. \n 안내사항을 다시한번 읽어주세요!"
             setResultData(resultText)
         }
         setFixCost("")
@@ -125,45 +129,104 @@ const Sonik = () => {
     }
 
     return (
-        <div className='sonik'>
-            <label className='label1' htmlFor='fixcost'>고정비용</label>
-            <input type="number" onChange={fix_cost} value={fixCost} className="input" id='fixcost'
-                placeholder='단위: 만원'></input>
-            <WordInfo_modal
-                result={"생산량의 변동 여하에 관계 없이 불변적으로 지출되는 비용. \n 예시) 임대료, 급여, 대출이자, 기타 비용(인터넷, 정수기...) 등)"}
-                header={'고정비용'} />
+        <div className={s.sonik}>
+            <div className={s.sonikContainer}>
+                
+                <div className={s.titlePlace}>
 
-            <br />
+                    <div className={s.titleTitle}>
+                        <h1 className={s.sonikTitle}>손익분기점 계산</h1>
+                    </div>
 
-            <label className='label2' htmlFor='varcost'>변동비용</label>
-            <input type="number" onChange={var_cost} value={varCost} className="input" id='varcost' placeholder='단위: 만원'></input>
-            <WordInfo_modal
-                result={"생산량의 변동 여하에 따라 가변적으로 지출되는 비용. \n 예시) 원재료비, 전기세, 전화세, 수도세 등"}
-                header={'변동비용'} />
-
-            <br />
+                    <div className={s.titleContentContainer}>
+                        <div className={s.titleContent1}>
+                            <p>손익분기점 계산은 Let's Be Ceo 사용자에게</p>
+                            <p>여러 정보를 입력받아 손익분기점을 기준으로</p>
+                            <p>목표 매출, 목표 유치 고객 수에 대한 정보를 제공합니다.</p>
+                        </div>
 
 
-            <label className='label3' htmlFor='netprofit'>목표순이익</label>
-            <input disabled={isfixCost && isVarCost ? false : true} type="number" onChange={t_net_profit} value={netProfit} className="input"
-                id='netprofit' placeholder='단위: 만원'></input>
-            <WordInfo_modal
-                result={"고정비, 변동비, 목표순이익 입력시 사용자가 목표로하는 순수이익을 위한 필요매출을 계산합니다."}
-                header={'목표 순이익'} />
+                        <div className={s.titleContent}>
+                                                
+                            <div className={s.contentItems}>
+                                <p>고정비용 · 변동비용</p>
+                                <p><UilAngleRightB/></p>
+                                <p>대략적인 손익분기점</p>
+                            </div>
 
-            <br />
+                            <div className={s.contentItems}>
+                                <p><UilPlusCircle/> 목표 순이익</p>
+                                <p><UilAngleRightB/></p>
+                                <p>목표 매출</p>
+                            </div>
 
-            <label className='label4' htmlFor='avgprice'>메뉴평균단가</label>
-            <input disabled={isfixCost && isVarCost && isNetProfit ? false : true}
-                type="number" onChange={m_avg_uprice} value={avgPrice} className="input" id='avgprice' placeholder='단위: 만원'></input>
-            <WordInfo_modal
-                result={"사용자의 매장 내 메뉴들의 평균가격 혹은 주요상품의 가격입력시 목표 매출을 위해 필요한 대략적인 일 필요 판매량을 계산합니다."}
-                header={'메뉴 평균 단가'} />
+                            <div className={s.contentItems}>
+                                <p><UilPlusCircle/> 메뉴 평균 단가</p>
+                                <p><UilAngleRightB/></p>
+                                <p>일 평균 판매량</p>
+                            </div>
 
-            <br />
+                        </div>
+                    </div>
 
-            <br />
-            <ResultModal calc={calc} header={"계산 결과"} result={resultData}> 계산 </ResultModal> {/* ResultModal로 props에 headr, calc, resultdata담아서 보내기 */}
+                </div>
+                
+                <div className={s.sonikInputPlace}>
+                    <img src={logo}></img>
+                    <div className={s.inputDiv}>
+
+                        <div className={s.labelPlace}>
+                            <label className={s.labels} htmlFor='fixcost'>고정비용</label>
+                        </div>
+
+                        <input type="number" onChange={fix_cost} value={fixCost} className={s.inputs} id='fixcost'
+                            placeholder='단위: 만원'></input>
+                        <WordInfo_modal
+                            result={"생산량의 변동 여하에 관계 없이 불변적으로 지출되는 비용. \n 예시) 임대료, 급여, 대출이자, 기타 비용(인터넷, 정수기...) 등)"}
+                            header={'고정비용'} />
+                    </div>
+
+                    <div className={s.inputDiv}>
+                        <div className={s.labelPlace}>
+                            <label className={s.labels} htmlFor='varcost'>변동비용</label>
+                        </div>
+
+                        <input type="number" onChange={var_cost} value={varCost} className={s.inputs} id='varcost' placeholder='단위: 만원'></input>
+                        <WordInfo_modal
+                            result={"생산량의 변동 여하에 따라 가변적으로 지출되는 비용. \n 예시) 원재료비, 전기세, 전화세, 수도세 등"}
+                            header={'변동비용'} />
+                    </div>
+
+
+                    <div className={s.inputDiv}>
+                        <div className={s.labelPlace}>
+                            <label className={s.labels} htmlFor='netprofit'>목표순이익</label>
+                        </div>
+                        <input disabled={isfixCost && isVarCost ? false : true} type="number" onChange={t_net_profit} value={netProfit} className={s.inputs}
+                            id='netprofit' placeholder='단위: 만원'></input>
+
+                        <WordInfo_modal
+                            result={"고정비, 변동비, 목표순이익 입력시 사용자가 목표로하는 순수이익을 위한 필요매출을 계산합니다."}
+                            header={'목표 순이익'} />
+                    </div>
+
+                    <div className={s.inputDiv}>
+                        <div className={s.labelPlace}>
+                            <label className={s.labels} htmlFor='avgprice'>메뉴평균단가</label>
+                        </div>
+                        <input disabled={isfixCost && isVarCost && isNetProfit ? false : true}
+                            type="number" onChange={m_avg_uprice} value={avgPrice} className={s.inputs} id='avgprice' placeholder='단위: 만원'></input>
+                        <WordInfo_modal
+                            result={"사용자의 매장 내 메뉴들의 평균가격 혹은 주요상품의 가격입력시 목표 매출을 위해 필요한 대략적인 일 필요 판매량을 계산합니다."}
+                            header={'메뉴 평균 단가'} />
+                    </div>
+
+                    <ResultModal calc={calc} header={"계산 결과"} result={resultData}> 계산 </ResultModal> {/* ResultModal로 props에 headr, calc, resultdata담아서 보내기 */}
+                </div>
+                
+                
+            </div>
+            
         </div>
     );
 }
