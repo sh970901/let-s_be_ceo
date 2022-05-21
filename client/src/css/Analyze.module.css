@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:wght@400;500;600&display=swap');
 @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
@@ -384,4 +384,95 @@
     display: flex;
     justify-content: space-between;
     gap: 3px;
+}
+
+/* ==============================분석 설명서=========================== */
+
+.analyzeMenualGuide{
+    padding: 2rem 0;
+    background-color: rgb(241, 241, 241);
+    border-radius: 15px;
+
+    margin-bottom: 1rem;
+}
+
+.analyzeMenualGuide > h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 60px;
+    color: #3f73d2; 
+    
+    margin-bottom: 2rem;
+}
+
+.analyzeMenualGuide > p {
+    font-size: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+}
+
+.analyzeMenualTerms {
+    padding: 2rem;
+    background-color: rgb(241, 241, 241);
+    border-radius: 15px;
+}
+
+.analyzeMenualTerms > h1 {
+    font-family: GmarketSansMedium;
+    color: #3f73d2;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.analyzeMenualTermsContent {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+
+    column-gap: 1rem;
+    /* align-items: center; */
+    /* justify-content: center;
+    justify-items: center;
+    align-items: center; */
+
+    padding: 1rem 0;
+    padding-bottom: .5rem;
+    
+}
+
+.analyzeMenualTerms > .analyzeMenualTermsContent:not(:last-child) {
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.termsTitle > h4 {
+    margin: auto;
+    color: #000;
+    /* align-items: center; */
+}
+
+.termsContent {
+    display: grid;
+    max-width: 700px;
+    
+    justify-content: left;
+    justify-items: left;
+    /* align-items: center; */
+}
+
+.termsContent > p{
+    margin-top: 1px;
+    text-align: left;
+}
+
+.analyzeDetailGuideContainer {
+    padding: 2rem 0;
+    background-color: rgb(241, 241, 241);
+    border-radius: 15px;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.analyzeDetailGuideContainer > h3 {
+    color: #3f73d2;
+    margin-bottom: 1rem;
 }

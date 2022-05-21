@@ -475,14 +475,13 @@ const DetailPeople = (props) => {
                   </div>
 
                   {isGoal ? <div>
-                    해당 상권에서 조건에 만족하는 생활 인구 수는<br />
-                    {goalData}{' '}입니다.
+                    해당 상권에서 조건에 만족하는 <br/>
+                    생활 인구 수는 {goalData}{' '}입니다.
                   </div> : null}
 
 
                   가구당 상주 인구 수: {homeNum}<br />
-                  실제 이동 인구 수 : ?????<br />
-                  일 평균 인구 수 : ?????<br />
+                  
                 </div>
               </div>
             </div> : null}
