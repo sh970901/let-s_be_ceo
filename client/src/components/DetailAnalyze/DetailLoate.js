@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 import { Chart, ArcElement, registerables } from 'chart.js'
 
+import s from "../../css/Analyze.module.css";
+
 Chart.register(ArcElement);
 Chart.register(...registerables);
 
@@ -82,8 +84,8 @@ const DetailLoate = (props) => {
         datasets: [
             {
                 label: '',
-                borderWidth: 5, // 테두리 두께
-                data: facility, // 수치
+                borderWidth: 0, // 테두리 두께
+                data: facility, // 수치 categoryNo
                 fill: true,
                 backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
                 barPercentage: 0.8,
@@ -95,8 +97,8 @@ const DetailLoate = (props) => {
         datasets: [
             {
                 label: '',
-                borderWidth: 5, // 테두리 두께
-                data: categoryNo, // 수치
+                borderWidth: 0, // 테두리 두께
+                data: categoryNo, // 수치facility
                 fill: true,
                 backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
                 barPercentage: 0.8,
@@ -156,51 +158,89 @@ const DetailLoate = (props) => {
     }
     return (
         <div>
-            <br />
-            <button onClick={analyze}>분석하기</button><br /><br />
+            <div className={s.btnArea} onClick={analyze}>
+                <h1>분석하기</h1>
+                {/* <button onClick={analyze}>분석하기</button> */}
+            </div>
             {show ?
-                <div style={{ width: 1500, height: 300 }}>
-                    집객 시설
-                    <Bar data={facilityData}
-                        width={1000}
-                        height={300}
-                        options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
-                    업종 개수
-                    <Bar data={categoryData}
-                        width={1000}
-                        height={300}
-                        options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+                <div className={s.analyzeContentConainer}>
+                    <div className={s.contentSectorsSquare}>
+                        <div className={s.sectorsItem}>
+                            <div className={s.setorsItemTitle}>
+                                <h4>집객 시설</h4>
+                            </div>
+                            <Bar data={facilityData}
+                                width={450}
+                                height={450}
+                                options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+                        </div>
+                        <div className={s.sectorsItem}>
+                            <div className={s.setorsItemTitle}>
+                                <h4>업종 개수</h4>
+                            </div>
+                            <Bar data={categoryData}
+                                width={450}
+                                height={450}
+                                options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
+                        </div>
+                    </div>
 
-                    상권을 선택해주세요:{' '}<select onChange={showData}>
-                        <option>상권선택</option>
-                        {areaName.map((v) => {
-                            return <option>{v}</option>
-                        })}
-                    </select> <br />
-                    <button onClick={areaChoice}>상권 선택</button>
-                    {/* <Pie></Pie> */}
+                    <div className={s.selectArea}>
+                        <p>상권을 선택해주세요:</p>
+                        <select className={s.selectItem}
+                            onChange={showData}>
+                            <option>상권선택</option>
+                            {areaName.map((v) => {
+                                return <option>{v}</option>
+                            })}
+                        </select> <br />
+                        <button onClick={areaChoice}>분석하기</button>
+                        {/* <Pie></Pie> */}
+                    </div>
                 </div> : null}
-                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            {showArea ? <div>
-                <Doughnut
-                    data={apartData}
-                    width={300}
-                    height={300}
-                    options={{
-                        responsive: false,
-                        legend: { display: false, position: "right" },
-                        datalabels: {
-                            display: true,
-                            color: "white",
-                        },
-                        tooltips: {
-                            backgroundColor: "#5a6e7f",
-                        }
-                    }}></Doughnut><br />
-                    아파트 평균 싯가: {averApart}원<br />
-                    버스 정거장 수: {bus}개<br />
-                    지하철 정거장 수: {train}개<br />
-            </div> : null}
+            {showArea ? 
+                <div className={s.LoateStreetContent}>
+                    <div className={s.setorsItemTitle}>
+                        <h4>아파트 시가 분석</h4>
+                    </div>
+
+                    <div className={s.streetContent}>
+                        <div>
+                            <Doughnut
+                                data={apartData}
+                                width={400}
+                                height={400}
+                                options={{
+                                    responsive: false,
+                                    legend: { display: false, position: "right" },
+                                    datalabels: {
+                                        display: true,
+                                        color: "white",
+                                    },
+                                    tooltips: {
+                                        backgroundColor: "#5a6e7f",
+                                    }
+                                }}>
+                            </Doughnut>
+                        </div>
+                        <div className={s.textArea}>
+                            <div className={s.textAreaItems}>
+                                <h1>아파트 평균 싯가</h1>
+                                <p>{averApart} 원</p>
+                            </div>
+
+                            <div className={s.textAreaItems}>
+                                <h1>버스 정거장 수</h1>
+                                <p>{bus} 개</p>
+                            </div>
+
+                            <div className={s.textAreaItems}>
+                                <h1>지하철 정거장 수</h1>
+                                <p>{train} 개</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> : null}
 
 
         </div>

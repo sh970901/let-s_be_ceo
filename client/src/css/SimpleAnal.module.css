@@ -1,3 +1,83 @@
-.simpleModal{
-    
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.simpleModal{
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    display: grid;
+    grid-template-rows: .5fr 5fr .4fr;
+
+    height: fit-content;
+    min-height: 80vh;
+
+    min-width: 1080px;
+    width: fit-content;
+
+    border-radius: 20px;
+}
+
+.modalTitleContainer {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+
+    padding: 1.5rem 0;
+    
+    background-color: #3f73d2ee;
+    /* border-bottom: 5px solid rgb(175, 175, 175); */
+    
+    border-radius: 18px 18px 0 0;
+    text-align: center;
+}
+
+.modalTitleContainer > h1:first-child {
+    color: rgba(255, 255, 255, 0.699);
+    font-size: 28px;
+    font-family: 'GmarketSansMedium';
+    margin-left: 15px;
+
+    margin-top: 15px;
+}
+
+.modalTitleContainer > h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'yg-jalnan';
+    margin-left: 15px;
+}
+
+.modalContentContainer {
+    margin-top: 5px;
+}
+
+.modalBtn {
+    font-family: GmarketSansMedium;
+
+    width: 100%;
+    height: 100%;
+    background: #3f73d2;
+    border: none;
+    color: #fff;
+
+    border-radius: 15px;
+}
+
+.btnArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #3f73d2;
+
+    border-radius: 0 0 15px 15px;
+}
+

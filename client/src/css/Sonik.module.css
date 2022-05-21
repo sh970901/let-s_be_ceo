@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
@@ -19,6 +20,7 @@
     padding-top: 50px;
     padding: 100px;
     display: grid;
+    place-items: center;
     align-items: center;
 
     font-family: 'Noto Sans KR', sans-serif;
@@ -55,6 +57,7 @@
     padding: 0 60px;
     color: #ffffffd2;
     font-family: 'GmarketSansMedium';
+    /* font-family: 'Nanum Gothic', sans-serif; */
     font-weight: bold;
 
     text-align: center;
@@ -109,7 +112,8 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 
     /* padding: 20px; */
-    height: 60vh;
+    min-height: 60vh;
+    max-width: 1200px;
 
 
     border-radius: 5px 5px 5px 5px;

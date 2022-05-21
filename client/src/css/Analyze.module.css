@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.analyze {
+    height: 100%;
+    /* min-height: 100vh; */
+    background-color: rgb(231, 231, 231);
+    background-color: rgba(255, 255, 255, 0.877);
+    /* padding: 100px;
+    padding-top: 0; */
+}
+
+.analyzeWrap {
+    min-width: 900px;
+    background-color: #fff;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/* ============================Title=========================== */
+/* =====================상권상세분석 : OO동 =================== */
+.analyzeSelect {
+    display: flex;
+    justify-content: center;
+
+    background-color: #3f73d2ee;
+    text-align: center;
+    color: #fff;
+
+    padding: .5rem;
+    padding-top: 1.5rem;
+}
+
+.analyzeSelect > h1:first-child {
+    color: rgba(255, 255, 255, 0.699);
+    font-size: 28px;
+    font-family: 'GmarketSansMedium';
+    margin-left: 15px;
+
+    margin-top: 15px;
+}
+
+.analyzeSelect > h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'yg-jalnan';
+    margin-left: 15px;
+}
+
+/* ============================ Nav Bar =========================== */
+
+.navbarArea {
+    background-color: #3f73d27e;
+
+    z-index: 33;
+    min-width: 900px;
+    margin-bottom: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.363);
+}
+
+.navbarMenu {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+
+    margin-bottom: 0;
+}
+
+.navbarMenuItems {
+    padding: 10px;
+}
+
+.navbarMenuItems:hover{
+    color: #3f73d2;
+    font-family: GmarketSansMedium;
+}
+
+.navbarMenuItems > h1 {
+    font-size: 20px;
+}
+
+/* ============================ Content =========================== */
+
+/* 스크롤바 hide */
+.AnalyzeContainer{ -ms-overflow-style: none; } 
+.AnalyzeContainer::-webkit-scrollbar{ display:none; }
+.AnalyzeContainer {
+    /* background-color: #3f73d2; */
+    display: grid;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 1rem;
+
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    /* max-width: 1080px; */
+    min-width: 1080px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.btnArea {
+    width: 100%;
+    min-width: 1080px;
+    background-color: rgb(230, 230, 230);
+    /* background-color: #c7cef1; */
+    padding : .5rem 0;
+    padding-top: 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.btnArea:hover {
+    background-color: #c7cef1;;
+}
+
+.btnArea > h1 {
+    font-family: 'GmarketSansMedium';
+    font-weight: bold;
+    font-size: 30px;
+    color: #3f73d2;
+}
+
+.contentSectorsSquare {
+    border-radius: 15px;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+.sectorsItem {
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+
+    padding: 1rem;
+
+    border-radius: 15px;
+    margin: auto;
+}
+
+.setorsItemTitle > h4{
+    color: rgb(94, 94, 94);
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    font-weight: bold;
+    font-size: 30px;
+    
+    padding : .5rem 1rem;
+    margin-bottom: 2rem;
+    /* padding-bottom: 10px; */
+    border-bottom: 2px solid rgb(189, 189, 189);
+}
+
+.selectArea {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1rem;
+
+    width: 100%;
+    height: max-content;
+
+    background-color: rgb(235, 235, 235);
+    padding : .5rem 0;
+    padding-top: 1rem;
+    border-radius: 15px;
+    /* margin-bottom: 1rem; */
+
+    font-family: GmarketSansMedium;
+}
+
+.selectArea > p {
+    margin: 0;
+    padding-top: 3px;
+    font-family: GmarketSansMedium;
+}
+
+.selectArea > button {
+    border: none;
+    outline: none;
+    background: #c7cef1;
+    border-radius: 5px;
+    padding: 0 1rem;
+}
+
+.selectItem {
+    border: none;
+    outline: none;
+    background: #c7cef1;
+    border-radius: 5px;
+
+}
+
+.LoateStreetContent {
+    background-color: rgb(241, 241, 241);
+    margin-top: 1rem;
+    border-radius: 15px;
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.streetContent {
+    display: grid;
+    justify-items: center;
+
+    grid-template-columns: 1fr 1fr;
+}
+
+.textArea {
+    display: grid;
+    
+    row-gap: 1rem;
+    align-items: center;
+    padding: 3rem;
+    width: 100%;
+}
+
+.textAreaItems {
+    width: 100%;
+    border-radius: 15px;
+    background-color: #c7cef1;
+
+    padding-top: 10px;
+    text-align: center;
+}
+
+.textAreaItems > h1 {
+    font-size: 17px;
+    margin-bottom: 5px;
+    color: rgb(82, 82, 82);
+}
+
+.textAreaItems > p {
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: black;
+    font-family: yg-jalnan;
+}
+
+.analyzeSelectArea {
+    display: flex;
+    min-width: 300px;
+}
+
+.LocateSelectArea {
+    background-color: #c7cef1;
+    margin-right: 1rem;
+    border-radius: 15px;
+
+    padding-bottom: 1rem;
+}
+
+.LocateSelectAreaTitle {
+    padding: 1rem;
+}
+
+.LocateSelectAreaTitle > h1 {
+    font-family: yg-jalnan;
+}
+
+.LocateSelectAreaContent > p {
+    margin-bottom: 0;
+}
+
+/* .LocateSelectArea > .selectItem {
+} */
+
+
+/* ==============================상세 매출 분석=========================== */
+
+.contentSectorsSquareSales {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+
+    border-radius: 15px;
+    background-color: rgb(241, 241, 241);    
+}
+
+.sectorsItemSales {
+    width: 100%;
+
+    padding: 1rem;
+    margin: auto;
+}
+
+.sectorsItemSales > .setorsItemTitle > h4:first-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+
+.salesSexRatio {
+    margin: 1rem 0;
+    background-color: rgb(241, 241, 241);
+    border-radius: 15px;
+
+    padding: 1rem;
+
+    /* display: grid;
+    grid-template-rows: 1fr 5fr; */
+    /* grid-template-columns: 1fr 2fr; */
+}
+
+.salesSexRatio > .setorsItemTitle {
+    padding: 0 20rem;
+}
+
+.salesSexData {
+    display: grid;
+    justify-content: center;
+}
+
+.salseDataContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    justify-content: center;
+}
+
+.salesDataChart {
+    display: grid;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: rgb(241, 241, 241);
+
+    padding: 1rem;
+}
+
+.salesDataChart > h4 {
+    padding-bottom: .5rem;
+    border-bottom: 2px solid rgb(189, 189, 189);
+}
+
+/* ==============================상세 인구 분석=========================== */
+
+.peopleDataContainer{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.peopleDataChartArea {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    justify-items: center;
+}
+
+.peopleDataItems {
+    background-color: rgb(241, 241, 241);
+    padding: 1rem;
+    width: 100%;
+    
+    border-radius: 15px;
+}
+
+.peopleDataItems > h4 {
+    padding-bottom: .5rem;
+    border-bottom: 2px solid rgb(189, 189, 189);
+}
+
+.peopleDataSexArea {
+    /* background-color: #3f73d2; */
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+}

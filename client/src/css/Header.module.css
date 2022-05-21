@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 .link__logo {
     color: inherit;
@@ -8,10 +21,14 @@
 .link__menu {
     color: inherit;
     text-decoration: inherit;
+    font-family: yg-jalnan;
+    font-weight: 700;
+    font-size: 20px;
+
 }
 
 .link__menu:hover {
-    color: inherit;
+    color: #3f73d2;
 }
 
 .navbar {
@@ -19,19 +36,42 @@
     /* 아이템 수직 정렬 */
     position: fixed;
     width: 100%;
+    min-width: 900px;
     z-index: 33;
     background-color: aliceblue;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.418);
 
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
+    
     background-color: rgb(255, 255, 255);
     padding: 8px 12px;
 
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.navbarAnalyze {
+    /* position: fixed; */
+    width: 100%;
+    z-index: 33;
+    /* background-color: #c7cef1; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.418);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c7cef1cb;
+
+    margin-top: 8px;
+    padding: 8px 12px;
+
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 
 .navbar__logo {
     font-size: 24px;
@@ -50,14 +90,14 @@
 .navbar__menu > li {
     flex: 1;
     padding: 8px 20px;
+
+    /* font-family: GmarketSansMedium; */
 }
 
-.navbar__menu > li:hover {
+/* .navbar__menu > li:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
     border-radius: 5px;
-}
-
-
+} */
 
 .navbar__login {
     flex: 1;
