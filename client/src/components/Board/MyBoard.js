@@ -13,7 +13,7 @@ import s from '../../css/Board.module.css';
 const MyBoard = () => {
     const [myBoard, setMyBoard] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/api/board/${sessionStorage.getItem('user_id')}`)
+        fetch(`http://3.35.10.163:5000/api/board/${sessionStorage.getItem('user_id')}`)
             .then((res) => (res.json()))
             .then((data) => {
                 setMyBoard(data)

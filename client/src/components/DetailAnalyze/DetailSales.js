@@ -56,7 +56,7 @@ const DetailSales = (props) => {
   var maxArea=""
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api2/detailSales/${props.place}/${props.category}`)
+    fetch(`http://3.35.10.163:5000/api2/detailSales/${props.place}/${props.category}`)
       .then(res => res.json())
       .then(data => data?.map((v) => {
         arr1.push(v.상권_코드_명)
@@ -64,7 +64,7 @@ const DetailSales = (props) => {
       }))
   }, [props])
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/api2/detailSales/${props.place}/${props.category}`)
+  //   fetch(`http://3.35.10.163:5000/api2/detailSales/${props.place}/${props.category}`)
   //     .then(res => res.json())
   //     .then(data => {
   //       console.log(data)
@@ -225,7 +225,7 @@ const DetailSales = (props) => {
     if (area === "상권선택" || area === undefined) {
       alert("상권을 선택해주세요.")
     } else {
-      fetch(`http://localhost:5000/api3/detailSales/${props.place}/${props.category}/${area}`)
+      fetch(`http://3.35.10.163:5000/api3/detailSales/${props.place}/${props.category}/${area}`)
         .then(res => res.json())
         .then(data => {
           

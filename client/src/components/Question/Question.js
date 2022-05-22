@@ -18,7 +18,7 @@ const Question = () => {
   const [detailContent, setDetailContent] = useState("")
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/question/${sessionStorage.getItem('user_id')}`)
+    fetch(`http://3.35.10.163:5000/api/question/${sessionStorage.getItem('user_id')}`)
       .then(res => res.json())
       .then(data => setQestions(data))
   }, [])
@@ -41,7 +41,7 @@ const Question = () => {
         content: content,
         id: sessionStorage.getItem('user_id')
       }
-      axios.post("http://localhost:5000/api/question", userData)
+      axios.post("http://3.35.10.163:5000/api/question", userData)
         .then((res) => {
           if (res.status === 200) {
             alert("생성이 완료되었습니다.")

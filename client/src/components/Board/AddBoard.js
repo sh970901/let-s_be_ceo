@@ -27,7 +27,7 @@ const AddBoard = () => {
             content: boardContent,
             writer: sessionStorage.getItem('user_id')
         }
-        axios.post("http://localhost:5000/api/board", userData)
+        axios.post("http://3.35.10.163:5000/api/board", userData)
         .then((res)=>{
             if(res.status===200){
                 alert("생성이 완료되었습니다.")

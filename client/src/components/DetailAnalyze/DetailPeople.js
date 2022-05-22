@@ -105,7 +105,7 @@ const DetailPeople = (props) => {
     console.log(humanSex)
     if (humanSex !== "성별" && humanSex !== undefined && humanAge !== "연령대" && humanAge !== undefined && humanDay !== "요일" && humanDay !== undefined && humanTime !== "시간대" && humanTime !== undefined) {
       setIsGoal(true)
-      fetch(`http://localhost:5000/human/${props.place}/${area}/${humanSex}연령대_${humanAge}_${humanDay}${humanTime}_생활인구_수`)
+      fetch(`http://3.35.10.163:5000/human/${props.place}/${area}/${humanSex}연령대_${humanAge}_${humanDay}${humanTime}_생활인구_수`)
         .then(res => res.json())
         .then(data => {
           var value = Object.values(data[0])
@@ -136,7 +136,7 @@ const DetailPeople = (props) => {
 
 
   const fetchData = async () => {
-    const result = await axios(`http://localhost:5000/api/detailPeople/${props.place}/${area}/`);
+    const result = await axios(`http://3.35.10.163:5000/api/detailPeople/${props.place}/${area}/`);
     console.log(result.data[0])
     setSun(result.data[0].일요일_생활인구_수)
     setMon(result.data[0].월요일_생활인구_수)
