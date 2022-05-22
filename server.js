@@ -13,20 +13,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 const data = fs.readFileSync('./database.json');
 const conf = JSON.parse(data)
 
-// const connection = mysql.createConnection({
-//     host: conf.host,
-//     user: conf.user,
-//     password: conf.password,
-//     port: conf.port,
-//     database: conf.database
-//   });
 const connection = mysql.createConnection({
-    host : "220.67.115.29",
-    user : "letsbeceo",
-    password :"letsbeceo",
-    database :"letsbeceo",
-    port: "3388"
+    host: conf.host,
+    user: conf.user,
+    password: conf.password,
+    port: conf.port,
+    database: conf.database
   });
+
   connection.connect();
 app.get('/api/login', (req,res)=>{
     connection.query('SELECT * FROM user', function(err,rows,fields){
