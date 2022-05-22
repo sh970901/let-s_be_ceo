@@ -27,7 +27,7 @@ const FindLogin = () => {
     }
     function checkEmail(e){
         e.preventDefault();
-        fetch("http://3.35.10.163:5000/api/login")
+        fetch("http://localhost:5000/api/login")
         .then((res)=>(res.json()))
         .then((data)=> {
             for(var i=0; i < data.length; i++){
@@ -45,7 +45,7 @@ const FindLogin = () => {
     }
     function checkPW(e){
         e.preventDefault();
-        fetch("http://3.35.10.163:5000/api/login")
+        fetch("http://localhost:5000/api/login")
         .then((res)=>(res.json()))
         .then((data)=> {
             for(var i=0; i < data.length; i++){

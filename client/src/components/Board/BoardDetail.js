@@ -17,16 +17,18 @@ const BoardDetail = () => {
     const [comment, setComment] = useState("");
     const [commentRead, setCommentRead] = useState([]);
     // function fetchBoard(){
-    //     fetch(`http://3.35.10.163:5000/api/comment/${location.state.props.title}`)
+    //     fetch(`http://localhost:5000/api/comment/${location.state.props.title}`)
     //     .then(res=>res.json())
     //     .then(data=> {
     //         setCommentRead(data)
     //     })
     // }
     useEffect(()=>{
-        fetch(`http://3.35.10.163:5000/api/comment/${location.state.props.title}`)
+        console.log(location.state.props.title)
+        fetch(`http://localhost:5000/api/comment/${location.state.props.title}`)
         .then(res=>res.json())
         .then(data=> {
+            console.log(data)
             setCommentRead(data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +48,7 @@ const BoardDetail = () => {
                     comment: comment,
                     title: location.state.props.title
                 }
-                axios.post("http://3.35.10.163:5000/api/comment",userData)
+                axios.post("http://localhost:5000/api/comment",userData)
                 .then((res)=>{
                     if(res.status ===200){
                         alert("댓글 생성완료")
@@ -59,7 +61,7 @@ const BoardDetail = () => {
 
     }
     function deleteBoard(){
-        const url = `http://3.35.10.163:5000/api/board/${location.state.props.no}`
+        const url = `http://localhost:5000/api/board/${location.state.props.no}`
         fetch(url, {
             method: 'DELETE'
         }).then((res)=>{
@@ -122,6 +124,7 @@ const BoardDetail = () => {
                         </thead>
                         <tbody>
                             {commentRead ? commentRead.map(c=>{
+                                // console.log(c)
                                 return(<Comment
                                 key={c.no_comment}
                                 no = {c.no_comment}

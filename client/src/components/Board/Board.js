@@ -15,7 +15,7 @@ const Board = () => {
     const history = useHistory();
     
     useEffect(() => {
-        fetch('http://3.35.10.163:5000/api/board')
+        fetch('http://localhost:5000/api/board')
             .then((res) => (res.json()))
             .then((data) => {
                 setBoards(data)

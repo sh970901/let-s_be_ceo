@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 const Comment = (props) => {
     const history = useHistory()
     function deleteComment(){
-        const url = `http://3.35.10.163:5000/api/comment/${props.no}`
+        const url = `http://localhost:5000/api/comment/${props.no}`
         fetch(url, {
             method: 'DELETE'
         })

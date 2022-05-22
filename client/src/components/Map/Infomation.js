@@ -16,7 +16,7 @@
     
 //     if(props.place.includes('동')){
 //       setIsShowData(true)
-//       fetch(`http://3.35.10.163:5000/api/building/${props.place}`)
+//       fetch(`http://localhost:5000/api/building/${props.place}`)
 //       .then(res=>res.json())
 //       .then(data=>setBuildingData(data[0]))
 //     }

@@ -35,7 +35,7 @@ const AddLogin = () => {
     }
     function idCheck(e) {
         e.preventDefault();
-        fetch("http://3.35.10.163:5000/api/login")
+        fetch("http://localhost:5000/api/login")
             .then((res) => (res.json()))
             .then((data) => {
                 if(addId===""){
@@ -66,7 +66,7 @@ const AddLogin = () => {
                     password: addPw,
                     email: addEmail
                 };
-                axios.post("http://3.35.10.163:5000/api/login", userData)
+                axios.post("http://localhost:5000/api/login", userData)
                     .then((res) => {
                         if(res.status===200){
                             alert("생성이 완료되었습니다.")

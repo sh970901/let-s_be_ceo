@@ -29,29 +29,29 @@ const DetailAnalyze = () => {
 
   function showData(e) {
     setCategory(e.target.value)
-    fetch(`http://3.35.10.163:5000/api2/detailSales/${place}/${category}`)
+    fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
       .then(res => res.json())
       .then(data => setDeSales(data))
   }
 
   useEffect(() => {
-    fetch(`http://3.35.10.163:5000/api/detailLocate/${place}`)
+    fetch(`http://localhost:5000/api/detailLocate/${place}`)
       .then(res => res.json())
       .then(data => setDeLocate(data))
   }, [])
 
   useEffect(() => {
-    fetch(`http://3.35.10.163:5000/api/${place}`)
+    fetch(`http://localhost:5000/api/${place}`)
       .then(res => res.json())
       .then(data => setDish(data))
   }, [])
   useEffect(() => {
-    fetch(`http://3.35.10.163:5000/api/detailPeople/${place}`)
+    fetch(`http://localhost:5000/api/detailPeople/${place}`)
       .then(res => res.json())
       .then(data => setDePeple(data))
   }, [])
   // useEffect(()=>{
-  //   fetch(`http://3.35.10.163:5000/api/detailSales/${place}`)
+  //   fetch(`http://localhost:5000/api/detailSales/${place}`)
   //   .then(res=>res.json())
   //   .then(data=>setDeSales(data))
   // },[])

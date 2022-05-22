@@ -84,13 +84,14 @@ app.post('/api/board',(req,res)=>{
     })
 })
 app.delete('/api/board/:no', (req,res)=>{
-    console.log("삭제")
+    
     connection.query('DELETE FROM board WHERE no_board = ?', req.params.no, function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })
 })
 app.get('/api/comment/:title',(req,res)=>{
+    console.log(req.params.title)
     connection.query('SELECT * FROM comment WHERE c_title=?',req.params.title, function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
