@@ -21,6 +21,7 @@ const connection = mysql.createConnection({
     database: conf.database
   });
 
+
   connection.connect();
 app.get('/api/login', (req,res)=>{
     connection.query('SELECT * FROM user', function(err,rows,fields){
@@ -145,7 +146,7 @@ app.get('/api/answer/', (req,res)=>{
 
 
 app.get('/api/building/shop', (req,res)=>{
-    connection.query('SELECT 행정동_이름, 행정동_총점포수 FROM 간단정보',function (error, rows, fields) {
+    connection.query('SELECT 행정동_이름, 행정동_총점포수, 행정동_분기당_평균매출 FROM 간단정보',function (error, rows, fields) {
         res.header("Access-Control-Allow-Origin", "*");
         res.send(rows);
       })

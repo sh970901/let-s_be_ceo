@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import S_modalForm from './S_modalForm';
-import '../SonikCSS/SonikModal.css'
-import '../SonikCSS/Sonik.css'
+import s from "../../../css/Sonik.module.css"
 
 // 고정비용에 대한 설명을 해준다
 
@@ -20,7 +19,7 @@ const ResultModal = (props) => {
 
   return (
       <React.Fragment>
-          <button className='button1' onClick={openModal}>?</button>
+          <button className={s.button1} onClick={openModal}>?</button>
           {/* header 부분에 텍스트를 입력한다,  */}
 
           <S_modalForm open={modalOpen} close={closeModal} header={props.header}> {/* S_Modal로 props에 modalOpen uesState와 closeModal함수 전달 */}

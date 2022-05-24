@@ -28,7 +28,7 @@ const BoardDetail = () => {
         fetch(`http://localhost:5000/api/comment/${location.state.props.title}`)
         .then(res=>res.json())
         .then(data=> {
-            console.log(data)
+            
             setCommentRead(data)
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
