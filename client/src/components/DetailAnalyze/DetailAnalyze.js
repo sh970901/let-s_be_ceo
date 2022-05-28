@@ -56,7 +56,6 @@ const DetailAnalyze = () => {
   //   .then(data=>setDeSales(data))
   // },[])
 
-
   function clickLocate() {
     setShowDetailSummary(false)
     setShowDetailPeople(false)
