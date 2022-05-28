@@ -84,7 +84,6 @@ const DetailAnalyze = () => {
 
   }
 
-
   return (
     <>
       <h1>{place}</h1>
