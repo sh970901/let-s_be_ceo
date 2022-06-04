@@ -2,9 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-//게시판 꺼내기
+//각 개시글을 하나씩 뽑아내는 컴포넌트 
 const BoardInfo = (props) => {
     const history = useHistory()
+
+    //게시글 선택시 게시글 상세정보로 이동
     function selectBoard(e){
         e.preventDefault();
         history.push({
@@ -16,7 +18,6 @@ const BoardInfo = (props) => {
      <tr onClick={selectBoard}>
          <td>{props.day}</td>
          <td>{props.title}</td>
-         {/* <td>{props.content}</td> */}
          <td>{props.writer}</td>
      </tr>  
     )

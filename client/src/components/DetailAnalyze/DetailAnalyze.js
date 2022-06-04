@@ -5,9 +5,10 @@ import { useLocation } from "react-router-dom";
 import DetailLoate from './DetailLoate';
 import DetailPeople from './DetailPeople';
 import DetailSales from './DetailSales';
-
-import headerStyle from "../../css/Header.module.css";
 import s from "../../css/Analyze.module.css";
+
+//상권 상세 정보를 위한 컴포넌트로 상권 상세 분석 기본 HOME 및 
+//해당 상세분석을 위한 정보를 모두 받아오고 각 분석에 받아온 정보를 전달 
 
 const DetailAnalyze = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const DetailAnalyze = () => {
   const [dePeople, setDePeple] = useState()  //상세인구 테이블 정보 담음
   const [deSales, setDeSales] = useState() //상세매출 테이블 정보 담음
 
-  const [category, setCategory] = useState()
+  const [category, setCategory] = useState() //업종 정보를 담음
 
   const [dish, setDish] = useState() //상세 지역에 요식업 정보담음 
 
@@ -27,6 +28,7 @@ const DetailAnalyze = () => {
 
   const [showDetailSummary, setShowDetailSummary] = useState(true) //상세정보 기본 설명란 
 
+  //해당 동에 선택한 요식업에 대한 상세매출 정보를 담아온다.
   function showData(e) {
     setCategory(e.target.value)
     fetch(`http://localhost:5000/api2/detailSales/${place}/${category}`)
@@ -34,28 +36,28 @@ const DetailAnalyze = () => {
       .then(data => setDeSales(data))
   }
 
+  //해당 동에 해당하는 상세지역 정보를 담아온다.
   useEffect(() => {
     fetch(`http://localhost:5000/api/detailLocate/${place}`)
       .then(res => res.json())
       .then(data => setDeLocate(data))
   }, [])
 
+  //해당 지역에 요식업 정보를 담아온다.
   useEffect(() => {
     fetch(`http://localhost:5000/api/${place}`)
       .then(res => res.json())
       .then(data => setDish(data))
   }, [])
+
+  //해당 동에 상세인구 정보를 담아온다.
   useEffect(() => {
     fetch(`http://localhost:5000/api/detailPeople/${place}`)
       .then(res => res.json())
       .then(data => setDePeple(data))
   }, [])
-  // useEffect(()=>{
-  //   fetch(`http://localhost:5000/api/detailSales/${place}`)
-  //   .then(res=>res.json())
-  //   .then(data=>setDeSales(data))
-  // },[])
-
+  
+//상세 분석 홈에 원하는 메뉴 클릭시 해당하는 정보만을 보여준다.
   function clickLocate() {
     setShowDetailSummary(false)
     setShowDetailPeople(false)
@@ -81,13 +83,13 @@ const DetailAnalyze = () => {
     setShowDetailLocate(false)
     setShowDetailPeople(false)
     setShowDetailSale(false)
-
   }
+
 
   return (
     <>
+      {/* 선택한 동 */}
       <h1>{place}</h1>
-
       <div className={s.analyze}>
         <div className={s.analyzeWrap}>
           <div className={s.fixed}>
@@ -113,7 +115,7 @@ const DetailAnalyze = () => {
               </ul>
             </div>
           </div>
-
+          {/* 기본 홈 가이드로 상세분석에 대한 정보를 제공 */}
           {showDetailSummary ? 
           <div className={s.AnalyzeContainer}>
             <div className={s.analyzeMenualGuide}>
@@ -161,12 +163,6 @@ const DetailAnalyze = () => {
                   <p>해당 지역으로 출근하기 위해 유입되는 인구를 추계한 데이터를 의미한다. 직장인구는 야간에 특정 이유로 다른 지역으로 이동해 있을 가능성이 있다.</p>
                 </div>
               </div>
-
-                {/* ● 집객시설 : 공원, 대형 사우나, 관광지, 대형 백화점/아울렛 등 대규모의 인구유입을 유도하는 시설<br/><br/>
-                ● 생활인구 : 서울시가 2018년 KT와 합동으로 인구 추계를한 인구모델로 조사시점에서 개인이 위치한 지역을 기반으로 집계한 인구데이터.<br/>
-                → 해당 지역의 거주자 뿐만 아니라 등교, 출근, 병원방문 등의 이유로 조사시점에 해당지역에 있는 모든 인구를 집계한 모델이다.<br/><br/>
-                ● 상주인구 : 해당 지역에 주거지를 두고 거주하는 인구를 의미한다, 상주인구는 주간에는 특정 이유로 다른 지역으로 이동해 있을 가능성이 있다.<br/><br/>
-                ● 직장인구 : 해당 지역으로 출근하기 위해 유입되는 인구를 추계한 데이터를 의미한다. 직장인구는 야간에 특정 이유로 다른 지역으로 이동해 있을 가능성이 있다.<br/> */}
             </div>
             <div className={s.analyzeDetailGuideContainer}>
               <br/>
@@ -199,6 +195,7 @@ const DetailAnalyze = () => {
             </div>
           </div>
           : null}
+          {/* 상세매출이 선택되었을 경우 */}
           {showDetailSale ?
             <div className={s.AnalyzeContainer}>
               <div className={s.analyzeSelectArea}>
@@ -227,6 +224,7 @@ const DetailAnalyze = () => {
             </div>
           </div>
             : null}
+            {/* 상세지역이 선택되었을 경우 */}
           {showDetailLocate ?
             <div className={s.AnalyzeContainer}>
               <div className={s.analyzeSelectArea}>
@@ -255,6 +253,7 @@ const DetailAnalyze = () => {
               </div>
             </div>
             : null}
+            {/* 상세인구가 선택되었을 경우 */}
           {showDetailPeople ?
             <div className={s.AnalyzeContainer}>
               <div className={s.analyzeSelectArea}>

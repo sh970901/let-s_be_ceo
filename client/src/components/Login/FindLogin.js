@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
 // import style sheet
 import s from "../../css/Login.module.css";
 
-//ID/PW찾기
+//ID와 PW 분실 시 DB에 저장된 값을 불러와 제공한다. 
+
 const FindLogin = () => {
 
     const [mailFindId, setMailFindId] = useState("")
@@ -25,6 +24,7 @@ const FindLogin = () => {
         e.preventDefault();
         setIdFind(e.target.value);
     }
+    //입력한 Email값을 기존에 DB에 입력된 Email과 비교한다
     function checkEmail(e){
         e.preventDefault();
         fetch("http://localhost:5000/api/login")
@@ -43,6 +43,7 @@ const FindLogin = () => {
             }
         })
     }
+    //입력한 ID값을 기존에 DB에 입력된 ID과 비교한다
     function checkPW(e){
         e.preventDefault();
         fetch("http://localhost:5000/api/login")
@@ -68,7 +69,6 @@ const FindLogin = () => {
                 <div className={s.logo}>
                     <h1>ID/PW 찾기</h1>
                 </div>
-
                 {/* ----------------find userID------------------ */}
                 <h3 className={s.forgotpw__title}>아이디 찾기</h3>                    
                 <div className={s.int__area}>

@@ -20,8 +20,9 @@ const DetailPeople = (props) => {
   const [fri, setFri] = useState() //금 생활인구
   const [sat, setSat] = useState() //토 생활인구
 
-  const [age10, setAge10] = useState(0) //연령대 10~60이상
-  const [age20, setAge20] = useState(0)
+  //연령대 10대부터 60대이상
+  const [age10, setAge10] = useState(0) 
+  const [age20, setAge20] = useState(0) 
   const [age30, setAge30] = useState(0)
   const [age40, setAge40] = useState(0)
   const [age50, setAge50] = useState(0)
@@ -34,15 +35,16 @@ const DetailPeople = (props) => {
   const [time17, setTime17] = useState(0) //17~21 시간대 
   const [time21, setTime21] = useState(0) //21~24 시간대 
 
-  const [workAge10, setWorkAge10] = useState(0) //직장인구 10대 
+  //직장인구 10대부터 60대이상
+  const [workAge10, setWorkAge10] = useState(0)  
   const [workAge20, setWorkAge20] = useState(0)
   const [workAge30, setWorkAge30] = useState(0)
   const [workAge40, setWorkAge40] = useState(0)
   const [workAge50, setWorkAge50] = useState(0)
   const [workAge60, setWorkAge60] = useState(0)
 
-
-  const [liveAge10, setLiveAge10] = useState(0) //상주인구 10대
+  //상주인구 10대부터 60대이상
+  const [liveAge10, setLiveAge10] = useState(0) 
   const [liveAge20, setLiveAge20] = useState(0)
   const [liveAge30, setLiveAge30] = useState(0)
   const [liveAge40, setLiveAge40] = useState(0)
@@ -59,23 +61,15 @@ const DetailPeople = (props) => {
   const [goalData, setGoalData] = useState(0) //목표하는 인구 수 
   const [isGoal, setIsGoal] = useState(false) //목표 인구수 보여주기
 
-
-
-
   const [show, setShow] = useState(false)
   const [area, setArea] = useState() //상권 선택
   const [showArea, setShowArea] = useState(false) //상권차트 보여주는 조건
-
 
   var arr1 = [] //상권 이름 담는 배열 샘플
   var arr2 = [] //상권에 총 생활인구 수 샘플
   var arr3 = [] //가구당 상주 인구 수 샘플
 
-
-
-
   function analyze() {
-     
       setShowArea(false)
       props.dePeople?.map((v) => {
         arr1.push(v.상권_코드_명)
@@ -86,7 +80,6 @@ const DetailPeople = (props) => {
       setAreaTotal(arr2)
       setHome(arr3)
       setShow(true)
-    
   }
 
   function handleSex(e) {
@@ -101,8 +94,8 @@ const DetailPeople = (props) => {
   function handleTime(e) {
     setHumanTime(e.target.value)
   }
+  //해당 조건에 맞는 생활인구 수에 대한 정보를 제공
   function showConditionData() {
-    console.log(humanSex)
     if (humanSex !== "성별" && humanSex !== undefined && humanAge !== "연령대" && humanAge !== undefined && humanDay !== "요일" && humanDay !== undefined && humanTime !== "시간대" && humanTime !== undefined) {
       setIsGoal(true)
       fetch(`http://localhost:5000/human/${props.place}/${area}/${humanSex}연령대_${humanAge}_${humanDay}${humanTime}_생활인구_수`)
@@ -114,16 +107,11 @@ const DetailPeople = (props) => {
     } else {
       alert("위에 보기중 선택하세요.")
     }
-
   }
-
-
   function showData(e) {
     setShowArea(false)
     setArea(e.target.value)
   }
-
-
   function areaChoice() {
     if (area === "상권선택" || area === undefined) {
       alert("상권을 선택해주세요.")
@@ -131,13 +119,11 @@ const DetailPeople = (props) => {
       setShowArea(true)
       fetchData()
     }
-
   }
 
-
+  //선택한 상권에 대한 정보를 받아와 저장 
   const fetchData = async () => {
     const result = await axios(`http://localhost:5000/api/detailPeople/${props.place}/${area}/`);
-    console.log(result.data[0])
     setSun(result.data[0].일요일_생활인구_수)
     setMon(result.data[0].월요일_생활인구_수)
     setTuse(result.data[0].화요일_생활인구_수)
@@ -165,7 +151,7 @@ const DetailPeople = (props) => {
     setWorkAge30(result.data[0].연령대_30_직장_인구_수)
     setWorkAge40(result.data[0].연령대_40_직장_인구_수)
     setWorkAge50(result.data[0].연령대_50_직장_인구_수)
-    // setWorkAge60(result.data[0].연령대_60_이상_직장_인구_수)
+    setWorkAge60(result.data[0].연령대_60_이상_직장_인구_수)
 
 
     setLiveAge10(result.data[0].연령대_10_상주인구_수)
@@ -233,22 +219,9 @@ const DetailPeople = (props) => {
       }
     ]
   }
-  //상권 내 요일 별 상주인구 수 데이터
-  // const liveData = {
-  //   labels: ["10대 상주인구 수", "20대 상주인구 수", "30대 상주인구 수", "40대 상주인구 수", "50대 상주인구 수", "60대 이상 상주인구 수"],
-  //   datasets: [
-  //     {
-  //       label: '',
-  //       borderWidth: 5, // 테두리 두께
-  //       data: [liveAge10,], // 수치
-  //       fill: true,
-  //       backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
-  //     }
-  //   ]
-  // }
+ 
   let liveData = [liveAge10, liveAge20, liveAge30, liveAge40, liveAge50, liveAge60]
   let liveLabels = ["10대 상주인구 수", "20대 상주인구 수", "30대 상주인구 수", "40대 상주인구 수", "50대 상주인구 수",]
-
   let customLiveLabels = liveLabels.map((label, index) => `${label}: ${liveData[index]}`)
   const dayLiveData = {
     labels: customLiveLabels,
@@ -269,24 +242,8 @@ const DetailPeople = (props) => {
       },
     ],
   };
-
-
-  //상권 내 요일 별 직장인구 수 데이터
-  // const workData = {
-  //   labels: ["10대 직장인구 수", "20대 직장인구 수", "30대 직장인구 수", "40대 직장인구 수", "50대 직장인구 수", "60대 이상 직장인구 수"],
-  //   datasets: [
-  //     {
-  //       label: '',
-  //       borderWidth: 5, // 테두리 두께
-  //       data: [workAge10,], // 수치
-  //       fill: true,
-  //       backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'] // 각 막대 색
-  //     }
-  //   ]
-  // }
   let workData = [workAge10, workAge20, workAge30, workAge40, workAge50, workAge60]
   let workLabels = ["10대 직장인구 수", "20대 직장인구 수", "30대 직장인구 수", "40대 직장인구 수", "50대 직장인구 수", "60대 이상 직장인구 수"]
-
   let customWokrLabels = workLabels.map((label, index) => `${label}: ${workData[index]}`)
   const dayWorkData = {
     labels: customWokrLabels,
@@ -307,31 +264,24 @@ const DetailPeople = (props) => {
       },
     ],
   };
-
-
-
-
-  //가구원 수 데이터 
   const homeData = {
     labels: areaName,
     datasets: [
       {
         label: '',
-        borderWidth: 5, // 테두리 두께
-        data: home, // 수치
+        borderWidth: 5, 
+        data: home, 
         fill: true,
-        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+        backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], 
       }
     ]
   }
-
-
   return (
     <div>
       <div className={s.btnArea} onClick={analyze}>
         <h1>분석하기</h1>
       </div>
-
+      {/* 해당 동에 상권 별 분석 정보 */}
       {show ? 
         <div className={s.analyzeContentConainer}>
           <div className={s.contentSectorsSquare}>
@@ -368,8 +318,7 @@ const DetailPeople = (props) => {
               <button onClick={areaChoice}>상권 선택</button>
           </div>
       </div> : null}
-
-
+      {/* 상권 선택 시 해당 상권에 대한 정보 제공 */}
       {showArea ? 
         <div className={s.peopleDataContainer}>
           <div className={s.peopleDataChartArea}>
@@ -475,13 +424,10 @@ const DetailPeople = (props) => {
                   </div>
 
                   {isGoal ? <div>
-                    해당 상권에서 조건에 만족하는 <br/>
-                    생활 인구 수는 {goalData}{' '}입니다.
+                    해당 상권에서 조건에 만족하는 생활 인구 수는<br />
+                    {goalData}{' '}입니다.
                   </div> : null}
-
-
                   가구당 상주 인구 수: {homeNum}<br />
-                  
                 </div>
               </div>
             </div> : null}

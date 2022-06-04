@@ -10,35 +10,30 @@ import { UilArrowLeft } from '@iconscout/react-unicons'
 //-----------------CSS import--------------------//
 import s from '../../css/Board.module.css';
 
-//게시판 상세보기
+//게시판에서 게시글 클릭 시 해당 게시글에 대한 상세 정보이며 댓글을 생성하고 삭제할 수 있다.
+
 const BoardDetail = () => {
     const history = useHistory();
     const location = useLocation();
     const [comment, setComment] = useState("");
     const [commentRead, setCommentRead] = useState([]);
-    // function fetchBoard(){
-    //     fetch(`http://localhost:5000/api/comment/${location.state.props.title}`)
-    //     .then(res=>res.json())
-    //     .then(data=> {
-    //         setCommentRead(data)
-    //     })
-    // }
+
+    //선택된 게시글에 댓글 정보를 담아온다.
     useEffect(()=>{
-        console.log(location.state.props.title)
         fetch(`http://localhost:5000/api/comment/${location.state.props.title}`)
         .then(res=>res.json())
         .then(data=> {
-            
             setCommentRead(data)
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     function handleComment(e){
         e.preventDefault();
         setComment(e.target.value)
     }
+    //로그인된 사용자만 댓글 생성이 가능하도록 설정 
     function writeComment(e){
         e.preventDefault();
+        //sessionStorage에 저장된 user_id값을 활용
         if(sessionStorage.getItem('user_id')!==null){
             if(comment === ""){
                 alert("값을 입력하세요")
@@ -58,8 +53,9 @@ const BoardDetail = () => {
             }
         }
         else{alert("로그인 후 사용가능합니다.")}
-
     }
+
+    //게시글 삭제
     function deleteBoard(){
         const url = `http://localhost:5000/api/board/${location.state.props.no}`
         fetch(url, {
@@ -70,7 +66,6 @@ const BoardDetail = () => {
             } else{
                 alert("게시글 삭제 실패")
             }})
-        
         history.push('/board')
     }
     
@@ -106,7 +101,6 @@ const BoardDetail = () => {
 
                 <div className={s.detailContent}>
                     <div className={s.titleDiv}>
-                        {/* <span className={s.boardText}>CONTENT</span> */}
                     </div>
                     <textarea className={s.textarea} value={location.state.props.content} readOnly></textarea>            
                 </div>    
@@ -123,8 +117,8 @@ const BoardDetail = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {/* 해당 게시글에 해당하는 댓글에 대한 정보를 map함수를 활용하여 하나씩 받아옴 */}
                             {commentRead ? commentRead.map(c=>{
-                                // console.log(c)
                                 return(<Comment
                                 key={c.no_comment}
                                 no = {c.no_comment}
@@ -149,6 +143,7 @@ const BoardDetail = () => {
                     </div> 
 
                     <div className={s.commentbtnArea}>
+                        {/* 자신의 게시글만 삭제할 수 있도록 설정 */}
                         {location.state.props.writer === sessionStorage.getItem('user_id') ? <button className={s.btnDel} onClick={deleteBoard}>게시글 삭제</button> : ""}
                     </div>
                 </div>

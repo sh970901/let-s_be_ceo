@@ -9,8 +9,11 @@ import s from "../../css/Analyze.module.css";
 Chart.register(ArcElement);
 Chart.register(...registerables);
 
-const DetailLoate = (props) => {
+//상세지역에 대한 정보로 업종 선택 시 해당 동에 선택 업종에 대한 지역정보를 상권 별로 제공하고
+//상권 선택 시 상권에 대한 지역 정보를 제공한다.
 
+
+const DetailLoate = (props) => {
     const [areaNum, setAreaNum] = useState() //상권번호
     const [areaName, setAreaName] = useState() //상권이름
     const [facility, setFacility] = useState()//집객시설
@@ -22,11 +25,11 @@ const DetailLoate = (props) => {
 
     const [apart0, setApart0] = useState(0)   //1억미만 아파트
     const [apart1, setApart1] = useState(0)  //1억 세대수
-    const [apart2, setApart2] = useState(0)  //2억세대수
-    const [apart3, setApart3] = useState(0)  //3억세대수
-    const [apart4, setApart4] = useState(0)  //4억세대수
-    const [apart5, setApart5] = useState(0)  //5억세대수
-    const [apart6, setApart6] = useState(0)  //6억이상 세대수
+    const [apart2, setApart2] = useState(0)  //2억 세대수
+    const [apart3, setApart3] = useState(0)  //3억 세대수
+    const [apart4, setApart4] = useState(0)  //4억 세대수
+    const [apart5, setApart5] = useState(0)  //5억 세대수
+    const [apart6, setApart6] = useState(0)  //6억 이상 세대수
 
     const [averApart, setAverApart] = useState(0) //아파트 평균 싯가
     const [bus, setBus] = useState(0) //버스정거장 수
@@ -45,8 +48,6 @@ const DetailLoate = (props) => {
         setAreaNum(arr1)
         setFacility(arr3)
     }, [props])
-
-
 
     function analyze() {
         if(props.category==="업종 선택" || props.category===undefined){
@@ -84,10 +85,10 @@ const DetailLoate = (props) => {
         datasets: [
             {
                 label: '',
-                borderWidth: 0, // 테두리 두께
-                data: facility, // 수치 categoryNo
+                borderWidth: 0, 
+                data: facility, 
                 fill: true,
-                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], 
                 barPercentage: 0.8,
             }
         ]
@@ -97,10 +98,10 @@ const DetailLoate = (props) => {
         datasets: [
             {
                 label: '',
-                borderWidth: 0, // 테두리 두께
-                data: categoryNo, // 수치facility
+                borderWidth: 0,
+                data: categoryNo, 
                 fill: true,
-                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], // 각 막대 색
+                backgroundColor: ['yellow', 'red', 'green', 'blue', 'white', 'black', 'green'], 
                 barPercentage: 0.8,
             }
         ]
@@ -127,9 +128,6 @@ const DetailLoate = (props) => {
             },
         ],
     };
-
-
-
     function showData(e) {
         setArea(e.target.value)
         setShowArea(false)
@@ -160,8 +158,8 @@ const DetailLoate = (props) => {
         <div>
             <div className={s.btnArea} onClick={analyze}>
                 <h1>분석하기</h1>
-                {/* <button onClick={analyze}>분석하기</button> */}
             </div>
+            {/* 해당 동에 상권 별 분석 정보 */}
             {show ?
                 <div className={s.analyzeContentConainer}>
                     <div className={s.contentSectorsSquare}>
@@ -184,7 +182,7 @@ const DetailLoate = (props) => {
                                 options={{ responsive: false, legend: { display: true, position: "bottom" } }}></Bar><br />
                         </div>
                     </div>
-
+                    {/* 상권 선택 시 해당 상권에 대한 정보 제공 */}
                     <div className={s.selectArea}>
                         <p>상권을 선택해주세요:</p>
                         <select className={s.selectItem}
@@ -195,7 +193,6 @@ const DetailLoate = (props) => {
                             })}
                         </select> <br />
                         <button onClick={areaChoice}>분석하기</button>
-                        {/* <Pie></Pie> */}
                     </div>
                 </div> : null}
             {showArea ? 
@@ -241,8 +238,6 @@ const DetailLoate = (props) => {
                         </div>
                     </div>
                 </div> : null}
-
-
         </div>
     )
 }

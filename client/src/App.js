@@ -17,7 +17,6 @@ import AddBoard from './components/Board/AddBoard';
 import MyBoard from './components/Board/MyBoard';
 import Map from './components/Map/Map';
 import { Geojson } from './components/Map/Geojson';
-import Infomation from './components/Map/Infomation';
 import { useState } from 'react';
 import MainPage from './components/Main/MainPage';
 import Sonik from './components/Sonik/Sonik';

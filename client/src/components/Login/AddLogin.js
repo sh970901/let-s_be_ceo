@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom';
 
 import s from "../../css/Login.module.css";
 
-//회원가입
+//회원가입을 하기 위한 컴포넌트로 성공적으로 완료되면 DB에 저장한다.
+
 const AddLogin = () => {
     const [addId, setAddId] = useState("")
     const [addPw, setAddPw] = useState("")
@@ -33,6 +34,7 @@ const AddLogin = () => {
         e.preventDefault();
         setAddPwCh(e.target.value);
     }
+    //DB에 존재하는 값인지 확인
     function idCheck(e) {
         e.preventDefault();
         fetch("http://localhost:5000/api/login")
@@ -55,6 +57,7 @@ const AddLogin = () => {
                 }}           
             })
     }
+    //비밀번호를 재확인하기 위한 기능 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (usableID === true) {

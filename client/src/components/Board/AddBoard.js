@@ -6,7 +6,8 @@ import { Link, useHistory } from 'react-router-dom';
 //-----------------CSS import--------------------//
 import s from '../../css/Board.module.css';
 
-//게시판 추가
+//게시글 작성을 위해 게시글 제목, 내용을 작성하고 완료 시 게시판 DB에 추가
+
 const AddBoard = () => {
 
     const history = useHistory();
@@ -43,21 +44,18 @@ const AddBoard = () => {
         <div className={s.board}>
             <div className={s.createBoard}>
                 <h1>Create Board</h1>
-
                 <div className={s.createBody}>
                     <div className={s.createInputs}>
                         <label for="" className={s.createLabel}>Board Title</label>
                         <input type="text" name="boardTitle" value={boardTitle} onChange={handleBoardTitle}
                         className={s.createInput}></input>
                     </div>
-
                     <div className={s.createInputs}>
                         <label for="" className={s.createLabel}>Board Content</label>
                         <textarea name="boardContent" value={boardContent} onChange={handleBoardContent}
                         className={s.createInputText} rows="10"></textarea>
                     </div>
                 </div>
-
                 <div className={s.btnArea}>
                 <Button onClick={addBoard} className={s.btn}>완료</Button>
                 <Link to='/board'><Button className={s.btn}>취소</Button></Link>

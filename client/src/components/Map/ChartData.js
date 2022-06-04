@@ -1,13 +1,10 @@
 import React from 'react'
-import { Bar, Doughnut, Pie } from 'react-chartjs-2'
+import { Bar, Doughnut} from 'react-chartjs-2'
 import { Chart, ArcElement, registerables } from 'chart.js'
 import { useEffect } from 'react';
-import { chartColors } from './chartColors';
 import { useState } from 'react';
 
 import s from '../../css/ChartData.module.css';
-
-import { UilSchedule } from '@iconscout/react-unicons'
 import { UilCalender } from '@iconscout/react-unicons'
 import { UilClockEight } from '@iconscout/react-unicons'
 import { UilTag } from '@iconscout/react-unicons'
@@ -16,11 +13,10 @@ import { UilEstate } from '@iconscout/react-unicons'
 Chart.register(ArcElement);
 Chart.register(...registerables);
 
+//선택된 동에 대한 상권 간단분석 정보를 불러오고 차트 및 그래프를 활용하여 정보를 제공한다. 
 
 const ChartData = (props) => {
-
   // =========================생활인구에 대한 데이터 저장 변수===============================
-
   // 요일별
   const [monday, setMonday] = useState(0) //월요일 생활인구 수 
   const [tuesday, setTuesday] = useState(0) //화요일 생활인구 수
@@ -66,43 +62,35 @@ const ChartData = (props) => {
   const [averageSale, setAverageSale] = useState(0) //행정동 분기당 평균매출
   const allSale = 80551349 //전체 행정동 평균매출의 평균 
 
-
+  
   useEffect(() => {
-
-
     simpleDayData()
     simpletimeData()
     simplePeopleData()
     simpleAverSale()
-
     simpleShop()
-
   }, [props])
 
+  //각 요소의 최댓값 찾기
   useEffect(()=>{
     setMaxTimeValue(Math.max(time1,time2,time3,time4,time5,time6))
     setMinTimeValue(Math.min(time1,time2,time3,time4,time5,time6))
-
     setMaxDayValue(Math.max(monday,tuesday,wednesday,thursday,friday,saturday,sunday))
     setMinDayValue(Math.min(monday,tuesday,wednesday,thursday,friday,saturday,sunday))
-    
-    
   },[listTime])
   
-
+  //value값으로 key값 찾기
   useEffect(()=>{
-    
     setMaxTime(Object.keys(listTime).find(key=>listTime[key] === maxTimeValue))
     setMinTime(Object.keys(listTime).find(key=>listTime[key] === minTimeValue))
-
     setMaxDay(Object.keys(listDay).find(key=>listDay[key] === maxDayValue))
     setMinDay(Object.keys(listDay).find(key=>listDay[key] === minDayValue))
   },[maxTimeValue])
 
+  //요일 별 생활인구 수 저장
   function simpleDayData() {
     if (props.buildingData === undefined) {
-      console.log("데이터가 존재하지 않습니다. ")
-      
+      console.log("데이터가 존재하지 않습니다.")
     } else {
       setMonday(props.buildingData.월요일_생활인구_수)
       setTuesday(props.buildingData.화요일_생활인구_수)
@@ -113,7 +101,7 @@ const ChartData = (props) => {
       setSunday(props.buildingData.일요일_생활인구_수)
     }
   }
-
+  //행정동 총점포수 저장
   function simpleShop() {
     if (props.buildingData === undefined) {
       console.log("데이터가 존재하지 않습니다. ")
@@ -122,7 +110,7 @@ const ChartData = (props) => {
     }
   }
 
-
+  //시간대 별 생활인구 수 저장
   function simpletimeData() {
     if (props.buildingData === undefined) {
       console.log("데이터가 존재하지 않습니다.")
@@ -135,6 +123,8 @@ const ChartData = (props) => {
       setTime6(props.buildingData.시간대_6_생활인구_수)
     }
   }
+
+  //총 상주인구 수 저장
   function simplePeopleData() {
     if (props.buildingData === undefined) {
       console.log("데이터가 존재하지 않습니다. ")
@@ -145,6 +135,7 @@ const ChartData = (props) => {
     }
   }
 
+  //분기당 평균 매출 저장 
   function simpleAverSale() {
     if (props.buildingData === undefined) {
       console.log("데이터가 존재하지 않습니다. ")
@@ -153,7 +144,7 @@ const ChartData = (props) => {
     }
   }
 
-
+  //행정동 총 점포수에 대한 차트 데이터
   const shopData = {
     labels: ['개포동', '논현동', '대치동', '도곡동', '삼성동', '수서동', '신사동', '역삼동', '일원동', '청담동'],
     datasets: [
@@ -168,7 +159,7 @@ const ChartData = (props) => {
   }
 
 
-
+  //행정동 요일별 생활 인구 수에 대한 차트 데이터
   const dayData = {
     labels: ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
     datasets: [
@@ -198,6 +189,8 @@ const ChartData = (props) => {
       }
     ]
   }
+
+  //시간대 별 생활 인구 수에 대한 차트 데이터 
   const timeData = {
     labels: ["00~06시", "06~11시", "11~14시", "14~17시", "17~21시", "21~24시"],
     datasets: [
@@ -232,9 +225,6 @@ const ChartData = (props) => {
     ],
   };
 
-
-
-
   return (
     <div className={s.chartWrap}>
 
@@ -253,9 +243,6 @@ const ChartData = (props) => {
           <h1>생활 인구 수</h1>
           <p> {live === 0 ? '데이터 없음' : live+' 명'} </p>
         </div>
-        {/* <p className='prac'>상주 인구 수: {stay}</p>
-        <p className='prac'>직장 인구 수: {work}</p>
-        <p className='prac'>생활 인구 수: {live}</p> */}
       </div>
 
       <div className={s.chartPeopleContainer1}>
@@ -264,7 +251,7 @@ const ChartData = (props) => {
           <div className={s.peopleTitle}>
             <h4 className='prac'><UilCalender className={s.titleIcons}/> 요일 별 생활 인구 수</h4>
           </div>
-          
+          {/* 요일 별 생활 인구 수 차트 */}
           <div className={s.chartArea}>
             <Bar data={dayData} 
             width={300}
@@ -290,7 +277,7 @@ const ChartData = (props) => {
           <div className={s.peopleTitle}>
             <h4 className='prac'><UilClockEight className={s.titleIcons}/> 시간대 별 생활 인구 수</h4>
           </div>
-
+          {/* 시간대 별 생활인구 수 차트 */}
           <div className={s.chartArea}>
             <Bar data={timeData}
               width={300}
@@ -318,6 +305,7 @@ const ChartData = (props) => {
           <div className={s.peopleTitle}>
             <h4 className='prac'><UilTag className={s.titleIcons}/> 행정동 전체와 해당 지역 매출 비율</h4>
           </div>
+          {/* 행정동 전체와 해당 지역 매출 비율 차트 */}
           <div className={s.chartArea}>
               <Doughnut
                 data={chartdata}
@@ -338,7 +326,7 @@ const ChartData = (props) => {
             <div className={s.peopleTitle}>
               <h4 className='prac'><UilEstate className={s.titleIcons}/> 행정동 총 점포수</h4>
             </div>
-
+            {/* 행정동 총 점포수 차트 */}
             <div className={s.chartArea}>
               <Bar data={shopData} 
               width={300}
@@ -360,21 +348,7 @@ const ChartData = (props) => {
           </div>
 
       </div>
-
-      {/* <Pie
-
-        data={expData}    
-        options={options}
-
-        height={200}
-        width={600}
-      />
-      <Doughnut
-        data={data}
-        options={options}
-      ></Doughnut> */}
     </div>
   )
 }
-
 export default ChartData
