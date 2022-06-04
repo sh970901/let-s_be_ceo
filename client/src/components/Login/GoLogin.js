@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 import s from "../../css/Login.module.css";
 
-//로그인
+//로그인을 진행하기 위한 컴포넌트로 정상적으로 입력 시 DB값과 비교하여 로그인 절차를 진행한다.
+
 const GoLogin = () => {
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
@@ -20,6 +21,8 @@ const GoLogin = () => {
         e.preventDefault();
         setInputPw(e.target.value);
     }
+
+    //DB에 저장된 ID값과 PW값을
     function checkLogin() {
         fetch("http://localhost:5000/api/login")
             .then((res) => (res.json()))
