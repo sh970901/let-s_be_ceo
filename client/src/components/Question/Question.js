@@ -5,6 +5,9 @@ import QuestionData from './QuestionData';
 import axios from 'axios';
 import QuestionModal from './QuestionModal';
 
+import s from "../../css/Question.module.css";
+
+
 // import ResultModal from './Modal/ResultModal';
 
 
@@ -58,45 +61,52 @@ const Question = () => {
   }
   var no=0        //문의사항 순번
   return (
-    <div>
-      <div>문의사항</div>
-
-
-      <div className='container'>
-        <div className='item'>순번</div> <div className='item'>문의내용</div> <div className='item'>작성 날짜</div> <div className='item'>작성자</div>
-        
-
-        {questions ? 
-        questions.map((c) => {
-          no++;
-
-          return (
-            <QuestionData
-              setAnswerData={setAnswerData}
-              questions={questions}
-              setDetailContent={setDetailContent}
-              setDetailId={setDetailId}
-
-              date={c.date}
-              no={no}
-              setShowModal={setShowModal}
-              detailId={detailId}
-              detailContent={detailContent}
-              key={c.no}
-              id={c.id}
-              content={c.content}></QuestionData>
-          )
-        }) : null}
-        {showModal ? <QuestionModal answerData={answerData} detailId={detailId} detailContent={detailContent} openModal={openModal} closeModal={closeModal}></QuestionModal> : null}
-      </div>
-  
-      <div className='container2'>
-        <div className='item2'>문의사항:</div>
-        <div className='item2'>
-          <input type="text" name='text' value={content} onChange={handleQues}></input>
+    <div className={s.question}>
+      <div className={s.questionContainer}>
+        <div className={s.titleArea}>
+          <h1>문의사항</h1>
         </div>
-        <div className='item2'>
-          <button onClick={submitQues}>제출</button>
+        <div className={s.contentArea}>
+          <div className={s.contentContainer1}>
+            <div className={s.contentItem}><p>순번</p></div>
+            <div className={s.contentItem}><p>문의내용</p></div>
+            <div className={s.contentItem}><p>작성자</p></div>
+            <div className={s.contentItem}><p>작성일</p></div>
+          </div>
+          <div className={s.contentContainer}>
+            {questions ? 
+            questions.map((c) => {
+              no++;
+
+              return (
+                <QuestionData
+                  setAnswerData={setAnswerData}
+                  questions={questions}
+                  setDetailContent={setDetailContent}
+                  setDetailId={setDetailId}
+
+                  date={c.date}
+                  no={no}
+                  setShowModal={setShowModal}
+                  detailId={detailId}
+                  detailContent={detailContent}
+                  key={c.no}
+                  id={c.id}
+                  content={c.content}></QuestionData>
+              )
+            }) : null}
+            {showModal ? <QuestionModal answerData={answerData} detailId={detailId} detailContent={detailContent} openModal={openModal} closeModal={closeModal}></QuestionModal> : null}
+          </div>
+        </div>
+    
+        <div className={s.submitArea}>
+          <div className={s.submitTitle}>
+            <p>문의사항 : </p>
+            <input className={s.submit} type="text" name='text' value={content} onChange={handleQues}></input>
+          </div>
+          <div className={s.btnArea} onClick={submitQues}>
+            <p>제출</p>
+          </div>
         </div>
       </div>
     </div>

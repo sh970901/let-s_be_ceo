@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+import s from '../../css/State.module.css';
+import userImg from '../../img/user.png';
+
+
 //내 상세 정보보기
 const DetailState = () => {
   const history = useHistory()
@@ -64,16 +68,44 @@ const DetailState = () => {
       }})
   }
   return (
-  <div>
-      <h1>내 상세 정보</h1>
-      ID:<input type="text" name="id" value={id} onChange={handleId} ></input><br/>
-      PW: <input type="text" name="pw" value={pw} onChange={handlePw}></input><br/>
-      Email:<input type="text" name="email" value={email} onChange={handleEmail}></input><br/>
-      <Button onClick={modify}>수정하기</Button>{' '}
-      <Link to ="/">
-      <Button>뒤로</Button></Link> <br/><br/>
-      <Button onClick={deleteId}>회원탈퇴</Button>
-      
+  <div className={s.state}>
+    <div>
+      <div>
+        <Link to ="/">
+          <Button className={s.btnBack}>뒤로</Button>
+        </Link>
+      </div>
+      <div className={s.stateContainer}>
+        <div className={s.titleArea}>
+          <h1>USER</h1>
+          <h1>Info.</h1>
+        </div>
+        <div className={s.contentArea}>
+          <div className={s.imgArea}>
+            <img className={s.userImg} src={userImg}></img>
+          </div>
+          <div className={s.dataArea}>
+            <div className={s.dataItems}>
+              <p>ID</p>
+              <input className={s.dataInput} type="text" name="id" value={id} onChange={handleId} ></input>
+            </div>
+
+            <div className={s.dataItems}>
+              <p>PW</p>
+              <input className={s.dataInput} type="text" name="pw" value={pw} onChange={handlePw} ></input>
+            </div>
+
+            <div className={s.dataItems}>
+              <p>Email</p>
+              <input className={s.dataInput} type="text" name="email" value={email} onChange={handleEmail} ></input>
+            </div>
+            
+            <Button className={s.databtn} onClick={modify}>수정하기</Button>
+          </div>
+        </div>
+            <Button className={s.btnDel} onClick={deleteId}>회원탈퇴</Button>
+      </div>
+    </div>
   </div>
   );
 };
