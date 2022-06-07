@@ -5,6 +5,9 @@ import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 
 import s from "../../css/Analyze.module.css";
 
+//상세매출에 대한 정보로 업종 선택 시 해당 동에 선택 업종에 대한 지역정보를 상권 별로 제공하고
+//상권 선택 시 상권에 대한 지역 정보를 제공한다.
+
 const DetailSales = (props) => {
   const [bestSales, setBestSales] = useState(0) //매출 가장 높은상권
   const [bestArea, setBestArea] = useState() //매출가장 높은 상권

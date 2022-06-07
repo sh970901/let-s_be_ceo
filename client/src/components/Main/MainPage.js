@@ -6,6 +6,8 @@ import iconService from "../../img/service.png";
 import iconGps from "../../img/gps.png";
 import { Link } from "react-router-dom";
 
+//메인페이지로 강남구에 대한 전체적인 정보를 제공하며 기능 별 네비게이션을 포함한다. 
+
 export default function MainPage() {
 
     const about = "서울시 요식업 상권분석 플랫폼, Let's Be CEO!"

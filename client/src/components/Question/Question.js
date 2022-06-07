@@ -8,7 +8,7 @@ import QuestionModal from './QuestionModal';
 import s from "../../css/Question.module.css";
 
 
-// import ResultModal from './Modal/ResultModal';
+//사용자가 작성했던 문의사항을 모두 확인할 수 있으며 새로운 문의사항을 작성할 수 있다.
 
 
 const Question = () => {
@@ -38,6 +38,7 @@ const Question = () => {
   function handleQues(e) {
     setContent(e.target.value)
   }
+  //문의사항 제출하기
   function submitQues() {
     if (sessionStorage.getItem('user_id') !== null) {
       const userData = {
@@ -59,7 +60,8 @@ const Question = () => {
     }
 
   }
-  var no=0        //문의사항 순번
+   //문의사항 순번
+  var no=0                                       
   return (
     <div className={s.question}>
       <div className={s.questionContainer}>

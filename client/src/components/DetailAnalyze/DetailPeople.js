@@ -5,7 +5,8 @@ import { Bar, Doughnut, Pie } from 'react-chartjs-2'
 import axios from 'axios';
 
 import s from "../../css/Analyze.module.css";
-
+//상세인구에 대한 정보로 해당 동에 대한 지역정보를 상권 별로 제공하고
+//상권 선택 시 상권에 대한 지역 정보를 제공한다.
 const DetailPeople = (props) => {
   const [areaName, setAreaName] = useState() //상권 이름
   const [areaTotal, setAreaTotal] = useState() //상권 총 생활인구 

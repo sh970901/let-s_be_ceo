@@ -2,7 +2,7 @@ import Modal from 'react-modal'
 import React from 'react'
 import { useEffect } from 'react'
 
-
+//각 문의사항에 해당하는 내용과 답변이 담긴다.
 
 Modal.setAppElement("#root")
 

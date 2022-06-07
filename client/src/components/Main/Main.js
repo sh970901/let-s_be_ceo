@@ -1,5 +1,7 @@
 import React from 'react';
-//메인페이지
+
+//메인페이지 헤더
+
 const Main = () => {
     return (
         <div className='Main'>

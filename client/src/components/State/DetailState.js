@@ -5,13 +5,15 @@ import s from '../../css/State.module.css';
 import userImg from '../../img/user.png';
 
 
-//내 상세 정보보기
+//로그인한 사용자 자신의 상세 정보를 볼 수 있으며 수정이 가능하다.
+
 const DetailState = () => {
   const history = useHistory()
   const [id,setId] = useState("")
   const [pw,setPw] = useState("")
   const [email, setEmail] = useState("")
 
+  //로그인한 사용자의 정보를 가져오기
   useEffect(()=>{
     fetch("http://localhost:5000/api/login")
     .then((res)=>res.json())
@@ -37,6 +39,7 @@ const DetailState = () => {
     e.preventDefault();
     setEmail(e.target.value)
   }
+  //내 정보 수정하기 
   function modify() {
     const url=`http://localhost:5000/api/login/${sessionStorage.getItem("user_id")}`
     const data = {
@@ -92,7 +95,7 @@ const DetailState = () => {
 
             <div className={s.dataItems}>
               <p>PW</p>
-              <input className={s.dataInput} type="text" name="pw" value={pw} onChange={handlePw} ></input>
+              <input className={s.dataInputs}  type="text" name="pw"  onChange={handlePw} placeholder="***" ></input>
             </div>
 
             <div className={s.dataItems}>
