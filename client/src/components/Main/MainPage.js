@@ -67,7 +67,7 @@ export default function MainPage() {
                             <img src={iconService}></img>
                         </div>
                         <div className={styles.contents1_bold}>
-                            Contact Us
+                            Contact Us 
                         </div>
                         <div className={styles.contents1}>
                             문의사항, 질문과 답변

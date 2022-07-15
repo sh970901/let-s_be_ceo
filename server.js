@@ -47,7 +47,6 @@ app.post('/api/login', (req,res)=>{
           res.send(rows);
     })
 })
-
 //해당 ID에 해당하는 회원정보 수정
 app.put('/api/login/:oldId', (req,res)=>{
     let sql = 'UPDATE user SET ID=?, PW=?, Email=? WHERE ID=?  ';
@@ -62,7 +61,6 @@ app.put('/api/login/:oldId', (req,res)=>{
           res.send(rows);
     })
 })
-
 //해당 ID에 해당하는 회원정보 삭제
 app.delete('/api/login/:id', (req,res)=>{
     connection.query('DELETE FROM user WHERE ID = ?', req.params.id, function (error, rows, fields) {
