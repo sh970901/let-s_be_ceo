@@ -1,4 +1,5 @@
-# Let’s Be CEO
+### 성결대학교 - 전공종합설계
+## Let’s Be CEO
 
 ![img.png](img.png)
 
@@ -146,5 +147,8 @@
 ### 📣 시연영상
 
 [https://www.youtube.com/watch?v=i3RMGNMNdJk&feature=youtu.be](https://www.youtube.com/watch?v=tUI9SSWdT2Q)
+
+### 📣 문서
+https://drive.google.com/file/d/1gmIGSWnwAyv647p0shIk-7t26vjBThAO/view
 
 <br>
