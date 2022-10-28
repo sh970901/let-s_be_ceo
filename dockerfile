@@ -1,3 +1,5 @@
+#node.js server code 도커 이미지 생성
+
 #만들어진 node이미지 사용, 노드16버전에 alpine 최소단위의 리눅스 버전
 #사용할 베이스 이미지
 FROM node:16-alpine 
@@ -19,8 +21,6 @@ ENTRYPOINT [ "node", "server.js" ]
 
 
 #빈번할수록 마지막에 작성 <이미지 만드는 시간 단축 위해>
-
-
 
 #이미지 생성 명령: docker build -f Dockerfile -t fun-docker .
 #. : build context -> 명령어를 수행하는 현재 경로를 지정해줌  

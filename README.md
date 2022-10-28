@@ -1,7 +1,7 @@
 ### 성결대학교 - 전공종합설계
 ## Let’s Be CEO
 
-![img.png](title.png)
+![img.png](readmeimg/title.png)
 
 “창업에 겁내지 말자!**"**
 
@@ -91,18 +91,18 @@
 
 ![img_1.png](readmeimg/img_1.png)
 #### **로그인**
-![img_6.png](img_17.png)
+![img_6.png](readmeimg/img_17.png)
 
 #### **회원 가입**
-![img_7.png](img_18.png)
+![img_7.png](readmeimg/img_18.png)
 
 #### **지역 선택**
-![img_1.png](img_12.png)
+![img_1.png](readmeimg/img_12.png)
 
 
 #### **상권 간단 분석**
 
-![img_2.png](img_13.png)
+![img_2.png](readmeimg/img_13.png)
 ![img_2.png](readmeimg/img_2.png)
 
 #### **가이드**
@@ -138,8 +138,8 @@
 #### **손익분기점 계산**
 
 ![img_10.png](readmeimg/img_10.png)
-![img_3.png](img_14.png)
-![img_5.png](img_16.png)
+![img_3.png](readmeimg/img_14.png)
+![img_5.png](readmeimg/img_16.png)
 
 #### 소통 공간
 
