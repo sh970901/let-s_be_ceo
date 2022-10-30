@@ -7,7 +7,7 @@ FROM node:16-alpine
 #컨테이너 안에 어떤 경로에 실행할 것인지// cd와 같은 명령 
 WORKDIR /app
 
-#데이터를 카피한다음 
+#데이터를 카피한 다음
 COPY package.json package-lock.json ./
 
 # ci를 사용하면 lock.json에 버전 그대로 받음 
