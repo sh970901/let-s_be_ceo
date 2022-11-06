@@ -1,5 +1,5 @@
 ### 성결대학교 - 전공종합설계
-## Let’s Be CEO
+## 요식업 상권 정보 제공 플랫폼 Let’s Be CEO
 
 ![img.png](readmeimg/title.png)
 
